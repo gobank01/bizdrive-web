@@ -157,7 +157,7 @@ function HeroSection() {
             <picture>
               <source srcSet="/assets/gallery/bizdrive-command-center.webp" type="image/webp" />
               <img
-                src="/assets/gallery/bizdrive-command-center.png"
+                src="/assets/gallery/bizdrive-command-center.jpg"
                 width="1254"
                 height="1254"
                 alt="ตัวอย่างภาพ AI เจ้าของธุรกิจไทยใช้เครื่องมือ AI วางแผนคอนเทนต์และระบบงาน"
@@ -552,7 +552,7 @@ function GalleryItem({ src, alt, title, sub, featured = false }) {
     >
       <picture>
         <source srcSet={`${src}.webp`} type="image/webp" />
-        <img src={`${src}.png`} width="1254" height="1254" alt={alt} loading="lazy" className="aspect-square w-full object-cover" />
+        <img src={`${src}.jpg`} width="1254" height="1254" alt={alt} loading="lazy" className="aspect-square w-full object-cover" />
       </picture>
       <div className="flex items-start justify-between gap-3 p-[14px] text-[13px] text-muted max-[620px]:flex-col">
         <strong className="text-[14px] leading-[1.25] text-ink">{title}</strong>
