@@ -1,0 +1,611 @@
+export const PLANS = {
+  "manus-ai-online": {
+    slug: "manus-ai-online",
+    name: "Manus AI — Online",
+    tagline: "เรียน AI สำหรับธุรกิจ จบในคอร์สเดียว",
+    price: 3900,
+    originalPrice: 5900,
+    priceLabel: "฿3,900",
+    priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
+    badge: "เริ่มต้นง่าย",
+    accent: "blue",
+    cardSub: "เรียน self-paced · เริ่มได้ทันที",
+    hero: {
+      headline: "เรียน AI สำหรับธุรกิจ จบในคอร์สเดียว เริ่มได้แม้คนเดียว",
+      sub: "วิดีโอ + เวิร์กโฟลว์ + เทมเพลตพร้อมใช้ — เรียนเมื่อไหร่ก็ได้ เอาไปใช้กับธุรกิจคุณได้ทันที",
+      ctaPrimary: "สมัครเรียน Online",
+      ctaSecondary: "ดูเนื้อหาคอร์ส",
+    },
+    problem: {
+      title: "เจ้าของธุรกิจคนเดียว — งานล้น เครื่องมือเยอะ ไม่รู้เริ่มตรงไหน",
+      points: [
+        "อยากใช้ AI ทำคอนเทนต์ แต่ลองแล้วโทนไม่ใช่ ไม่เป็นเสียงของคุณ",
+        "อ่านบทความ ดูคลิป สอนเครื่องมือเป็นสิบ แต่กลับมาทำธุรกิจตัวเองยังไม่ได้",
+        "เห็นคนอื่นใช้ AI ตัดวิดีโอเร็ว ๆ แต่ของเราเปิดโปรแกรมก็ยังไม่ถูกแล้ว",
+        "งานซ้ำ ๆ ที่ควรให้ระบบทำ ยังจมอยู่ที่มือคุณคนเดียว",
+      ],
+    },
+    solution: {
+      title: "เวิร์กโฟลว์ AI ที่ BizDrive ใช้จริง — ส่งตรงถึงคุณเป็นคอร์ส",
+      body: "ไม่ใช่คอร์สสอนเครื่องมือ แต่เป็นเวิร์กโฟลว์ที่เราใช้กับลูกค้าทุกวัน รวมเข้าเป็นชุดที่คุณเอาไปใช้กับธุรกิจตัวเองได้ทันที — แม้ไม่เคยใช้ AI มาก่อน",
+    },
+    modules: [
+      { num: "01", title: "ปูพื้น AI สำหรับธุรกิจ", text: "เลือกเครื่องมือที่ใช่ ไม่หลงกับเทคโนโลยีที่ไม่จำเป็น", bullets: [
+        "Map เครื่องมือ AI ที่จำเป็นจริงต่อธุรกิจ vs ที่แค่ดูเท่",
+        "ตั้งค่า ChatGPT / Claude / Manus ให้ทำงานเข้าคู่กัน",
+        "เข้าใจ pricing model — เลือกแพลนที่คุ้มที่สุดต่องาน",
+        "Workflow แรกของคุณ ทำได้ใน 30 นาที"
+      ] },
+      { num: "02", title: "เขียนแคปชั่นและคอนเทนต์ที่เป็นเสียงคุณ", text: "เทมเพลต prompt + วิธีจูนให้ตรงแบรนด์", bullets: [
+        "Prompt template 50+ ชุดสำหรับ FB/IG/LINE/X",
+        "วิธี train AI ให้เขียนเป็นเสียงคุณเอง ไม่ใช่ภาษาหุ่นยนต์",
+        "Bulk content gen — ทำคอนเทนต์ทั้งเดือนในหนึ่งครั้ง",
+        "Variation strategy — ไม่ซ้ำ ไม่น่าเบื่อ"
+      ] },
+      { num: "03", title: "ทำภาพประกอบ AI สำหรับโพสต์และเว็บ", text: "ภาพคุณภาพแบบสตูดิโอจากโจทย์ธุรกิจ", bullets: [
+        "Brand-consistent image generation (1 brand, ไม่กระจัดกระจาย)",
+        "เทคนิค prompt สำหรับภาพคน/สินค้า/scenario ธุรกิจ",
+        "Carousel + ad creative — สร้างเป็นชุดอัตโนมัติ",
+        "แก้/touch up ภาพ AI ให้พร้อมใช้จริง"
+      ] },
+      { num: "04", title: "เวิร์กโฟลว์ตัดต่อวิดีโออัตโนมัติ", text: "จากคลิปดิบ → Reels/TikTok พร้อมแคปชั่นและจังหวะ", bullets: [
+        "Cut dead air + auto transcribe + caption ภาษาไทย",
+        "Motion punch + end slate ที่ตรงแบรนด์",
+        "Render 9:16 + 1:1 + 16:9 จากต้นฉบับเดียว",
+        "Pipeline ที่ทำคลิป 1 ชม. → 5 นาที"
+      ] },
+      { num: "05", title: "วางระบบงานซ้ำให้ AI ช่วยทำ", text: "ออกแบบ workflow ลดงานมือ 60-80%", bullets: [
+        "Audit งานในธุรกิจคุณ — หาตัวที่ AI ช่วยได้",
+        "Workflow design pattern (Trigger → Process → Output)",
+        "เชื่อม Gmail / Sheets / Drive / Notion / LINE",
+        "เทมเพลต SOP 5 ชุดเอาไปใช้ต่อ"
+      ] },
+      { num: "06", title: "ส่งต่อให้ทีม หรือทำคนเดียวให้สเกล", text: "เทมเพลต SOP + วิธี handoff ให้คนอื่นทำต่อได้", bullets: [
+        "เปลี่ยน workflow เป็น document ที่ทีมทำตามได้",
+        "วัดผล — track ว่า AI ช่วยลดเวลาเท่าไหร่จริง",
+        "Scale plan — เมื่อรายได้โต ขั้นต่อไปทำยังไง"
+      ] },
+    ],
+    outcomes: [
+      "ทำคอนเทนต์ได้สัปดาห์ละชุดด้วยเวลาครึ่งหนึ่งของเดิม",
+      "ตัดวิดีโอ Reels/TikTok ได้เองโดยไม่ต้องจ้างคนตัด",
+      "มีระบบงานที่ทำงานต่อเองได้ คุณโฟกัสกับงานที่สำคัญ",
+      "เห็นภาพรวมธุรกิจชัดขึ้น ไม่จมในงานประจำวัน",
+      "พร้อมสเกลได้เมื่อต้องการ — เพราะระบบพร้อมแล้ว",
+    ],
+    bonuses: [
+      { title: "เทมเพลต Prompt 50+ ชุด", valueAmount: 1900, value: "฿1,900", text: "Prompt ที่ทดสอบจริงกับธุรกิจไทย พร้อมใช้กับ ChatGPT / Claude" },
+      { title: "เวิร์กโฟลว์ตัดต่อวิดีโออัตโนมัติ", valueAmount: 2900, value: "฿2,900", text: "ชุดเวิร์กโฟลว์ที่ BizDrive ใช้จริง พร้อมคู่มือ" },
+      { title: "Community Group", valueAmount: 1900, value: "฿1,900", text: "เข้ากลุ่มเจ้าของธุรกิจที่ใช้ AI เหมือนกัน ถามได้ทุกวัน" },
+    ],
+    guarantee: {
+      title: "รับประกัน 7 วัน คืนเงินเต็มจำนวน",
+      text: "ลองเรียน 7 วัน ถ้ารู้สึกว่าไม่ใช่ทางคุณ ทักมา คืนเงินให้เต็มจำนวน ไม่ถาม",
+    },
+    faqs: [
+      { q: "ต้องมีพื้นฐานเทคโนโลยีไหม?", a: "ไม่ต้องครับ คอร์สนี้ออกแบบสำหรับเจ้าของธุรกิจที่ไม่ใช่สาย tech ใช้ภาษาคนปกติ ลงมือทำตามได้เลย" },
+      { q: "ใช้เวลาเรียนนานแค่ไหน?", a: "เนื้อหารวมประมาณ 8-10 ชั่วโมง เรียนได้ตามจังหวะตัวเอง คนส่วนใหญ่จบใน 2-3 สัปดาห์" },
+      { q: "ต้องซื้อเครื่องมือเพิ่มไหม?", a: "เครื่องมือหลักที่แนะนำมีทั้งฟรีและเสียเงิน เริ่มต้นด้วยตัวฟรีได้ คอร์สจะบอกชัดว่าตัวไหนคุ้มจ่าย — โดยรวมเริ่มฟรีแล้วค่อย upgrade ตามที่จำเป็น" },
+      { q: "เนื้อหาอัปเดตหรือเปล่า?", a: "อัปเดตตลอด เมื่อมีเครื่องมือใหม่ที่คุ้มเอาไปใช้ เราจะเพิ่มเข้าไปในคอร์สโดยไม่คิดเงินเพิ่ม" },
+      { q: "เรียนแล้วถามคำถามได้ที่ไหน?", a: "เข้า Community Group ของคอร์ส ทักถามได้ทุกวัน ทีม BizDrive ตอบเอง" },
+      { q: "ราคา ฿3,900 คุ้มยังไง?", a: "ของรวมเกิน ฿10,000 — คอร์ส + เทมเพลต prompt 50 ชุด + เวิร์กโฟลว์วิดีโอ + community group · เทียบเวลาที่คุณประหยัด คุ้มแน่นอน" },
+      { q: "ถ้าทำงานคนเดียว ทำได้จริงไหม?", a: "ออกแบบมาเพื่อคนทำงานคนเดียวโดยเฉพาะ — workflow ทุกตัวใน course พิสูจน์มาแล้วจากเจ้าของธุรกิจที่ไม่มีทีม" },
+      { q: "หลังเรียนจบ จะใช้ได้จริงไหม ถ้าไม่ลงมือทำต่อ?", a: "ตรงไปตรงมา — ไม่ลงมือทำก็ไม่ได้ผล แต่คอร์สนี้มี action item ทุก module + community ที่จะ accountability ให้คุณ" },
+      { q: "ขอเลื่อนเรียนได้ไหม?", a: "ได้ครับ คอร์ส lifetime access ไม่มีวันหมด เรียนเมื่อพร้อมได้เลย" },
+      { q: "ออกใบกำกับภาษีได้ไหม?", a: "ออกใบกำกับภาษี/ใบเสร็จเต็มรูปแบบได้ — แจ้งทีมตอนสมัครหรือทักมาที่ hello@bizdrive.co พร้อมข้อมูลบริษัท" },
+      { q: "คืนเงินยังไง?", a: "ภายใน 7 วันแรก ทักมาที่ hello@bizdrive.co คืนเงินให้เต็มจำนวน ไม่ต้องอธิบายเหตุผล" },
+    ],
+    scarcity: "เปิดรับสมัครรอบนี้ราคาเริ่มต้น — ราคาจะปรับขึ้นเมื่อเปิดรอบถัดไป",
+    deadline: {
+      rolling: { days: 2 },
+      label: "ราคารอบเริ่มต้น ปิดใน",
+      expiredLabel: "รอบนี้ปิดแล้ว — รออัปเดตรอบใหม่",
+    },
+    idealFor: {
+      title: "คลาสนี้เหมาะกับคุณถ้า…",
+      yes: [
+        "เป็นเจ้าของธุรกิจคนเดียวหรือทีมเล็ก ที่อยากใช้ AI ทำคอนเทนต์/วิดีโอ/ระบบงาน",
+        "อยากเรียนตามจังหวะตัวเอง ที่บ้านหรือที่ไหนก็ได้",
+        "ไม่เคยใช้ AI มาก่อน หรือใช้แล้วแต่ผลลัพธ์ยังไม่ตรงใจ",
+        "ต้องการเทมเพลตและเวิร์กโฟลว์พร้อมใช้ เริ่มต้นทันทีไม่ต้องลองเอง",
+      ],
+      no: [
+        { text: "ต้องการการโค้ช 1:1 หรือ workflow เฉพาะธุรกิจคุณ", linkTo: "manus-ai-private" },
+        { text: "อยากเจอเจ้าของธุรกิจคนอื่น เรียนแบบ hands-on", linkTo: "manus-ai-seminar" },
+      ],
+    },
+  },
+
+  "manus-ai-seminar": {
+    slug: "manus-ai-seminar",
+    name: "Manus AI — Seminar",
+    tagline: "สัมมนา 1 วันเต็ม วาง AI Workflow ให้ธุรกิจคุณ",
+    price: 9900,
+    originalPrice: 14900,
+    priceLabel: "฿9,900",
+    priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 20 คน",
+    badge: "Workshop",
+    accent: "orange",
+    cardSub: "1 วันเต็ม · กลุ่มเล็ก · hands-on",
+    hero: {
+      headline: "1 วันเต็ม กับ BizDrive — ออกจากห้อง มีระบบ AI ใช้กับธุรกิจคุณทันที",
+      sub: "Workshop กลุ่มเล็ก 20 ท่าน · ลงมือทำจริงกับธุรกิจตัวเอง · พี่แบงค์ + ทีม BizDrive โค้ชตรงกับโต๊ะคุณ",
+      ctaPrimary: "จองที่นั่ง Seminar",
+      ctaSecondary: "ดูตารางวัน",
+    },
+    problem: {
+      title: "เรียนคอร์สออนไลน์มาแล้วหลายตัว — แต่ยังไม่ได้เริ่ม",
+      points: [
+        "ซื้อคอร์สมา ดูได้สองตอน ก็กลับไปติดงานเดิม",
+        "อ่านเอง ทำเอง ไม่มีใครชี้ว่าวิธีไหนเหมาะกับธุรกิจคุณ",
+        "อยากเจอเจ้าของธุรกิจคนอื่นที่กำลังใช้ AI เหมือนกัน",
+        "ต้องการ momentum — ลงมือจริง ๆ ใน 1 วัน ออกไปแล้วใช้ต่อได้",
+      ],
+    },
+    solution: {
+      title: "Workshop 1 วัน — มาตัวเปล่า กลับไปพร้อมระบบ",
+      body: "Seminar แบบกลุ่มเล็ก 20 ท่าน เน้น hands-on กับธุรกิจของคุณจริง ๆ ไม่ใช่ฟังบรรยายแล้วกลับบ้าน พี่แบงค์ + ทีม BizDrive วนโต๊ะ ช่วยออกแบบ workflow เฉพาะธุรกิจคุณ จบวันมี output พร้อมเอาไปใช้ต่อ",
+    },
+    modules: [
+      { num: "09:00", title: "เปิดวัน + Setup", text: "ทำความรู้จัก เซ็ตเครื่องมือ วางเป้าหมายของวัน", bullets: [
+        "Welcome + แนะนำตัว 20 ท่าน",
+        "เซ็ต laptop + sign in เครื่องมือ AI ที่จะใช้",
+        "Map ธุรกิจคุณ — เป้าหมายวันนี้ของแต่ละคน"
+      ] },
+      { num: "10:00", title: "AI Workflow Foundation", text: "เลือกเครื่องมือ วาง workflow หลักของธุรกิจคุณ", bullets: [
+        "Decision tree: ChatGPT vs Claude vs Manus — ใช้อะไรเมื่อไหร่",
+        "Map workflow แรกของคุณบนกระดาษ",
+        "Coffee break (15 นาที)"
+      ] },
+      { num: "11:30", title: "Hands-on: Content + Caption", text: "สร้างเวิร์กโฟลว์คอนเทนต์ที่เป็นเสียงคุณ ลงมือทำในคลาส", bullets: [
+        "Train AI voice ของคุณ — ลง prompt prime",
+        "Generate 1 สัปดาห์ของคอนเทนต์ จริง ๆ ในคลาส",
+        "Peer review — ทำให้เพื่อนข้าง ๆ ดูแล้วปรับ"
+      ] },
+      { num: "13:00", title: "พักเที่ยง + Networking", text: "อาหารเที่ยงรวม คุยกับเจ้าของธุรกิจคนอื่น", bullets: [
+        "Lunch รวม (รวมในราคา)",
+        "Speed networking — เปลี่ยนคู่คุย",
+        "พี่แบงค์ ตอบคำถามแบบ free flow"
+      ] },
+      { num: "14:00", title: "Hands-on: Video Workflow", text: "ตัดต่อ Reels/TikTok อัตโนมัติด้วย workflow ที่ BizDrive ใช้", bullets: [
+        "Setup video pipeline (ที่ใช้จริงในการสอน)",
+        "ทดสอบกับ raw footage ของคุณเอง (เตรียมมา)",
+        "Export 3 ratios — 9:16 / 1:1 / 16:9"
+      ] },
+      { num: "15:30", title: "Hands-on: ระบบงานซ้ำ", text: "วางระบบให้งานซ้ำทำเอง ลดงานมือ 60-80%", bullets: [
+        "Identify 3 งานซ้ำในธุรกิจคุณที่ต้องการ automate",
+        "Build workflow 1 ตัว live ในคลาส",
+        "เชื่อม Sheets / Drive / LINE notify"
+      ] },
+      { num: "17:00", title: "Wrap + Action Plan", text: "สรุปแผน 30 วัน ออกจากห้องไปแล้วทำต่อได้", bullets: [
+        "30-day action plan ของแต่ละคน",
+        "Buddy system — จับคู่ accountability 30 วัน",
+        "Group chat invite — start จากวันถัดไป"
+      ] },
+    ],
+    outcomes: [
+      "มี AI workflow 3 ชุดของธุรกิจคุณเอง พร้อมใช้ตั้งแต่วันถัดไป",
+      "เครือข่ายเจ้าของธุรกิจที่ใช้ AI เหมือนกัน 19 คน",
+      "แผน 30 วัน ที่ออกแบบตามธุรกิจคุณ ไม่ใช่ template สำเร็จรูป",
+      "วิดีโอบันทึก seminar + เอกสารทั้งหมด ทบทวนได้ตลอด",
+      "30 วัน group support หลัง seminar — ติดตรงไหนถามต่อได้",
+    ],
+    bonuses: [
+      { title: "วิดีโอบันทึก Seminar เต็มวัน", valueAmount: 4900, value: "฿4,900", text: "ทบทวนได้ทุกที่ ทุกเวลา หลังจบ Workshop" },
+      { title: "30-Day Group Support", valueAmount: 9900, value: "฿9,900", text: "กลุ่ม support 30 วันหลัง seminar ทีม BizDrive ตอบเอง" },
+      { title: "Manus AI Online Course", valueAmount: 3900, value: "฿3,900", text: "แถมคอร์สออนไลน์เต็มชุด เรียนต่อหลัง Workshop ได้เลย" },
+    ],
+    guarantee: {
+      title: "รับประกันความพอใจ",
+      text: "ถ้าจบวัน ไม่รู้สึกว่าคุ้ม ทักมาภายใน 7 วัน คืนเงินครึ่งหนึ่งโดยไม่ถาม",
+    },
+    faqs: [
+      { q: "Seminar จัดที่ไหน วันไหน?", a: "จัดที่ BizDrive Academy กรุงเทพมหานคร · วันที่จะแจ้งเมื่อยืนยันการจอง ที่นั่งจำกัด 20 ท่าน/รอบ — ดูแผนที่ในส่วนสถานที่ด้านล่าง" },
+      { q: "ต้องเตรียมอะไรมาบ้าง?", a: "Notebook ของคุณ + ข้อมูลธุรกิจ (กลุ่มลูกค้า สินค้า/บริการ ปัญหาที่อยากแก้) ที่เหลือเราเตรียมให้" },
+      { q: "เหมาะกับใคร?", a: "เจ้าของธุรกิจ ฟรีแลนซ์ ผู้บริหารทีมเล็ก ที่อยากวาง AI workflow ให้ธุรกิจตัวเอง" },
+      { q: "ราคา ฿9,900 คุ้มยังไงเทียบกับ online?", a: "ของรวมเกิน ฿18,000 — Workshop เต็มวัน + วิดีโอบันทึก + 30-day support + แถม Manus AI Online · ค่าเดินทาง/อาหารรวมแล้ว · เน้น hands-on + network ที่ online ไม่ได้" },
+      { q: "ถ้าไม่อยากมาเป็นกลุ่ม ทำได้ไหม?", a: "ถ้าอยากเรียนคนเดียวลึก ๆ → Manus AI Private เหมาะกว่า เพราะเป็น 1:1 และออกแบบ workflow เฉพาะคุณ" },
+      { q: "อาหารและน้ำ?", a: "อาหารเที่ยง + coffee break เช้า/บ่าย + น้ำดื่ม — รวมในราคาแล้ว" },
+      { q: "จองแล้วยกเลิกได้ไหม?", a: "แจ้งล่วงหน้า 14 วัน คืน 100% · แจ้งล่วงหน้า 7 วัน คืน 50% · น้อยกว่านั้นเลื่อนไปรอบถัดไปได้" },
+      { q: "มีรอบไหนบ้าง?", a: "เปิดรอบทุก 6-8 สัปดาห์ · ทักมาที่ hello@bizdrive.co เพื่อดูตารางล่าสุด" },
+      { q: "ไปกับทีมได้ไหม?", a: "ได้ครับ ทีม 2-3 คนจากบริษัทเดียวกันมีส่วนลด 15% — แจ้งตอนจอง" },
+      { q: "ออกใบกำกับภาษี/ใบเสร็จได้ไหม?", a: "ได้ครับ เต็มรูปแบบ — แจ้งข้อมูลบริษัทตอนจอง หรือทักที่ hello@bizdrive.co" },
+      { q: "หลัง seminar จบ ยังถามได้ไหม?", a: "ได้ครับ 30 วันแรก ใน group chat เฉพาะ + รับ recording เอาไปทบทวนตลอด" },
+    ],
+    scarcity: "รอบนี้เหลือ 20 ที่นั่ง · ปิดรับสมัครเมื่อเต็ม",
+    deadline: {
+      at: "2026-05-29T09:00:00+07:00",
+      label: "Seminar รอบนี้เริ่มใน",
+      expiredLabel: "รอบ 29 พ.ค. จัดไปแล้ว — แจ้งรอบถัดไป",
+    },
+    idealFor: {
+      title: "Seminar เหมาะกับคุณถ้า…",
+      yes: [
+        "เป็นเจ้าของธุรกิจที่อยากลงมือทำจริงใน 1 วัน ออกจากห้องไปแล้วใช้ต่อได้",
+        "อยากเจอและคุยกับเจ้าของธุรกิจคนอื่นที่กำลังใช้ AI",
+        "ต้องการ momentum และคนชี้แนะตรงโต๊ะคุณ ไม่ใช่เรียนคนเดียว",
+        "พร้อมเดินทางมากรุงเทพฯ ในวันที่กำหนด",
+      ],
+      no: [
+        { text: "อยากเรียนตามจังหวะตัวเอง ไม่อยากเดินทาง", linkTo: "manus-ai-online" },
+        { text: "ธุรกิจซับซ้อน ต้องการ workflow เฉพาะตัว", linkTo: "manus-ai-private" },
+      ],
+    },
+  },
+
+  "manus-ai-private": {
+    slug: "manus-ai-private",
+    name: "Manus AI — Private",
+    tagline: "โค้ช 1:1 กับพี่แบงค์ — ออกแบบระบบ AI ให้ธุรกิจคุณโดยเฉพาะ",
+    price: 39000,
+    originalPrice: 59000,
+    priceLabel: "฿39,000",
+    priceNote: "4 sessions × 90 นาที · 1:1 · 60 วัน group support",
+    badge: "1:1 Private",
+    accent: "blue-dark",
+    cardSub: "4 sessions · ทำกับธุรกิจคุณโดยตรง",
+    hero: {
+      headline: "ทำให้ธุรกิจคุณเดินด้วย AI — โค้ช 1:1 ออกแบบระบบให้คุณโดยเฉพาะ",
+      sub: "4 sessions กับพี่แบงค์ ออกแบบและส่งมอบ AI workflow เฉพาะธุรกิจคุณ ไม่ใช่ template สำเร็จรูป · 60 วัน support หลังจบ",
+      ctaPrimary: "นัดคุยก่อนสมัคร",
+      ctaSecondary: "ดูรายละเอียด Process",
+    },
+    problem: {
+      title: "ธุรกิจคุณซับซ้อนเกินกว่าจะใช้ template สำเร็จรูป",
+      points: [
+        "คอร์สและ template สำเร็จรูป ใช้แล้วยังต้องดัดแปลงเองอยู่ดี",
+        "ระบบในธุรกิจคุณซับซ้อน มีหลายช่องทาง หลายทีม หลายขั้นตอน",
+        "เวลามีจำกัด อยากให้คนช่วยออกแบบแล้วส่งมอบเลย",
+        "ต้องการคนที่เข้าใจธุรกิจคุณจริง ๆ ไม่ใช่ที่ปรึกษาที่อ่าน slide",
+      ],
+    },
+    solution: {
+      title: "4 sessions ออกแบบ — ส่งมอบ — ใช้ได้จริง",
+      body: "Private coaching แบบ 1:1 กับพี่แบงค์ เริ่มจากเข้าใจธุรกิจคุณ ออกแบบ workflow เฉพาะ ส่งมอบเป็นระบบที่ใช้ได้ตั้งแต่วันแรก จบ 4 sessions มี 60 วัน group support ต่อ ระหว่างนั้นทักได้ตลอด",
+    },
+    modules: [
+      { num: "S1", title: "Discovery + Audit (90 นาที)", text: "เข้าใจธุรกิจ ลูกค้า ขั้นตอนปัจจุบัน วาง map ปัญหาและโอกาส", bullets: [
+        "Interview ลึก ๆ เกี่ยวกับ business model + ลูกค้า",
+        "Audit งานปัจจุบัน — ระบุ pain point ที่ AI ช่วยได้",
+        "Map opportunity 3-5 จุดที่ impact สูงสุด",
+        "ส่งมอบ: Discovery report + recommended priority"
+      ] },
+      { num: "S2", title: "Workflow Design (90 นาที)", text: "ออกแบบ AI workflow 3-5 ชุด เฉพาะธุรกิจคุณ — ไม่ใช่ template", bullets: [
+        "Whiteboard session ออกแบบ workflow ทีละตัว",
+        "Pick stack ที่ใช่ — AI tools, integrations, automation",
+        "Mock-up + flow chart พร้อม approval",
+        "ส่งมอบ: Workflow blueprint ที่ตรงธุรกิจคุณ"
+      ] },
+      { num: "S3", title: "Build + Handover (90 นาที)", text: "สร้างจริง ทดสอบกับงานคุณ ส่งมอบพร้อม SOP", bullets: [
+        "สร้าง workflow ที่ออกแบบใน session 2 — live ระหว่างเรียน",
+        "ทดสอบกับ data จริงของคุณ + ปรับจูน",
+        "Train คุณ/ทีมให้รันต่อได้เอง",
+        "ส่งมอบ: ระบบที่ใช้งานได้ + SOP document"
+      ] },
+      { num: "S4", title: "Optimize + Scale Plan (90 นาที)", text: "ปรับจูนหลังใช้จริง วางแผน 90 วันถัดไป", bullets: [
+        "Review ผลลัพธ์ 2-4 สัปดาห์หลัง deploy",
+        "Optimize workflow ที่ใช้จริงแล้ว — ทำไม slow / where bottleneck",
+        "Roadmap 90 วันต่อไป — phase 2 ที่ scale ได้",
+        "ส่งมอบ: 90-day growth plan + KPI dashboard"
+      ] },
+    ],
+    outcomes: [
+      "ระบบ AI workflow 3-5 ชุด เฉพาะธุรกิจคุณ พร้อม SOP ส่งต่อให้ทีมได้",
+      "ลดเวลางานซ้ำ 60-80% ภายในเดือนแรกของการใช้งาน",
+      "แผน scale 90 วัน ที่ออกแบบให้ธุรกิจคุณโดยเฉพาะ",
+      "เครื่องมือและ access ทั้งหมดเป็นของคุณ ไม่ผูกขาดกับ BizDrive",
+      "60 วัน group support — ทักได้ตลอด ทีมตอบภายในวันทำการ",
+    ],
+    bonuses: [
+      { title: "Custom Prompt Library", valueAmount: 9900, value: "฿9,900", text: "ชุด prompt ที่เขียนเฉพาะธุรกิจคุณ ใช้ต่อได้กับทีม" },
+      { title: "60-Day Support Channel", valueAmount: 19900, value: "฿19,900", text: "ช่องทาง support 60 วัน ทักได้ตลอด ทีม BizDrive ดูแลเอง" },
+      { title: "Manus AI Online + Seminar", valueAmount: 13800, value: "฿13,800", text: "เข้าได้ทั้ง online course และ seminar รอบถัดไป ฟรี" },
+    ],
+    guarantee: {
+      title: "รับประกันผลลัพธ์ Session 1",
+      text: "หลัง Session 1 (Discovery + Audit) ถ้ารู้สึกว่าไม่ใช่ทาง ทักมาภายใน 3 วัน คืนเงิน 80% — ไม่ถามเหตุผล",
+    },
+    faqs: [
+      { q: "Session จัดออนไลน์หรือเจอกัน?", a: "Default เป็น online ผ่าน Zoom/Meet · ถ้าอยู่กรุงเทพฯ และอยากเจอกัน นัดที่ BizDrive Academy ได้ (ดูแผนที่ด้านล่าง) — ไม่มีค่าใช้จ่ายเพิ่ม" },
+      { q: "Session ละกี่นาที?", a: "90 นาที × 4 ครั้ง รวม 6 ชั่วโมง spread ใน 4-8 สัปดาห์ตามจังหวะคุณ" },
+      { q: "เหมาะกับธุรกิจขนาดไหน?", a: "ธุรกิจที่มีรายได้ระดับ 6-7 หลักต่อเดือน หรือทีม 1-15 คน ที่อยากวางระบบ AI จริงจัง" },
+      { q: "ราคา ฿39,000 คุ้มยังไงเทียบกับ agency?", a: "Agency คิดงานแบบนี้ที่ ฿80,000–150,000 + project timeline 3-6 เดือน · Private 4 sessions รวม ฿39,000 + 60 วัน support · คุณได้ระบบที่ใช้ต่อเองได้ ไม่ติด vendor" },
+      { q: "ถ้าระหว่าง 4 sessions ติดปัญหาเร่งด่วน?", a: "ทักมาที่ช่อง support ได้เลย ทีมตอบภายในวันทำการ — ถ้าซับซ้อนนัด session เพิ่มได้ (มีค่าใช้จ่ายเพิ่ม)" },
+      { q: "นัดคุยก่อนสมัครได้ไหม?", a: "ได้ครับ มี free discovery call 30 นาที — ทักมาที่ hello@bizdrive.co นัดวันได้เลย" },
+      { q: "ระบบที่สร้างขึ้น เป็นของใคร?", a: "เป็นของคุณ 100% — เครื่องมือทั้งหมดใช้ account ของคุณ ระบบ run บน infrastructure ของคุณ ไม่มี vendor lock-in" },
+      { q: "ถ้ามีพนักงาน เรียนเสริมได้ไหม?", a: "session ปกติเป็น 1:1 — ถ้าอยากให้ทีมเข้าด้วย session ที่ 3 (Build + Handover) เปิดให้ได้ 1-2 คน" },
+      { q: "ออกใบกำกับภาษี/หัก ณ ที่จ่ายได้?", a: "ออกใบกำกับภาษีเต็มรูปแบบได้ · หัก ณ ที่จ่ายตามที่กฎหมายกำหนดได้ — แจ้งทีมก่อนชำระ" },
+      { q: "เริ่มได้เมื่อไหร่?", a: "หลังนัดคุยและยืนยัน เริ่ม Session 1 ได้ภายใน 1-2 สัปดาห์ ขึ้นอยู่กับคิวพี่แบงค์" },
+      { q: "หลัง 4 sessions จบแล้ว ทำต่อยังไง?", a: "60-day group support ดูแลให้ใช้ระบบลื่นไหล · ถ้าต้องการ phase 2 (scale หรือ workflow ใหม่) ปรึกษาได้ มีแพ็คเกจต่อ" },
+    ],
+    scarcity: "รับลูกค้า private เพียง 4 ราย/เดือน เพื่อให้ดูแลได้เต็มที่",
+    deadline: {
+      rolling: { days: 3 },
+      label: "ปิดรับสมัครคิวรอบนี้ใน",
+      expiredLabel: "คิวเดือนนี้เต็ม — รอเปิดรอบถัดไป",
+    },
+    idealFor: {
+      title: "Private เหมาะกับคุณถ้า…",
+      yes: [
+        "ธุรกิจคุณซับซ้อน มีหลายช่องทาง หลายขั้นตอน หรือมีทีม 1-15 คน",
+        "ต้องการ workflow ที่ออกแบบเฉพาะธุรกิจคุณ ไม่ใช่ template สำเร็จรูป",
+        "อยากให้คนช่วยคิดและส่งมอบระบบ ไม่ใช่แค่สอนแล้วทำเอง",
+        "พร้อมลงทุนเพื่อเร่งการเติบโตของธุรกิจอย่างจริงจัง",
+      ],
+      no: [
+        { text: "เพิ่งเริ่มต้น ยังไม่มี workflow ที่ต้องปรับ", linkTo: "manus-ai-online" },
+        { text: "อยากเรียนกลุ่มและ network", linkTo: "manus-ai-seminar" },
+      ],
+    },
+  },
+
+  "ai-editor-online": {
+    slug: "ai-editor-online",
+    name: "AI Video Editor — Online",
+    tagline: "ตัดต่อวิดีโอด้วย AI Agent — Codex / Claude + Hyperframes",
+    price: 3900,
+    originalPrice: 5900,
+    priceLabel: "฿3,900",
+    priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
+    badge: "Video Workflow",
+    accent: "blue",
+    cardSub: "เรียน self-paced · ตัดคลิป Reels/TikTok ได้เองใน 1 สัปดาห์",
+    heroVideo: { youtubeId: null, caption: "ตัวอย่างผลงานจริง — กำลังอัปโหลด เร็ว ๆ นี้" },
+    hero: {
+      headline: "ตัดวิดีโอด้วย AI Agent — จากคลิปดิบ 1 ชั่วโมง เป็น Reels พร้อมโพสต์ใน 5 นาที",
+      sub: "ใช้ Codex CLI หรือ Claude Code สั่งงานผ่านคอมมานด์ — รวมกับ Hyperframes เฟรมเวิร์ก HTML-as-source · ไม่ต้องเปิด CapCut/Premiere อีกต่อไป",
+      ctaPrimary: "สมัครเรียน Online",
+      ctaSecondary: "ดูตัวอย่างผลงาน",
+    },
+    problem: {
+      title: "ตัดต่อวิดีโอเองทุกครั้ง — เสียเวลาเป็นชั่วโมง ผลลัพธ์ไม่ consistent",
+      points: [
+        "เปิด CapCut/Premiere ตัด silence + ใส่ caption ทีละบรรทัด ใช้เวลา 1-2 ชั่วโมงต่อคลิป",
+        "จ้างคนตัด เดือนละหลายพัน ส่งงานกลับมาไม่ตรงสไตล์ ต้องแก้ซ้ำ",
+        "ลอง AI tools (Opus, Descript) แล้ว แต่ output ภาษาไทยยังไม่แม่น brand ก็ไม่ใช่",
+        "อยากปล่อย Reels/TikTok วันละคลิป แต่ทำเองไม่ไหว",
+      ],
+    },
+    solution: {
+      title: "AI Agent + Hyperframes — สั่งครั้งเดียว ระบบทำให้ทุกขั้นตอน",
+      body: "เรียนใช้ Codex CLI หรือ Claude Code เป็น AI Agent สั่งงานผ่านคอมมานด์ จับคู่กับ Hyperframes (HTML-as-source video framework จาก HeyGen, Apache 2.0) — silencedetect → whisper ภาษาไทย → kinetic captions → motion punches → end slate · ครบในไปป์ไลน์เดียว · brand consistency 100%",
+    },
+    modules: [
+      { num: "01", title: "Setup AI Agent + Hyperframes", text: "ติดตั้ง Codex/Claude Code CLI + Hyperframes ให้พร้อมรันคลิปแรก", bullets: [
+        "เลือก Codex CLI vs Claude Code — อะไรเหมาะกับสไตล์คุณ (เรียนทั้งคู่)",
+        "ติดตั้ง Hyperframes + dependencies (ffmpeg, whisper, Node)",
+        "Setup API key (Anthropic / OpenAI / Pexels) + zsh aliases",
+        "Render คลิปทดสอบแรก — จบใน 30 นาที"
+      ] },
+      { num: "02", title: "Pipeline ตัดต่ออัตโนมัติ", text: "ออกแบบ workflow 4 ขั้นที่ BizDrive ใช้จริงทุกวัน", bullets: [
+        "process-2cam.sh — sync 2 กล้อง + ตัด silence อัตโนมัติ",
+        "build-composition.py — whisper ภาษาไทย → kinetic caption",
+        "fetch-broll.py — Pexels API ดึง B-Roll อัตโนมัติ 3-5 จุด/คลิป",
+        "Render Pipeline — 9:16 + 1:1 + 16:9 จากต้นฉบับเดียว"
+      ] },
+      { num: "03", title: "Brand Kit + Motion Design", text: "ออกแบบ caption / motion / end slate ที่เป็นสไตล์คุณ", bullets: [
+        "HTML/CSS template สำหรับ kinetic caption (เปลี่ยนสี/ฟอนต์ทั้งคลิปด้วยบรรทัดเดียว)",
+        "Motion punch presets — zoom / shake / flash ตามจังหวะเสียง",
+        "End slate / lower-third / progress bar — reuse ได้ทุกคลิป",
+        "Export brand kit เป็น JSON — handoff ให้ทีมหรือ AI Agent ได้"
+      ] },
+      { num: "04", title: "Prompt Engineering สำหรับวิดีโอ", text: "วิธีสั่ง AI Agent ให้ตัดคลิปแบบที่คุณคิดในหัว", bullets: [
+        "Prompt template สำหรับ Codex / Claude ที่ใช้กับ Hyperframes",
+        "ตัวอย่าง prompt 30 ชุด: Reels education / promo / testimonial / vlog",
+        "วิธี iterate — feedback loop ที่ทำให้ output ดีขึ้นทุกครั้ง",
+        "Debug strategy — เมื่อ AI ทำผิด แก้ยังไงให้เร็ว"
+      ] },
+      { num: "05", title: "B-Roll + Visual Storytelling", text: "ดึง footage อัตโนมัติจาก Pexels + เลือกจุดใส่ที่เหมาะ", bullets: [
+        "Pexels API + search query strategy (ภาษาอังกฤษให้ผลดีกว่า)",
+        "Logic ใส่ B-Roll 3-5 จุด/คลิป — เลือกจังหวะที่ engagement ดีขึ้น",
+        "Mix stock + footage ของคุณเอง — pipeline เลือกอันที่ใช่",
+        "License compliance — track ที่มาทุก clip"
+      ] },
+      { num: "06", title: "Batch Render + Scale Production", text: "ทำคลิปเป็นสิบในครั้งเดียว — Pipeline จัดคิว render เอง", bullets: [
+        "Batch script — รัน 10-20 คลิปข้ามคืน",
+        "Render queue + retry logic — เผื่อ error",
+        "Output organization — โครงสร้างไฟล์ที่หาง่าย หลังจาก batch 100 คลิป",
+        "Scale plan — เมื่อทำวันละ 5 คลิป ขั้นต่อไปคืออะไร"
+      ] },
+    ],
+    outcomes: [
+      "ตัด Reels/TikTok ได้เอง 1 ชม. footage → 5 นาทีงานเสร็จ",
+      "Brand consistency 100% — ทุกคลิปออกมาเป็นสไตล์เดียวกัน",
+      "ลดค่าจ้างคนตัดเดือนละหลายพัน — ทำเองได้ คุณภาพดีกว่า",
+      "ปล่อยคอนเทนต์วันละคลิปได้จริง โดยไม่ต้องล้าใจ",
+      "ระบบที่ scale ได้ — เพิ่มเป็นสัปดาห์ละ 20-30 คลิปได้เมื่อพร้อม",
+    ],
+    bonuses: [
+      { title: "Brand Kit Template — BizDrive Blue/Yellow", valueAmount: 2900, value: "฿2,900", text: "HTML/CSS template ครบชุด — เอาไปแก้สีเป็นแบรนด์คุณได้ทันที" },
+      { title: "Prompt Library 30+ ชุด", valueAmount: 1900, value: "฿1,900", text: "Prompt template สำหรับ Codex / Claude พร้อมใช้กับ Hyperframes" },
+      { title: "Community Group + Office Hour", valueAmount: 2900, value: "฿2,900", text: "เข้ากลุ่ม + office hour สัปดาห์ละครั้ง ถามได้ทุกอย่างเรื่องตัดวิดีโอ" },
+    ],
+    guarantee: {
+      title: "รับประกัน 7 วัน คืนเงินเต็มจำนวน",
+      text: "ลองเรียน 7 วัน ถ้ารู้สึกว่าไม่ใช่ทางคุณ ทักมา คืนเงินให้เต็มจำนวน ไม่ถาม",
+    },
+    faqs: [
+      { q: "ต้องมีพื้นฐานเขียนโค้ดไหม?", a: "ไม่ต้องครับ — AI Agent (Codex/Claude) เป็นคนเขียนโค้ดให้ คุณแค่สั่งเป็นภาษาคน คอร์สสอนตั้งแต่ติดตั้งจนใช้เป็น" },
+      { q: "ต้องใช้คอมแรงไหม? Mac หรือ Windows ก็ได้?", a: "Mac (M1+) หรือ Windows มี GPU ใช้ได้หมด — render คลิป 1 ชม. ใช้เวลาประมาณ 5-10 นาทีบน M1 Pro · คอร์สครอบคลุมทั้งสอง OS" },
+      { q: "Codex CLI กับ Claude Code ต่างกันยังไง? เลือกตัวไหน?", a: "Codex CLI = OpenAI · Claude Code = Anthropic — สไตล์การสั่งงานคล้ายกัน คอร์สสอนทั้งคู่ คุณเลือกใช้ที่ถนัด หรือใช้ทั้งคู่ก็ได้" },
+      { q: "Hyperframes คืออะไร? ต้องเสียเงินไหม?", a: "Hyperframes เป็น open-source video framework จาก HeyGen ใช้ HTML/CSS เป็น source — ฟรี (Apache 2.0) ไม่มีค่าใช้จ่ายต่อคลิป · ค่าใช้จ่ายมีแค่ API call ของ AI Agent" },
+      { q: "ค่า API จะแพงไหม?", a: "ตัด 1 คลิป (1 ชม. footage) ใช้ token ประมาณ ฿3-15 บาท ขึ้นกับความซับซ้อน · ถูกกว่าเปิด CapCut เป็นชั่วโมงเยอะ" },
+      { q: "ใช้ภาษาไทยได้ดีไหม? Whisper transcribe แม่นยำหรือเปล่า?", a: "Whisper large-v3 ภาษาไทยแม่น 92-96% สำหรับเสียงชัด · คอร์สมีเทคนิคแก้/ทบทวน auto-caption ให้ผ่าน QA ก่อนปล่อย" },
+      { q: "ตัดได้แค่ Reels/TikTok หรือ YouTube ยาวก็ได้?", a: "ได้หมด — 9:16 (Reels/TikTok/Shorts), 1:1 (Feed), 16:9 (YouTube ยาว) · จาก source เดียวกัน export ได้ 3 ratio" },
+      { q: "ราคา ฿3,900 คุ้มยังไง?", a: "ของรวมเกิน ฿11,000 — คอร์ส + Brand Kit + Prompt Library + Community · เทียบจ้างคนตัดเดือนละ 5,000-15,000 คืนทุนใน 1-2 เดือน" },
+      { q: "เนื้อหาอัปเดตหรือเปล่า?", a: "อัปเดตตลอด เมื่อ Hyperframes ออกเวอร์ชันใหม่ หรือมี AI Agent ตัวใหม่ที่ดีกว่า เราจะเพิ่มเข้าไปในคอร์สโดยไม่คิดเงินเพิ่ม" },
+      { q: "ถ้าเรียนแล้วติด ถามได้ที่ไหน?", a: "Community Group + Office Hour สัปดาห์ละครั้ง (Zoom) ทีม BizDrive ตอบเอง" },
+      { q: "คืนเงินยังไง?", a: "ภายใน 7 วันแรก ทักมาที่ hello@bizdrive.co คืนเงินให้เต็มจำนวน ไม่ต้องอธิบายเหตุผล" },
+      { q: "ออกใบกำกับภาษีได้ไหม?", a: "ออกใบกำกับภาษี/ใบเสร็จเต็มรูปแบบได้ — แจ้งทีมตอนสมัครหรือทักมาที่ hello@bizdrive.co พร้อมข้อมูลบริษัท" },
+    ],
+    scarcity: "เปิดรับสมัครรอบนี้ราคาเริ่มต้น — ราคาจะปรับขึ้นเมื่อเปิดรอบถัดไป",
+    deadline: {
+      rolling: { days: 2 },
+      label: "ราคารอบเริ่มต้น ปิดใน",
+      expiredLabel: "รอบนี้ปิดแล้ว — รออัปเดตรอบใหม่",
+    },
+    idealFor: {
+      title: "คลาสนี้เหมาะกับคุณถ้า…",
+      yes: [
+        "เป็นคนทำคอนเทนต์ / เจ้าของธุรกิจที่ต้องปล่อยวิดีโอเป็นประจำ",
+        "อยากตัด Reels/TikTok ได้เองโดยไม่ต้องจ้างคนตัด",
+        "พร้อมเรียนใช้ AI Agent (Codex/Claude) แบบจริงจัง — สั่งผ่านคอมมานด์",
+        "ต้องการ pipeline ที่ scale ได้เป็นสิบ ๆ คลิปต่อสัปดาห์",
+      ],
+      no: [
+        { text: "ต้องการเทมเพลตคลิกลาก แบบ CapCut/Canva", linkTo: null },
+        { text: "อยากเจอเจ้าของธุรกิจคนอื่น เรียน hands-on", linkTo: "ai-editor-seminar" },
+      ],
+    },
+  },
+
+  "ai-editor-seminar": {
+    slug: "ai-editor-seminar",
+    name: "AI Video Editor — Seminar",
+    tagline: "Workshop 1 วัน — ตั้ง AI Pipeline ตัดคลิปกลับไปใช้ได้ทันที",
+    price: 9900,
+    originalPrice: 14900,
+    priceLabel: "฿9,900",
+    priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 15 คน",
+    badge: "Workshop",
+    accent: "orange",
+    cardSub: "1 วันเต็ม · กลุ่มเล็ก · setup pipeline บนเครื่องคุณเอง",
+    heroVideo: { youtubeId: "dQw4w9WgXcQ", caption: "ตัวอย่างผลงานจาก seminar ก่อนหน้า" },
+    hero: {
+      headline: "1 วันเต็ม — กลับบ้านพร้อม Pipeline ตัดวิดีโอด้วย AI Agent ทำงานบนเครื่องคุณ",
+      sub: "Workshop กลุ่มเล็ก 15 ท่าน · พี่แบงค์ + ทีม BizDrive setup Codex/Claude + Hyperframes ให้คุณ ทดสอบกับ footage ของคุณเองในคลาส · ออกจากห้องตัดคลิปได้เลย",
+      ctaPrimary: "จองที่นั่ง Seminar",
+      ctaSecondary: "ดูตารางวัน",
+    },
+    problem: {
+      title: "ลองตั้ง pipeline เองที่บ้าน — ติด error เป็นสิบจุด ไม่รู้จะถามใคร",
+      points: [
+        "อ่าน docs Hyperframes แล้ว แต่ติดตั้งจริงเจอ error เกือบทุกขั้นตอน",
+        "AI Agent (Codex/Claude) สั่งไม่ตรงใจ ไม่รู้ prompt ผิดตรงไหน",
+        "อยากเห็นคนที่ทำเป็น ตัด live ให้ดู — ไม่ใช่อ่านเอง",
+        "ต้องการ momentum — 1 วันลงมือจริง ออกจากห้องตัดคลิปได้ทันที",
+      ],
+    },
+    solution: {
+      title: "Workshop 1 วัน — มาตัวเปล่า กลับไปพร้อม Pipeline ทำงานได้",
+      body: "Seminar กลุ่มเล็ก 15 ท่าน · เน้น hands-on setup pipeline บนเครื่องคุณเอง · พี่แบงค์ + ทีม BizDrive วนโต๊ะ ช่วยตั้ง Codex/Claude + Hyperframes + ทดสอบกับ footage ของคุณ · จบวันมี pipeline ที่ทำงานบนเครื่องคุณ + คลิปแรกเสร็จเลย",
+    },
+    modules: [
+      { num: "09:00", title: "เปิดวัน + Setup เครื่อง", text: "เซ็ต Codex/Claude CLI + Hyperframes + dependencies ทุกเครื่อง", bullets: [
+        "Welcome + แนะนำตัว 15 ท่าน",
+        "Install: Node + ffmpeg + whisper + Hyperframes (ทีม BizDrive ช่วยทุกเครื่อง)",
+        "Set API key — Anthropic / OpenAI / Pexels",
+        "Test cảord render — แต่ละคนได้คลิปทดสอบแรก"
+      ] },
+      { num: "10:30", title: "Pipeline Foundation", text: "เรียนปูพื้น 4 ขั้นของ pipeline + run แรกกับ footage ตัวอย่าง", bullets: [
+        "silencedetect + cut — ตัด dead air อัตโนมัติ",
+        "whisper ภาษาไทย → SRT — เทียบ accuracy",
+        "Coffee break (15 นาที)"
+      ] },
+      { num: "11:30", title: "Hands-on: ตัด Reels จากคลิปคุณ", text: "ใช้ footage ที่เตรียมมา ตัด Reels แรกในคลาส", bullets: [
+        "อัปโหลด footage ของคุณ (เตรียมมา 5-10 นาที)",
+        "รัน pipeline 4 ขั้น → ได้ Reels แรก",
+        "Peer review — เพื่อนข้าง ๆ feedback"
+      ] },
+      { num: "13:00", title: "พักเที่ยง + Networking", text: "อาหารเที่ยงรวม คุยกับคนทำคอนเทนต์คนอื่น", bullets: [
+        "Lunch รวม (รวมในราคา)",
+        "Speed networking",
+        "พี่แบงค์ ตอบคำถาม free flow"
+      ] },
+      { num: "14:00", title: "Brand Kit + Caption Design", text: "ออกแบบ caption + motion + end slate ที่เป็นสไตล์คุณ", bullets: [
+        "เปลี่ยน HTML/CSS template ให้เป็นสีแบรนด์คุณ",
+        "Motion punch presets — ปรับ timing",
+        "Export brand kit เป็น JSON"
+      ] },
+      { num: "15:30", title: "Prompt + B-Roll Workflow", text: "สั่ง AI Agent + ดึง B-Roll จาก Pexels", bullets: [
+        "Prompt template 10 ชุด — ลองสั่ง Codex/Claude แต่ละแบบ",
+        "Pexels API — ดึง B-Roll 3-5 จุด/คลิป",
+        "iterate — feedback loop ที่ทำให้ output ดีขึ้น"
+      ] },
+      { num: "17:00", title: "Wrap + Production Plan", text: "สรุปแผน 30 วัน + batch production คลิปแรก", bullets: [
+        "30-day content plan + production schedule",
+        "Buddy system — accountability 30 วัน",
+        "Group chat invite — start วันถัดไป"
+      ] },
+    ],
+    outcomes: [
+      "Pipeline ตัดวิดีโอด้วย AI Agent ทำงานบนเครื่องคุณ ใช้ได้ทันทีตั้งแต่วันถัดไป",
+      "Brand Kit + Caption Template เป็นสไตล์คุณเอง พร้อม reuse ทุกคลิป",
+      "คลิปแรกเสร็จในคลาส — ออกจากห้องได้เลย",
+      "เครือข่ายคนทำคอนเทนต์/เจ้าของธุรกิจ 14 คน",
+      "วิดีโอบันทึก seminar + 30 วัน group support ทบทวนได้ตลอด",
+    ],
+    bonuses: [
+      { title: "วิดีโอบันทึก Seminar เต็มวัน", valueAmount: 4900, value: "฿4,900", text: "ทบทวนได้ทุกที่ ทุกเวลา หลังจบ Workshop" },
+      { title: "30-Day Group Support", valueAmount: 9900, value: "฿9,900", text: "กลุ่ม support 30 วันหลัง seminar ทีม BizDrive ตอบเอง" },
+      { title: "AI Video Editor Online Course", valueAmount: 3900, value: "฿3,900", text: "แถมคอร์สออนไลน์เต็มชุด เรียนต่อหลัง Workshop ได้เลย" },
+    ],
+    guarantee: {
+      title: "รับประกันความพอใจ",
+      text: "ถ้าจบวัน ไม่รู้สึกว่าคุ้ม ทักมาภายใน 7 วัน คืนเงินครึ่งหนึ่งโดยไม่ถาม",
+    },
+    faqs: [
+      { q: "Seminar จัดที่ไหน วันไหน?", a: "จัดที่ BizDrive Academy กรุงเทพมหานคร · วันที่จะแจ้งเมื่อยืนยันการจอง ที่นั่งจำกัด 15 ท่าน/รอบ — ดูแผนที่ในส่วนสถานที่ด้านล่าง" },
+      { q: "ต้องเอา notebook มาเองไหม?", a: "ใช่ครับ — เอา Mac (M1+ แนะนำ) หรือ Windows มี GPU + เตรียม footage ตัวอย่าง 5-10 นาที (วิดีโอที่คุณถ่ายเอง)" },
+      { q: "ต้องลง software ก่อนมาไหม?", a: "ไม่ต้องครับ ทีม BizDrive setup ให้ทุกเครื่องในคลาส 1 ชั่วโมงแรก — ออกจากห้องไปทุกอย่างพร้อมใช้บนเครื่องคุณ" },
+      { q: "ถ้าไม่เคยใช้ AI Agent (Codex/Claude) มาก่อน?", a: "ไม่ต้องกังวล — คอร์สสอนตั้งแต่ติดตั้งจนใช้เป็น · เริ่มจาก 0 ได้เลย" },
+      { q: "ราคา ฿9,900 คุ้มยังไงเทียบกับ online?", a: "ของรวมเกิน ฿18,000 — Workshop + วิดีโอบันทึก + 30-day support + แถม Online Course · setup pipeline ในคลาสประหยัดเวลา troubleshoot 5-10 ชั่วโมงที่บ้าน" },
+      { q: "อาหารและน้ำ?", a: "อาหารเที่ยง + coffee break เช้า/บ่าย + น้ำดื่ม — รวมในราคาแล้ว" },
+      { q: "จองแล้วยกเลิกได้ไหม?", a: "แจ้งล่วงหน้า 14 วัน คืน 100% · 7 วัน คืน 50% · น้อยกว่านั้นเลื่อนไปรอบถัดไปได้" },
+      { q: "มีรอบไหนบ้าง?", a: "เปิดรอบทุก 6-8 สัปดาห์ · ทักมาที่ hello@bizdrive.co เพื่อดูตารางล่าสุด" },
+      { q: "ไปกับทีมได้ไหม?", a: "ได้ครับ ทีม 2-3 คนจากบริษัทเดียวกันมีส่วนลด 15% — แจ้งตอนจอง" },
+      { q: "ออกใบกำกับภาษี/ใบเสร็จได้ไหม?", a: "ได้ครับ เต็มรูปแบบ — แจ้งข้อมูลบริษัทตอนจอง" },
+      { q: "หลัง seminar จบ ยังถามได้ไหม?", a: "ได้ครับ 30 วันแรก ใน group chat เฉพาะ + รับ recording เอาไปทบทวนตลอด" },
+    ],
+    scarcity: "รอบนี้เหลือ 15 ที่นั่ง · ปิดรับสมัครเมื่อเต็ม",
+    deadline: {
+      rolling: { days: 5 },
+      label: "รอบปัจจุบันปิดรับใน",
+      expiredLabel: "รอบนี้เต็มแล้ว — แจ้งรอบถัดไป",
+    },
+    idealFor: {
+      title: "Seminar เหมาะกับคุณถ้า…",
+      yes: [
+        "เป็นคนทำคอนเทนต์ / เจ้าของธุรกิจที่ต้องปล่อยวิดีโอเป็นประจำ",
+        "อยาก setup pipeline บนเครื่องตัวเองให้ทำงานได้จบในวันเดียว",
+        "ต้องการคนช่วย troubleshoot ตรงโต๊ะคุณ ไม่ใช่นั่งงมเอง",
+        "พร้อมเดินทางมากรุงเทพฯ ในวันที่กำหนด",
+      ],
+      no: [
+        { text: "อยากเรียนตามจังหวะตัวเอง ไม่อยากเดินทาง", linkTo: "ai-editor-online" },
+        { text: "ต้องการ workflow ที่ออกแบบเฉพาะธุรกิจคุณ 1:1", linkTo: "manus-ai-private" },
+      ],
+    },
+  },
+};
+
+export const PLAN_ORDER = ["manus-ai-online", "manus-ai-seminar", "manus-ai-private"];
+export const AI_EDITOR_PLAN_ORDER = ["ai-editor-online", "ai-editor-seminar"];
+export const ALL_PLAN_SLUGS = [...PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER];
+
+export const ACADEMY = {
+  name: "BizDrive Academy",
+  city: "กรุงเทพมหานคร",
+  mapsUrl: "https://maps.app.goo.gl/bXQv1qzn1BB6suLC9",
+  embedUrl: "https://maps.google.com/maps?q=13.8955122%2C100.6589236&z=16&output=embed",
+};
+
+export const CONTACT = {
+  email: "hello@bizdrive.co",
+  phone: "095-334-0643",
+  phoneTel: "+66953340643",
+  line: "@bizdrive",
+  lineUrl: "https://lin.ee/tLEXtzuJ",
+  facebookUrl: "https://www.facebook.com/bizdrive168",
+  tiktokUrl: "https://www.tiktok.com/@bizdrive168",
+  youtubeUrl: "https://www.youtube.com/@BizDrive168",
+  acceptedPayments: "ยินดีรับบัตรเครดิตทุกประเภท",
+  taxInvoice: "ออกใบกำกับภาษี / ใบเสร็จเต็มรูปแบบได้ — แจ้งทีมตอนสมัคร",
+};
+
+export const SOCIAL_LINKS = [
+  { name: "Facebook", url: "https://www.facebook.com/bizdrive168", handle: "bizdrive168" },
+  { name: "TikTok", url: "https://www.tiktok.com/@bizdrive168", handle: "@bizdrive168" },
+  { name: "YouTube", url: "https://www.youtube.com/@BizDrive168", handle: "@BizDrive168" },
+  { name: "LINE", url: "https://lin.ee/tLEXtzuJ", handle: "@bizdrive" },
+];

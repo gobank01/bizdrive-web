@@ -1,0 +1,69 @@
+# BizDrive
+
+> BizDrive สอนเจ้าของธุรกิจไทยใช้ AI หลายตัว (Manus AI · ChatGPT · Claude · Gemini · Codex CLI · Cursor · Hyperframes) เพื่อทำธุรกิจคนเดียวให้เหมือนมีทีมใหญ่ — วางระบบ AI, ตัดต่อวิดีโอด้วย AI Agent, ทำคอนเทนต์, automate งานซ้ำ, สร้างภาพและ Dashboard
+
+Founder: พี่แบงค์ ปรัชญา (Prachaya Piyasirisilp)
+Language: Thai (ภาษาไทย)
+Location: BizDrive Academy, กรุงเทพมหานคร, Thailand
+Target audience: เจ้าของธุรกิจคนเดียว · ฟรีแลนซ์ · One Person Business · ทีมเล็ก 1-15 คน
+
+## Courses
+
+BizDrive มี 2 courses หลัก แบ่งเป็น 5 ระดับ:
+
+### Course 1: Manus AI — วางระบบธุรกิจด้วย AI
+
+- [Manus AI Online (฿3,900)](https://bizdrive-web.vercel.app/manus/online): คอร์สออนไลน์ self-paced เรียนได้ตลอด · 6 modules · เทมเพลต prompt 50+ ชุด · เวิร์กโฟลว์ตัดวิดีโอ · community group · 7-day money back
+- [Manus AI Seminar (฿9,900)](https://bizdrive-web.vercel.app/manus/seminar): Workshop 1 วันเต็ม · กลุ่มเล็ก 20 ท่าน · hands-on at BizDrive Academy Bangkok · รวมอาหาร + วิดีโอบันทึก + 30-day group support + แถม Online course
+- [Manus AI Private (฿39,000)](https://bizdrive-web.vercel.app/private): Private 1:1 coaching กับพี่แบงค์ · 4 sessions × 90 นาที · ออกแบบ AI workflow เฉพาะธุรกิจคุณ · 60-day group support · แถม Online + Seminar
+
+### Course 2: AI Video Editor — ตัดต่อด้วย AI Agent
+
+ใช้ Codex CLI หรือ Claude Code เป็น AI Agent ร่วมกับ Hyperframes (HTML-as-source video framework จาก HeyGen, Apache 2.0) — pipeline 4 ขั้น: process-2cam → build-composition (Whisper TH + kinetic caption) → fetch-broll (Pexels API) → render multi-ratio (9:16 + 1:1 + 16:9)
+
+- [AI Video Editor Online (฿3,900)](https://bizdrive-web.vercel.app/ai-editor/online): คอร์สออนไลน์ · 6 modules · Brand Kit template · Prompt library 30+ ชุด · community + office hour · ตัด Reels 1 ชม. footage → 5 นาทีงานเสร็จ
+- [AI Video Editor Seminar (฿9,900)](https://bizdrive-web.vercel.app/ai-editor/seminar): Workshop 1 วัน · กลุ่ม 15 ท่าน · setup pipeline บนเครื่องคุณเอง · ตัด Reels แรกในคลาส · 30-day group support + แถม Online course
+
+## Pages
+
+- [Homepage](https://bizdrive-web.vercel.app/): ภาพรวมทั้งหมด · AI Stack · Use Cases · Classroom photos · Pricing comparison
+- [Privacy Policy](https://bizdrive-web.vercel.app/privacy): นโยบายความเป็นส่วนตัว (PDPA Thailand)
+- [Terms of Service](https://bizdrive-web.vercel.app/terms): ข้อกำหนดการใช้งาน
+
+## AI Stack ที่ BizDrive สอนใช้
+
+- **Manus AI**: Autonomous Agent · research → execute → deliver
+- **ChatGPT** (OpenAI): Conversation + long-form writing
+- **Claude** (Anthropic): Deep reasoning + coding + system thinking
+- **Gemini** (Google): Multimodal + long context · เชื่อม Google Workspace
+- **Codex CLI** (OpenAI): AI in terminal · scripting + automation
+- **Cursor / Claude Code**: AI IDE · สร้างแอป/ทูลของตัวเอง
+- **Hyperframes** (HeyGen, Apache 2.0): HTML-as-source video framework สำหรับตัด Reels/TikTok/YouTube
+
+## Use Cases
+
+- เพิ่มประสิทธิภาพคน — เขียนแคปชั่น, สรุป, brainstorm, voice training
+- ทำระบบใช้เอง — landing page, dashboard, internal tool ด้วย Cursor/Claude Code
+- งาน Automation — Auto invoice, file rename, sync ข้อมูล, แจ้งเตือน LINE/อีเมล
+- สร้างภาพ AI — Brand-consistent image gen, carousel, ad creative
+- สร้างวิดีโอ — Reels/TikTok/YouTube Short ด้วย Codex/Claude + Hyperframes
+- สร้าง Dashboard — Sales/leads/KPI real-time จาก Sheets/Postgres
+
+## Contact
+
+- Email: hello@bizdrive.co
+- Phone: 095-334-0643 (+66 95 334 0643)
+- LINE: @bizdrive · https://lin.ee/tLEXtzuJ
+- Facebook: https://www.facebook.com/bizdrive168
+- TikTok: https://www.tiktok.com/@bizdrive168
+- YouTube: https://www.youtube.com/@BizDrive168
+- Location: BizDrive Academy, กรุงเทพมหานคร · Google Maps: https://maps.app.goo.gl/bXQv1qzn1BB6suLC9
+
+## Payment
+
+ยินดีรับบัตรเครดิตทุกประเภท (Visa · Mastercard · American Express) · ออกใบกำกับภาษี / ใบเสร็จเต็มรูปแบบได้
+
+## Optional
+
+- [Sitemap XML](https://bizdrive-web.vercel.app/sitemap.xml)
+- [Robots.txt](https://bizdrive-web.vercel.app/robots.txt)
