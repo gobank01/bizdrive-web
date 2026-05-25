@@ -13,7 +13,7 @@ import ClassGallery from "./ClassGallery";
 const PLAN_SHORT_NAME = {
   "manus-ai-online": "Manus Online",
   "manus-ai-seminar": "Manus Seminar",
-  "manus-ai-private": "Private 1:1",
+  "manus-ai-private": "Private 1:1 Custom",
   "ai-editor-online": "AI Editor Online",
   "ai-editor-seminar": "AI Editor Seminar",
 };

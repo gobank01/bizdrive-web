@@ -1,4 +1,4 @@
-import { PLANS, PLAN_ORDER, AI_EDITOR_PLAN_ORDER } from "./class/_data";
+import { PLANS, PLAN_ORDER, MANUS_PLAN_ORDER, AI_EDITOR_PLAN_ORDER, PRIVATE_SLUG } from "./class/_data";
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./components/LeadForm";
 import LocationContact from "./components/LocationContact";
@@ -650,11 +650,11 @@ const COURSE_TRACKS = [
   {
     label: "Course 1",
     title: "Manus AI — วางระบบธุรกิจด้วย AI",
-    sub: "เริ่มจาก Online → Seminar → Private 1:1 ตามจังหวะคุณ",
-    count: "3 ระดับ",
+    sub: "Online เรียนเอง · Seminar 1 วันเต็ม · เลือกที่จังหวะคุณ",
+    count: "2 รูปแบบ",
     accent: { bg: "bg-brand-blue/10", text: "text-brand-blue" },
-    cols: 3,
-    slugs: PLAN_ORDER,
+    cols: 2,
+    slugs: MANUS_PLAN_ORDER,
     advice: {
       title: "Course นี้เหมาะกับคุณถ้า…",
       bullets: [
@@ -662,7 +662,7 @@ const COURSE_TRACKS = [
         "ทำคอนเทนต์/แคปชั่น/ภาพประกอบเป็นประจำ และอยากให้เร็วขึ้น 3-5 เท่า",
         "เริ่มต้นได้แม้ไม่เคยใช้ AI มาก่อน — Online เรียนเองได้ทันที",
       ],
-      pickHint: "💡 มือใหม่ → เริ่ม Online · อยากลงมือกับเพื่อน → Seminar · ธุรกิจซับซ้อน → Private 1:1",
+      pickHint: "💡 มือใหม่ / อยากเริ่มเอง → Online · อยากลงมือกับเพื่อน + hands-on → Seminar",
     },
   },
   {
@@ -695,7 +695,7 @@ function PricingSection() {
             เรียน AI แบบลงมือทำจริง — เลือก Course ที่ใช่กับคุณ
           </h2>
           <p className="mx-auto mt-[14px] max-w-[680px] text-center text-muted">
-            2 Courses — Manus AI สำหรับวางระบบธุรกิจ · AI Video Editor สำหรับตัดต่อวิดีโอด้วย AI Agent
+            2 Courses หลัก (Online / Seminar) · หรือถ้าอยากได้ workflow Custom ดู Private 1:1 ด้านล่าง
           </p>
         </div>
 
@@ -703,9 +703,78 @@ function PricingSection() {
           {COURSE_TRACKS.map((track) => (
             <CourseTrack key={track.label} track={track} />
           ))}
+          <PrivateCallout />
         </div>
       </div>
     </section>
+  );
+}
+
+function PrivateCallout() {
+  const plan = PLANS[PRIVATE_SLUG];
+  return (
+    <div>
+      <div className="mb-[22px] flex items-start justify-between gap-3 max-[620px]:flex-col">
+        <div>
+          <span className="inline-flex items-center rounded-full bg-brand-blue-dark/10 px-3 py-1 text-[12px] font-extrabold uppercase tracking-wider text-brand-blue-dark">
+            Custom 1:1 · ทางเลือกพิเศษ
+          </span>
+          <h3 className="mt-2 text-[1.3rem] font-extrabold text-ink max-[620px]:text-[1.15rem]">
+            Private 1:1 — เนื้อหา Custom ทุกอย่าง
+          </h3>
+          <p className="mt-1 text-[13.5px] text-muted">
+            ไม่ใช่ Manus หรือ AI Editor โดยเฉพาะ — เลือกหัวข้อเองได้ทุก session ตามธุรกิจคุณ
+          </p>
+        </div>
+        <span className="flex-shrink-0 text-[12.5px] font-semibold text-muted max-[620px]:order-first">
+          1:1 กับพี่แบงค์
+        </span>
+      </div>
+
+      <article className="grid grid-cols-[1.1fr_1fr] gap-7 rounded-[14px] border-2 border-brand-blue/25 bg-brand-blue-dark p-7 text-white shadow-brand max-[900px]:grid-cols-1 max-[620px]:p-5">
+        <div>
+          <span className="inline-flex items-center rounded-full bg-brand-yellow px-3 py-1 text-[12px] font-extrabold text-ink">
+            {plan.badge}
+          </span>
+          <h4 className="mt-3 text-[1.35rem] font-extrabold leading-[1.25]">{plan.name}</h4>
+          <p className="mt-2 text-[14px] text-white/80">{plan.tagline}</p>
+          <ul className="mt-4 grid list-none gap-2 text-[14px] text-white/90">
+            {[
+              "เลือกหัวข้อเองได้ทุก session — Manus, AI Editor, workflow, automation, business strategy",
+              "4 sessions × 90 นาที · spread ใน 4-8 สัปดาห์ตามจังหวะคุณ",
+              "60 วัน group support หลัง 4 sessions จบ",
+              "Online (Zoom) หรือเจอกันที่ BizDrive Academy",
+            ].map((t) => (
+              <li key={t} className="flex gap-2.5">
+                <span aria-hidden="true" className="mt-[2px] flex-shrink-0 text-brand-yellow">✓</span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col justify-between gap-5 rounded-[12px] bg-white/[.08] p-5">
+          <div className="text-center [font-variant-numeric:tabular-nums]">
+            <span className="block text-[12px] font-bold uppercase tracking-wider text-white/70">ราคา 1:1 Custom</span>
+            <div className="mt-1 flex items-baseline justify-center gap-1.5">
+              {plan.originalPrice ? (
+                <span className="text-[14px] font-semibold text-white/50 line-through">฿{plan.originalPrice.toLocaleString()}</span>
+              ) : null}
+              <span className="text-[1.4rem] font-extrabold text-brand-yellow">฿</span>
+              <span className="text-[2.3rem] font-extrabold leading-none text-brand-yellow">{plan.price.toLocaleString()}</span>
+            </div>
+            <p className="mt-2 text-[12.5px] text-white/70">{plan.priceNote}</p>
+          </div>
+          <div className="grid gap-2">
+            <a href={urlForPlan(PRIVATE_SLUG)} className="btn btn-primary w-full">
+              ดูรายละเอียด Private
+            </a>
+            <a href="/contact" className="btn btn-outline w-full" style={{ borderColor: "rgba(255,255,255,0.35)", color: "white", background: "rgba(255,255,255,0.06)" }}>
+              นัดคุยฟรี 30 นาที
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
   );
 }
 
@@ -775,17 +844,19 @@ function ClassCard({ plan, featured }) {
 }
 
 /* ─── Pricing Comparison ─────────────────────────────────── */
+const COMPARE_COLS = [...MANUS_PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER];
+
 const COMPARE_ROWS = [
-  { label: "ราคา", values: ["฿3,900", "฿9,900", "฿39,000"], highlight: true },
-  { label: "รูปแบบ", values: ["Self-paced online", "Group workshop · in-person", "Private 1:1"] },
-  { label: "ระยะเวลา", values: ["เรียนได้ตลอด", "1 วันเต็ม", "4 sessions × 90 นาที"] },
-  { label: "ที่เรียน", values: ["ที่ไหนก็ได้", "BizDrive Academy · กรุงเทพฯ", "Online + นัด in-person ได้"] },
-  { label: "ขนาดกลุ่ม", values: ["—", "20 ท่าน/รอบ", "1:1 กับพี่แบงค์"] },
-  { label: "Support หลังจบ", values: ["Community group", "30 วัน", "60 วัน + ทักได้ตลอด"] },
-  { label: "Workflow เฉพาะธุรกิจ", values: [false, false, true] },
-  { label: "Network กับเจ้าของธุรกิจอื่น", values: [false, true, false] },
-  { label: "Recording / ทบทวนได้", values: [true, true, true] },
-  { label: "เหมาะกับ", values: ["มือใหม่ AI · เริ่มเองได้", "อยาก hands-on + network", "ธุรกิจซับซ้อน · ต้องการระบบ"] },
+  { label: "ราคา", values: ["฿3,900", "฿9,900", "฿3,900", "฿9,900"], highlight: true },
+  { label: "รูปแบบ", values: ["Self-paced online", "Workshop 1 วัน · in-person", "Self-paced online", "Workshop 1 วัน · in-person"] },
+  { label: "ระยะเวลา", values: ["เรียนได้ตลอด", "1 วันเต็ม", "เรียนได้ตลอด", "1 วันเต็ม"] },
+  { label: "ที่เรียน", values: ["ที่ไหนก็ได้", "BizDrive Academy", "ที่ไหนก็ได้", "BizDrive Academy"] },
+  { label: "ขนาดกลุ่ม", values: ["—", "20 ท่าน/รอบ", "—", "15 ท่าน/รอบ"] },
+  { label: "Support หลังจบ", values: ["Community", "30 วัน", "Community + Office hour", "30 วัน"] },
+  { label: "Hands-on workshop", values: [false, true, false, true] },
+  { label: "Setup pipeline บนเครื่องคุณ", values: [false, false, false, true] },
+  { label: "Recording / ทบทวนได้", values: [true, true, true, true] },
+  { label: "เหมาะกับ", values: ["มือใหม่ AI", "อยาก hands-on + network", "คนทำ Reels/TikTok เอง", "อยาก setup pipeline ในวันเดียว"] },
 ];
 
 function ComparisonSection() {
@@ -793,30 +864,31 @@ function ComparisonSection() {
     <section className="bg-white py-[84px] max-[620px]:py-[62px]">
       <div className="bx-container max-w-[1080px]">
         <div className="mb-[34px] text-center">
-          <span className="section-kicker mb-[14px]">เปรียบเทียบ Manus Course</span>
+          <span className="section-kicker mb-[14px]">เปรียบเทียบ 2 Courses</span>
           <h2 className="mx-auto max-w-[760px] text-balance text-[clamp(1.65rem,3.8vw,2.5rem)] font-extrabold leading-[1.2]">
-            เลือกระดับที่ใช่กับธุรกิจคุณ
+            เลือก Course / รูปแบบที่ใช่กับธุรกิจคุณ
           </h2>
           <p className="mx-auto mt-3 max-w-[620px] text-[14.5px] text-muted">
-            ภาพรวม 3 ระดับของ Manus AI · สำหรับ AI Video Editor ดูที่ <a href="/ai-editor/online" className="font-bold text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:decoration-brand-blue">/ai-editor/online</a>
+            4 รูปแบบ (Manus Online/Seminar + AI Editor Online/Seminar) · หากต้องการเนื้อหา Custom 1:1 ดู <a href="/private" className="font-bold text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:decoration-brand-blue">Private 1:1</a>
           </p>
         </div>
 
         <div className="overflow-x-auto rounded-[14px] border border-line bg-white shadow-brand-sm">
-          <table className="w-full min-w-[760px] border-collapse text-left text-[14px]">
+          <table className="w-full min-w-[820px] border-collapse text-left text-[13.5px]">
             <thead>
               <tr className="bg-soft">
-                <th className="sticky left-0 z-10 bg-soft px-4 py-4 text-[12.5px] font-bold uppercase tracking-wide text-muted">
+                <th className="sticky left-0 z-10 bg-soft px-3 py-4 text-[12px] font-bold uppercase tracking-wide text-muted">
                   คุณสมบัติ
                 </th>
-                {PLAN_ORDER.map((slug) => {
+                {COMPARE_COLS.map((slug) => {
                   const plan = PLANS[slug];
+                  const shortName = plan.name.replace("Manus AI — ", "Manus ").replace("AI Video Editor — ", "Video ");
                   return (
-                    <th key={slug} className="px-4 py-4 text-center">
+                    <th key={slug} className="px-3 py-4 text-center">
                       <a href={urlForPlan(slug)} className="group inline-block">
-                        <span className="block text-[12px] font-semibold text-muted">{plan.badge}</span>
-                        <span className="block text-[1rem] font-extrabold text-ink group-hover:text-brand-blue">
-                          {plan.name.replace("Manus AI — ", "")}
+                        <span className="block text-[11px] font-semibold text-muted">{plan.badge}</span>
+                        <span className="block text-[14.5px] font-extrabold text-ink group-hover:text-brand-blue">
+                          {shortName}
                         </span>
                       </a>
                     </th>
@@ -827,11 +899,11 @@ function ComparisonSection() {
             <tbody>
               {COMPARE_ROWS.map((row, i) => (
                 <tr key={row.label} className={i % 2 === 1 ? "bg-soft/40" : ""}>
-                  <td className="sticky left-0 z-10 bg-inherit px-4 py-3 text-[13px] font-semibold text-muted">{row.label}</td>
+                  <td className="sticky left-0 z-10 bg-inherit px-3 py-3 text-[12.5px] font-semibold text-muted">{row.label}</td>
                   {row.values.map((v, j) => (
                     <td
                       key={j}
-                      className={`px-4 py-3 text-center ${row.highlight ? "[font-variant-numeric:tabular-nums] text-[1.05rem] font-extrabold text-brand-blue" : ""}`}
+                      className={`px-3 py-3 text-center ${row.highlight ? "[font-variant-numeric:tabular-nums] text-[1rem] font-extrabold text-brand-blue" : ""}`}
                     >
                       {typeof v === "boolean" ? (
                         v ? (
@@ -847,11 +919,11 @@ function ComparisonSection() {
                 </tr>
               ))}
               <tr>
-                <td className="px-4 py-4"></td>
-                {PLAN_ORDER.map((slug, i) => (
-                  <td key={slug} className="px-4 py-4 text-center">
-                    <a href={urlForPlan(slug)} className={`btn ${i === 0 ? "btn-primary" : "btn-outline"} text-[13px]`} style={{ minHeight: "40px", padding: "8px 18px" }}>
-                      ดูรายละเอียด
+                <td className="px-3 py-4"></td>
+                {COMPARE_COLS.map((slug, i) => (
+                  <td key={slug} className="px-3 py-4 text-center">
+                    <a href={urlForPlan(slug)} className={`btn ${i === 0 ? "btn-primary" : "btn-outline"} text-[12.5px]`} style={{ minHeight: "38px", padding: "7px 14px" }}>
+                      ดู
                     </a>
                   </td>
                 ))}

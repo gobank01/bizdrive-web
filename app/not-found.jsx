@@ -1,4 +1,4 @@
-import { PLANS, PLAN_ORDER } from "./class/_data";
+import { PLANS, ALL_PLAN_SLUGS } from "./class/_data";
 import { urlForPlan } from "@/lib/urls";
 
 export const metadata = {
@@ -29,8 +29,8 @@ export default function NotFound() {
           </a>
         </div>
 
-        <div className="mx-auto grid max-w-[640px] grid-cols-3 gap-3 text-left max-[620px]:grid-cols-1">
-          {PLAN_ORDER.map((slug) => {
+        <div className="mx-auto grid max-w-[860px] grid-cols-3 gap-3 text-left max-[900px]:grid-cols-2 max-[620px]:grid-cols-1">
+          {ALL_PLAN_SLUGS.map((slug) => {
             const plan = PLANS[slug];
             return (
               <a

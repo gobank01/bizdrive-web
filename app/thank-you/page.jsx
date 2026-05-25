@@ -1,4 +1,4 @@
-import { PLANS, PLAN_ORDER } from "../class/_data";
+import { PLANS, ALL_PLAN_SLUGS } from "../class/_data";
 import { urlForPlan } from "@/lib/urls";
 import CopyDiscountCode from "../components/CopyDiscountCode";
 
@@ -124,8 +124,8 @@ export default async function PromotionThankYouPage({ searchParams }) {
               เลือกคลาสที่ใช้โค้ดได้
             </h2>
           </div>
-          <div className="grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">
-            {PLAN_ORDER.map((slug, i) => {
+          <div className="grid grid-cols-3 gap-4 max-[900px]:grid-cols-2 max-[620px]:grid-cols-1">
+            {ALL_PLAN_SLUGS.map((slug, i) => {
               const plan = PLANS[slug];
               return (
                 <article key={slug} className={`flex flex-col rounded-[14px] border bg-white p-6 text-center transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-brand ${i === 0 ? "border-brand-blue/35 shadow-brand-sm" : "border-line"}`}>

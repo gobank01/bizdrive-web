@@ -235,18 +235,18 @@ export const PLANS = {
 
   "manus-ai-private": {
     slug: "manus-ai-private",
-    name: "Manus AI — Private",
-    tagline: "โค้ช 1:1 กับพี่แบงค์ — ออกแบบระบบ AI ให้ธุรกิจคุณโดยเฉพาะ",
+    name: "Private 1:1 — Custom AI Coaching",
+    tagline: "โค้ช 1:1 กับพี่แบงค์ — เนื้อหา Custom ทุก session ตามธุรกิจคุณ (Manus / AI Editor / Workflow / ใดก็ได้)",
     price: 39000,
     originalPrice: 59000,
     priceLabel: "฿39,000",
     priceNote: "4 sessions × 90 นาที · 1:1 · 60 วัน group support",
-    badge: "1:1 Private",
+    badge: "Custom 1:1",
     accent: "blue-dark",
-    cardSub: "4 sessions · ทำกับธุรกิจคุณโดยตรง",
+    cardSub: "4 sessions · ปรับเนื้อหาได้ทุกหัวข้อ",
     hero: {
-      headline: "ทำให้ธุรกิจคุณเดินด้วย AI — โค้ช 1:1 ออกแบบระบบให้คุณโดยเฉพาะ",
-      sub: "4 sessions กับพี่แบงค์ ออกแบบและส่งมอบ AI workflow เฉพาะธุรกิจคุณ ไม่ใช่ template สำเร็จรูป · 60 วัน support หลังจบ",
+      headline: "Private 1:1 — เนื้อหา Custom เต็มรูปแบบ ตามธุรกิจและเป้าหมายของคุณ",
+      sub: "4 sessions กับพี่แบงค์ · เลือกหัวข้อเองได้ทุก session (Manus AI / AI Video Editor / workflow / automation / business strategy) · ออกแบบและส่งมอบให้ใช้ได้จริง · 60 วัน support หลังจบ",
       ctaPrimary: "นัดคุยก่อนสมัคร",
       ctaSecondary: "ดูรายละเอียด Process",
     },
@@ -260,8 +260,8 @@ export const PLANS = {
       ],
     },
     solution: {
-      title: "4 sessions ออกแบบ — ส่งมอบ — ใช้ได้จริง",
-      body: "Private coaching แบบ 1:1 กับพี่แบงค์ เริ่มจากเข้าใจธุรกิจคุณ ออกแบบ workflow เฉพาะ ส่งมอบเป็นระบบที่ใช้ได้ตั้งแต่วันแรก จบ 4 sessions มี 60 วัน group support ต่อ ระหว่างนั้นทักได้ตลอด",
+      title: "4 sessions ออกแบบ — ส่งมอบ — ใช้ได้จริง · เนื้อหา Custom ทั้งหมด",
+      body: "Private 1:1 กับพี่แบงค์ — ไม่ใช่คอร์สสำเร็จรูป แต่ออกแบบทุก session ตามโจทย์คุณ จะใช้ Manus AI ก็ได้ จะตัด video ด้วย AI Agent ก็ได้ จะวาง automation / dashboard / business workflow ก็ได้ · 4 sessions รวม 6 ชั่วโมง spread ใน 4-8 สัปดาห์ + 60 วัน group support",
     },
     modules: [
       { num: "S1", title: "Discovery + Audit (90 นาที)", text: "เข้าใจธุรกิจ ลูกค้า ขั้นตอนปัจจุบัน วาง map ปัญหาและโอกาส", bullets: [
@@ -325,15 +325,15 @@ export const PLANS = {
       expiredLabel: "คิวเดือนนี้เต็ม — รอเปิดรอบถัดไป",
     },
     idealFor: {
-      title: "Private เหมาะกับคุณถ้า…",
+      title: "Private 1:1 เหมาะกับคุณถ้า…",
       yes: [
+        "ต้องการเนื้อหา Custom — ปรับเองได้ทุก session (Manus / AI Editor / workflow / อะไรก็ได้)",
         "ธุรกิจคุณซับซ้อน มีหลายช่องทาง หลายขั้นตอน หรือมีทีม 1-15 คน",
-        "ต้องการ workflow ที่ออกแบบเฉพาะธุรกิจคุณ ไม่ใช่ template สำเร็จรูป",
         "อยากให้คนช่วยคิดและส่งมอบระบบ ไม่ใช่แค่สอนแล้วทำเอง",
         "พร้อมลงทุนเพื่อเร่งการเติบโตของธุรกิจอย่างจริงจัง",
       ],
       no: [
-        { text: "เพิ่งเริ่มต้น ยังไม่มี workflow ที่ต้องปรับ", linkTo: "manus-ai-online" },
+        { text: "เพิ่งเริ่มต้น อยากเรียนพื้นฐานก่อน", linkTo: "manus-ai-online" },
         { text: "อยากเรียนกลุ่มและ network", linkTo: "manus-ai-seminar" },
       ],
     },
@@ -579,9 +579,12 @@ export const PLANS = {
   },
 };
 
-export const PLAN_ORDER = ["manus-ai-online", "manus-ai-seminar", "manus-ai-private"];
+export const MANUS_PLAN_ORDER = ["manus-ai-online", "manus-ai-seminar"];
 export const AI_EDITOR_PLAN_ORDER = ["ai-editor-online", "ai-editor-seminar"];
-export const ALL_PLAN_SLUGS = [...PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER];
+export const PRIVATE_SLUG = "manus-ai-private";
+// PLAN_ORDER kept for backward compat (3 manus slugs incl. private) — new code should use MANUS_PLAN_ORDER + PRIVATE_SLUG
+export const PLAN_ORDER = [...MANUS_PLAN_ORDER, PRIVATE_SLUG];
+export const ALL_PLAN_SLUGS = [...MANUS_PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER, PRIVATE_SLUG];
 
 export const ACADEMY = {
   name: "BizDrive Academy",
