@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const CONSENT_KEY = "bizdrive_consent_v1";
 const CONSENT_VERSION = 1;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function ConsentProvider() {
   const [state, setState] = useState({ ready: false, banner: false, analytics: false });
@@ -40,6 +42,7 @@ export default function ConsentProvider() {
   return (
     <>
       {state.analytics ? <Analytics /> : null}
+      {state.analytics && GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       {state.ready && state.banner ? (
         <ConsentBanner onAcceptAll={() => save(true)} onDecline={() => save(false)} />
       ) : null}
@@ -64,7 +67,7 @@ function ConsentBanner({ onAcceptAll, onDecline }) {
             </div>
             <h2 className="text-[15.5px] font-extrabold text-ink">เราใช้คุกกี้เพื่อปรับปรุงประสบการณ์</h2>
             <p className="mt-1.5 text-[13.5px] leading-[1.65] text-muted">
-              BizDrive เก็บข้อมูลการใช้งานแบบไม่ระบุตัวตน (Vercel Analytics) เพื่อพัฒนาคุณภาพเว็บ
+              BizDrive เก็บข้อมูลการใช้งานแบบไม่ระบุตัวตน (Vercel Analytics + Google Tag Manager) เพื่อพัฒนาคุณภาพเว็บ
               — คุณเลือกได้ว่าจะให้เก็บหรือไม่ และเปลี่ยนใจเมื่อไหร่ก็ได้ที่ลิงก์ "ตั้งค่าคุกกี้" ใต้เว็บ
               {" "}
               <a href="/privacy" className="font-bold text-brand-blue underline-offset-2 hover:underline">
