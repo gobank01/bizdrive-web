@@ -98,29 +98,61 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <FooterHeading>ติดต่อ</FooterHeading>
-            <ul className="mt-3 grid list-none gap-2.5 text-[13.5px]">
+            <ul className="mt-3 grid list-none gap-2.5 text-[13.5px] max-[620px]:items-center">
               <li>
-                <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white transition-opacity hover:opacity-80">
-                  <img src="/assets/brand/contact/line.svg" alt="" width="18" height="18" className="h-[18px] w-[18px]" />
-                  <span className="font-extrabold">LINE {CONTACT.line}</span>
+                <a
+                  href={CONTACT.lineUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[.04] px-3 py-2 text-white transition-[border-color,background-color] duration-150 hover:border-white/25 hover:bg-white/[.08]"
+                >
+                  <img src="/assets/brand/contact/line.svg" alt="" width="20" height="20" className="h-[20px] w-[20px] flex-shrink-0" />
+                  <span className="flex flex-col">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#8a96a8] group-hover:text-white/70">LINE</span>
+                    <span className="text-[14.5px] font-extrabold leading-tight">{CONTACT.line}</span>
+                  </span>
                 </a>
               </li>
               <li>
-                <a href={`tel:${CONTACT.phoneTel}`} className="text-[#aeb7c5] transition-colors hover:text-white">
-                  ☎ {CONTACT.phone}
+                <a
+                  href={`tel:${CONTACT.phoneTel}`}
+                  className="group inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[.04] px-3 py-2 text-white transition-[border-color,background-color] duration-150 hover:border-white/25 hover:bg-white/[.08]"
+                >
+                  <span aria-hidden="true" className="grid h-[26px] w-[26px] flex-shrink-0 place-items-center rounded-md bg-brand-blue text-brand-yellow">
+                    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]">
+                      <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />
+                    </svg>
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#8a96a8] group-hover:text-white/70">โทร</span>
+                    <span className="text-[14.5px] font-extrabold leading-tight tabular-nums">{CONTACT.phone}</span>
+                  </span>
                 </a>
               </li>
               <li>
-                <a href={`mailto:${CONTACT.email}`} className="break-all text-[#aeb7c5] transition-colors hover:text-white">
-                  ✉ {CONTACT.email}
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="group inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[.04] px-3 py-2 text-white transition-[border-color,background-color] duration-150 hover:border-white/25 hover:bg-white/[.08]"
+                >
+                  <span aria-hidden="true" className="grid h-[26px] w-[26px] flex-shrink-0 place-items-center rounded-md bg-[#c2410c] text-white">
+                    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]">
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="M3 7l9 6 9-6" />
+                    </svg>
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#8a96a8] group-hover:text-white/70">Email</span>
+                    <span className="break-all text-[13px] font-bold leading-tight">{CONTACT.email}</span>
+                  </span>
                 </a>
               </li>
-              <li className="mt-2 text-[13px] leading-[1.6] text-[#8a96a8]">
+              <li className="mt-1 text-[13px] leading-[1.6] text-[#8a96a8]">
                 <strong className="block text-white">{ACADEMY.name}</strong>
                 {ACADEMY.city}
-                {" · "}
-                <a href={ACADEMY.mapsUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-[#8a96a8] underline-offset-2 hover:text-white">
-                  Google Maps →
+                <br />
+                <a href={ACADEMY.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1.5 text-[#aeb7c5] underline decoration-[#5a6678] underline-offset-2 hover:text-white hover:decoration-white">
+                  <img src="/assets/brand/contact/googlemaps.svg" alt="" width="14" height="14" className="h-[14px] w-[14px]" />
+                  เปิดใน Google Maps
                 </a>
               </li>
             </ul>

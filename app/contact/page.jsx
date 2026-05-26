@@ -22,6 +22,7 @@ const QUICK_LINKS = [
     note: "ตอบเร็วสุด · ใน 1-2 ชั่วโมง ในเวลาทำการ",
     iconBg: "bg-[#00C300]",
     logo: "/assets/brand/contact/line.svg",
+    iconSvg: null,
   },
   {
     label: "โทร",
@@ -31,6 +32,8 @@ const QUICK_LINKS = [
     note: "เวลาทำการ จันทร์-ศุกร์ · 9:00-18:00",
     iconBg: "bg-brand-blue",
     logo: null,
+    iconSvg: <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />,
+    tabular: true,
   },
   {
     label: "อีเมล",
@@ -40,6 +43,7 @@ const QUICK_LINKS = [
     note: "ตอบกลับภายใน 1 วันทำการ",
     iconBg: "bg-[#c2410c]",
     logo: null,
+    iconSvg: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></>,
   },
 ];
 
@@ -76,12 +80,14 @@ export default function ContactPage() {
                     {q.logo ? (
                       <img src={q.logo} alt={q.label} className="h-6 w-6 object-contain" />
                     ) : (
-                      <span className="text-[18px] font-extrabold">{q.label === "โทร" ? "☎" : "✉"}</span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[22px] w-[22px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2]">
+                        {q.iconSvg}
+                      </svg>
                     )}
                   </div>
                   <div className="flex-1">
                     <div className="text-[12px] font-bold uppercase tracking-wider text-muted">{q.label}</div>
-                    <div className="text-[15px] font-extrabold text-ink">{q.handle}</div>
+                    <div className={`text-[15px] font-extrabold text-ink ${q.tabular ? "tabular-nums" : ""}`}>{q.handle}</div>
                     <div className="mt-0.5 text-[12.5px] text-muted">{q.note}</div>
                     <span className="mt-1.5 inline-flex text-[12.5px] font-bold text-brand-blue group-hover:underline">
                       {q.cta} →

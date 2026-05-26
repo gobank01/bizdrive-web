@@ -1096,11 +1096,25 @@ function ContactSection() {
           <a href="/contact" className="btn bg-brand-yellow text-ink hover:brightness-105 max-[620px]:w-full max-[620px]:max-w-[300px]">
             กรอกฟอร์มติดต่อ →
           </a>
-          <a href="https://lin.ee/tLEXtzuJ" target="_blank" rel="noopener noreferrer" className="btn btn-outline max-[620px]:w-full max-[620px]:max-w-[300px]" style={{ borderColor: "rgba(255,255,255,0.4)", color: "white", background: "rgba(255,255,255,0.08)" }}>
-            ทักผ่าน LINE @bizdrive
+          <a
+            href="https://lin.ee/tLEXtzuJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[46px] items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 font-bold text-white transition-[background-color,border-color] hover:border-white/50 hover:bg-white/15 max-[620px]:w-full max-[620px]:max-w-[300px] max-[620px]:justify-center"
+          >
+            <img src="/assets/brand/contact/line.svg" alt="" width="20" height="20" className="h-[20px] w-[20px]" />
+            <span>LINE <span className="font-extrabold tabular-nums">@bizdrive</span></span>
           </a>
-          <a href="tel:+66953340643" className="btn btn-outline max-[620px]:w-full max-[620px]:max-w-[300px]" style={{ borderColor: "rgba(255,255,255,0.4)", color: "white", background: "rgba(255,255,255,0.08)" }}>
-            โทร 095-334-0643
+          <a
+            href="tel:+66953340643"
+            className="inline-flex min-h-[46px] items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 font-bold text-white transition-[background-color,border-color] hover:border-white/50 hover:bg-white/15 max-[620px]:w-full max-[620px]:max-w-[300px] max-[620px]:justify-center"
+          >
+            <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-brand-yellow text-brand-blue">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]">
+                <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />
+              </svg>
+            </span>
+            <span className="font-extrabold tabular-nums">095-334-0643</span>
           </a>
         </div>
         <div className="mt-7 flex flex-col items-center gap-2">
