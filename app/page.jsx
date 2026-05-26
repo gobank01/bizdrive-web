@@ -14,7 +14,7 @@ const TRUST_LOGOS = [
   { name: "Google Gemini", src: "/assets/brand/ai/gemini.svg", wide: false },
   { name: "OpenAI Codex CLI", src: "/assets/brand/ai/openai.svg", wide: true },
   { name: "Cursor", src: "/assets/brand/ai/cursor.svg", wide: false },
-  { name: "Hyperframes", src: "/assets/brand/ai/hyperframes-icon.png", wide: false },
+  { name: "Hyperframes", src: "/assets/brand/ai/hyperframes-icon.webp", wide: false },
 ];
 
 const SERVICES = [
@@ -154,14 +154,17 @@ function HeroSection() {
 
         <div className="mx-auto mt-7 grid max-w-[720px] grid-cols-[minmax(0,1fr)_112px] gap-4 text-left max-[620px]:mt-7 max-[620px]:max-w-[320px] max-[620px]:grid-cols-1">
           <figure className="overflow-hidden rounded-xl border border-line bg-white shadow-brand">
-            <img
-              src="/assets/gallery/seminar/seminar-03.jpg"
-              width="1200"
-              height="900"
-              alt="บรรยากาศ Seminar ที่ BizDrive Academy — พี่แบงค์สอน AI workflow แบบ hands-on กับเจ้าของธุรกิจ"
-              fetchPriority="high"
-              className="block aspect-video w-full object-cover max-[620px]:aspect-square"
-            />
+            <picture>
+              <source srcSet="/assets/gallery/seminar/seminar-03.webp" type="image/webp" />
+              <img
+                src="/assets/gallery/seminar/seminar-03.jpg"
+                width="1100"
+                height="619"
+                alt="บรรยากาศ Seminar ที่ BizDrive Academy — พี่แบงค์สอน AI workflow แบบ hands-on กับเจ้าของธุรกิจ"
+                fetchPriority="high"
+                className="block aspect-video w-full object-cover max-[620px]:aspect-square"
+              />
+            </picture>
             <figcaption className="flex items-start justify-between gap-3 p-4 max-[620px]:flex-col">
               <strong className="text-[15px] leading-[1.35] text-ink">บรรยากาศจริงจากคลาส</strong>
               <span className="max-w-[260px] text-right text-[13px] leading-[1.45] text-muted max-[620px]:max-w-none max-[620px]:text-left">
@@ -170,9 +173,9 @@ function HeroSection() {
             </figcaption>
           </figure>
           <div className="grid gap-2.5 max-[620px]:grid-cols-3">
-            <Thumb src="/assets/gallery/seminar/seminar-09.jpg" alt="นักเรียนลงมือทำกับ AI workflow ใน Seminar" />
-            <Thumb src="/assets/gallery/private/private-20.jpg" alt="Private 1:1 session กับพี่แบงค์ออกแบบ workflow" />
-            <Thumb src="/assets/gallery/private/private-11.jpg" alt="คลาส Private ออกแบบระบบเฉพาะธุรกิจ" />
+            <Thumb src="/assets/gallery/seminar/seminar-09-thumb.jpg" alt="นักเรียนลงมือทำกับ AI workflow ใน Seminar" />
+            <Thumb src="/assets/gallery/private/private-20-thumb.jpg" alt="Private 1:1 session กับพี่แบงค์ออกแบบ workflow" />
+            <Thumb src="/assets/gallery/private/private-11-thumb.jpg" alt="คลาส Private ออกแบบระบบเฉพาะธุรกิจ" />
           </div>
         </div>
 
@@ -196,8 +199,8 @@ function Thumb({ src, alt }) {
   return (
     <img
       src={src}
-      width="900"
-      height="900"
+      width="240"
+      height="240"
       alt={alt}
       loading="lazy"
       className="aspect-square w-full rounded-[10px] border border-line bg-white object-cover shadow-brand-sm"
@@ -242,6 +245,8 @@ function TrustSection() {
               <img
                 src={l.src}
                 alt={l.name}
+                width={l.wide ? 76 : 30}
+                height={l.wide ? 22 : 30}
                 loading="lazy"
                 className={`w-auto object-contain ${l.wide ? "max-h-[22px]" : "max-h-[30px]"}`}
               />
@@ -960,6 +965,7 @@ function AboutSection() {
                   width="160"
                   height="160"
                   alt="พี่แบงค์ ปรัชญา"
+                  loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </div>
