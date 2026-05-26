@@ -133,6 +133,8 @@ function MobileDrawer({ onClose }) {
           {[
             { href: "/manus/online", label: "Manus AI — Online" },
             { href: "/manus/seminar", label: "Manus AI — Seminar" },
+            { href: "/claude/online", label: "Claude AI — Online" },
+            { href: "/claude/seminar", label: "Claude AI — Seminar" },
             { href: "/ai-editor/online", label: "AI Video Editor — Online" },
             { href: "/ai-editor/seminar", label: "AI Video Editor — Seminar" },
             { href: "/one-person/online", label: "One Person Business — Online", soon: true },

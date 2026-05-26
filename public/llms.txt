@@ -16,14 +16,21 @@ BizDrive มี 2 courses หลัก (Online + Seminar) แต่ละ course
 - [Manus AI Online (฿3,900)](https://bizdrive-web.vercel.app/manus/online): คอร์สออนไลน์ self-paced เรียนได้ตลอด · 6 modules · เทมเพลต prompt 50+ ชุด · เวิร์กโฟลว์ตัดวิดีโอ · community group · 7-day money back
 - [Manus AI Seminar (฿9,900)](https://bizdrive-web.vercel.app/manus/seminar): Workshop 1 วันเต็ม · กลุ่มเล็ก 20 ท่าน · hands-on at BizDrive Academy Bangkok · รวมอาหาร + วิดีโอบันทึก + 30-day group support + แถม Online course
 
-### Course 2: AI Video Editor — ตัดต่อด้วย AI Agent
+### Course 2: Claude AI — เจาะลึก Anthropic Claude
+
+เรียน Claude (Anthropic) เชิงลึก — Projects, Artifacts, Claude Code, MCP servers · เหมาะกับงาน analysis, document processing, coding ที่ ChatGPT ทำได้ไม่ลึกพอ
+
+- [Claude AI Online (฿3,900)](https://bizdrive-web.vercel.app/claude/online): คอร์สออนไลน์ · 6 modules · Prompt Library 50+ ชุด + MCP Setup Guide · community + office hour
+- [Claude AI Seminar (฿9,900)](https://bizdrive-web.vercel.app/claude/seminar): Workshop 1 วัน · กลุ่ม 15 ท่าน · setup Claude Code + MCP servers ในคลาส
+
+### Course 3: AI Video Editor — ตัดต่อด้วย AI Agent
 
 ใช้ Codex CLI หรือ Claude Code เป็น AI Agent ร่วมกับ Hyperframes (HTML-as-source video framework จาก HeyGen, Apache 2.0) — pipeline 4 ขั้น: process-2cam → build-composition (Whisper TH + kinetic caption) → fetch-broll (Pexels API) → render multi-ratio (9:16 + 1:1 + 16:9)
 
 - [AI Video Editor Online (฿3,900)](https://bizdrive-web.vercel.app/ai-editor/online): คอร์สออนไลน์ · 6 modules · Brand Kit template · Prompt library 30+ ชุด · community + office hour · ตัด Reels 1 ชม. footage → 5 นาทีงานเสร็จ
 - [AI Video Editor Seminar (฿9,900)](https://bizdrive-web.vercel.app/ai-editor/seminar): Workshop 1 วัน · กลุ่ม 15 ท่าน · setup pipeline บนเครื่องคุณเอง · ตัด Reels แรกในคลาส · 30-day group support + แถม Online course
 
-### Course 3: One Person Business — วาง business system ด้วย AI (เปิด ก.ค. 2026)
+### Course 4: One Person Business — วาง business system ด้วย AI (เปิด ก.ค. 2026)
 
 วางระบบธุรกิจคนเดียวให้ scale ได้ — positioning, pricing, sales pipeline, ops, AI workflow, finance, scale roadmap · ใช้ AI เป็น leverage แทนการจ้างคน
 

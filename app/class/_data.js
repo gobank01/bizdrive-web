@@ -583,6 +583,239 @@ export const PLANS = {
     },
   },
 
+  "claude-online": {
+    slug: "claude-online",
+    name: "Claude AI — Online",
+    tagline: "เจาะลึก Claude AI สำหรับธุรกิจ · ใช้งานลึกกว่า ChatGPT",
+    price: 3900,
+    originalPrice: 5900,
+    priceLabel: "฿3,900",
+    priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
+    badge: "Deep Dive",
+    accent: "orange",
+    cardSub: "เรียน self-paced · Claude expert ใน 2 สัปดาห์",
+    stripeUrl: null,
+    hero: {
+      headline: "Claude AI — AI ที่ฉลาดที่สุดสำหรับงานคิดเชิงระบบและโค้ด",
+      sub: "เจาะลึก Claude (Anthropic) — Projects, Artifacts, Claude Code, MCP servers · เหมาะกับงาน analysis, strategy, coding, document processing ที่ ChatGPT ทำได้ไม่ลึกพอ",
+      ctaPrimary: "สมัครเรียน Online",
+      ctaSecondary: "ดูเนื้อหาคอร์ส",
+    },
+    problem: {
+      title: "ใช้ ChatGPT มาแล้ว แต่บางงานยังตอบไม่ตรง — Claude อาจใช่",
+      points: [
+        "ใช้ ChatGPT วิเคราะห์ข้อมูลยาวๆ มันลืมบริบทกลางทาง",
+        "อยากให้ AI ช่วยเขียนโค้ด/ทำเว็บ แต่ ChatGPT plus ไม่พอ",
+        "ทำงานเอกสารยาวๆ (สัญญา, report, proposal) — ChatGPT cut off",
+        "ลอง Claude แล้วชอบ แต่ใช้ได้แค่ผิวๆ — ไม่รู้ทุก feature",
+      ],
+    },
+    solution: {
+      title: "เรียน Claude ลึก — ทุก feature ที่ทำให้คุณทำงานเร็วขึ้น 5-10 เท่า",
+      body: "ไม่ใช่คอร์สสอน prompt ทั่วไป — เป็นคอร์ส Claude-specific ที่ครอบคลุม Projects (knowledge base), Artifacts (live preview), Claude Code (เขียนแอป), MCP servers (connect tools), API · เหมาะกับคนที่ใช้ ChatGPT มาแล้วและอยากยกระดับ",
+    },
+    modules: [
+      { num: "01", title: "Claude Fundamentals + Projects", text: "Setup, pricing, model selection (Opus/Sonnet/Haiku)", bullets: [
+        "เลือก plan ที่คุ้ม — Free / Pro / Team / Enterprise",
+        "Projects = workspace ที่จำบริบทยาวๆ · ใส่ knowledge ของธุรกิจคุณ",
+        "เปรียบเทียบ Claude vs ChatGPT vs Gemini — ใช้ตัวไหนเมื่อไหร่",
+        "Setup project แรกของธุรกิจคุณ"
+      ] },
+      { num: "02", title: "Artifacts — Live preview ในแชท", text: "สร้าง webapp / dashboard / สเปรดชีต ใน chat", bullets: [
+        "Artifact คืออะไร — preview HTML/React/SVG ในแชท",
+        "สร้าง landing page mini ใน 10 นาที",
+        "Interactive dashboard จากข้อมูลคุณ",
+        "Share artifact ให้ทีมดู"
+      ] },
+      { num: "03", title: "Claude Code — CLI สำหรับ developer", text: "AI Agent ในเทอร์มินัล · เขียนแอปทั้งโปรเจกต์", bullets: [
+        "Install + setup Claude Code CLI",
+        "สั่งให้เขียน feature ทั้ง flow",
+        "Code review + refactor",
+        "Hyperframes integration (สำหรับตัดวิดีโอ)"
+      ] },
+      { num: "04", title: "MCP Servers — เชื่อม Claude กับเครื่องมือคุณ", text: "Slack, Notion, Linear, GitHub, Google Drive ทำใน Claude", bullets: [
+        "MCP คืออะไร · ทำไม important",
+        "Setup MCP servers ที่ใช้บ่อย",
+        "สั่ง Claude ดู Notion ของคุณ · ตอบ Slack",
+        "Build MCP server ของตัวเอง (basic)"
+      ] },
+      { num: "05", title: "Long Context + Document Processing", text: "Claude อ่านได้ 200K tokens — เอกสาร 500 หน้า", bullets: [
+        "Process สัญญา/report/proposal ยาวๆ",
+        "Extract data จาก PDF/Word/Excel",
+        "Summarize + analyze เอกสารหลายไฟล์พร้อมกัน",
+        "Compare versions ของเอกสาร"
+      ] },
+      { num: "06", title: "Claude API + Automation", text: "ใช้ Claude ใน app/script ของคุณ", bullets: [
+        "API key + pricing model",
+        "Build automation script (Python/JS)",
+        "Webhook integration",
+        "Cost optimization — ใช้ตัวไหนกับงานไหน"
+      ] },
+    ],
+    outcomes: [
+      "ใช้ Claude ทุก feature — Projects, Artifacts, Code, MCP",
+      "วิเคราะห์เอกสารยาวเป็นสิบหน้าได้ใน 2-3 นาที",
+      "สร้างเครื่องมือ/แอปของตัวเองด้วย Claude Code ได้ทันที",
+      "เชื่อม Claude กับ Slack/Notion/Linear/Drive ได้",
+      "เลือก AI ที่ใช่กับงาน — ไม่ยึดติด ChatGPT อย่างเดียว",
+    ],
+    bonuses: [
+      { title: "Claude Prompt Library 50+ ชุด", valueAmount: 2900, value: "฿2,900", text: "Prompt สำหรับ analysis/coding/writing ที่ใช้ Claude เก่งสุด" },
+      { title: "MCP Server Setup Guide", valueAmount: 1900, value: "฿1,900", text: "วิธี setup MCP สำหรับเครื่องมือยอดนิยม 10 ตัว" },
+      { title: "Community + Office Hour", valueAmount: 2900, value: "฿2,900", text: "เข้ากลุ่ม Claude power users ไทย + office hour สัปดาห์ละครั้ง" },
+    ],
+    guarantee: {
+      title: "รับประกัน 7 วัน คืนเงินเต็มจำนวน",
+      text: "ลองเรียน 7 วัน ถ้ารู้สึกว่าไม่ใช่ทางคุณ ทักมา คืนเงินให้เต็มจำนวน ไม่ถาม",
+    },
+    faqs: [
+      { q: "ต้องใช้ ChatGPT มาก่อนไหม?", a: "ไม่จำเป็น — แต่ถ้าใช้ ChatGPT มาแล้วจะเห็นความแตกต่างชัดเจน · คอร์สเริ่มจาก Claude Fundamentals ครอบคลุมพื้นฐานครบ" },
+      { q: "Claude Pro ฿700/เดือนคุ้มไหม?", a: "คุ้มถ้าใช้ทุกวัน — Free มี limit เร็ว · คอร์สสอนเลือก plan ที่เหมาะกับงานคุณ · Pro/Team/Enterprise ต่างกันยังไง" },
+      { q: "ต้องเขียนโค้ดเป็นไหม สำหรับ Claude Code?", a: "ไม่ต้อง — Claude Code เขียนโค้ดให้ คุณแค่สั่งเป็นภาษาคน · คอร์สสอนตั้งแต่ติดตั้งจนใช้เป็น · เริ่มจาก 0 ได้" },
+      { q: "MCP ยากไหม? Beginner ทำได้ไหม?", a: "Setup MCP server ที่มีอยู่แล้วง่ายมาก — แค่ copy config · คอร์สมี step-by-step สำหรับ 10 MCP ยอดนิยม" },
+      { q: "ราคา ฿3,900 คุ้มยังไง?", a: "ของรวมเกิน ฿11,000 — คอร์ส + Prompt Library + MCP Guide + Community · เทียบเวลาที่ประหยัด คุ้มภายใน 1-2 สัปดาห์" },
+      { q: "เนื้อหาอัปเดตหรือเปล่า?", a: "อัปเดตตลอด — Anthropic ปล่อยฟีเจอร์ใหม่บ่อย เราเพิ่มเข้า course โดยไม่คิดเงินเพิ่ม" },
+      { q: "ใช้ Claude ภาษาไทยได้ดีไหม?", a: "ดีเทียบ ChatGPT — โดยเฉพาะการคิดเชิงระบบ/วิเคราะห์ · คอร์สมีตัวอย่าง prompt ภาษาไทยครบ" },
+      { q: "คืนเงินยังไง?", a: "ภายใน 7 วันแรก ทักมาที่ hello@bizdrive.co คืนเงินให้เต็มจำนวน ไม่ต้องอธิบายเหตุผล" },
+      { q: "ออกใบกำกับภาษีได้ไหม?", a: "ออกใบกำกับภาษี/ใบเสร็จเต็มรูปแบบได้ — แจ้งทีมตอนสมัคร" },
+    ],
+    scarcity: "เปิดรับสมัครรอบนี้ราคาเริ่มต้น — ราคาจะปรับขึ้นเมื่อเปิดรอบถัดไป",
+    deadline: {
+      rolling: { days: 3 },
+      label: "ราคารอบเริ่มต้น ปิดใน",
+      expiredLabel: "รอบนี้ปิดแล้ว — รออัปเดตรอบใหม่",
+    },
+    idealFor: {
+      title: "คลาสนี้เหมาะกับคุณถ้า…",
+      yes: [
+        "ใช้ ChatGPT มาแล้วและอยากยกระดับด้วย AI ที่คิดลึกกว่า",
+        "ทำงานเอกสารยาวๆ / analysis / strategy / coding",
+        "อยากสร้างเครื่องมือ/แอปของตัวเองด้วย Claude Code",
+        "ทำงานกับ Slack/Notion/Linear และอยากให้ AI ทำแทน",
+      ],
+      no: [
+        { text: "เพิ่งเริ่มต้น AI ครั้งแรก", linkTo: "manus-ai-online" },
+        { text: "อยากเรียนตัดวิดีโอเฉพาะ", linkTo: "ai-editor-online" },
+        { text: "อยากเรียน hands-on + network", linkTo: "claude-seminar" },
+      ],
+    },
+  },
+
+  "claude-seminar": {
+    slug: "claude-seminar",
+    name: "Claude AI — Seminar",
+    tagline: "Workshop 1 วัน — Setup Claude ครบทุก feature บนเครื่องคุณเอง",
+    price: 9900,
+    originalPrice: 14900,
+    priceLabel: "฿9,900",
+    priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 15 คน",
+    badge: "Workshop",
+    accent: "orange",
+    cardSub: "1 วันเต็ม · setup Claude + MCP บนเครื่องคุณ",
+    stripeUrl: null,
+    hero: {
+      headline: "1 วัน — เป็น Claude Power User ออกจากห้องไปใช้ลึกได้ทันที",
+      sub: "Workshop กลุ่ม 15 ท่าน · พี่แบงค์ + ทีม BizDrive ตั้ง Claude Code + MCP servers + Projects ให้คุณ · ทดสอบกับงานจริงในคลาส",
+      ctaPrimary: "จองที่นั่ง Seminar",
+      ctaSecondary: "ดูตารางวัน",
+    },
+    problem: {
+      title: "ลองใช้ Claude เองที่บ้าน — ติด setup เป็นสิบจุด ไม่รู้ใช้ feature ไหนคุ้ม",
+      points: [
+        "อ่าน docs Claude แล้ว แต่ติดตั้ง Claude Code/MCP เจอ error",
+        "ไม่รู้ว่า Projects/Artifacts/Code/MCP feature ไหนเหมาะกับงานคุณ",
+        "อยากเห็นคนทำเป็น setup live ให้ดู — ไม่ใช่อ่านเอง",
+        "ต้องการ momentum — 1 วันลงมือจริง ออกจากห้องใช้ Claude ลึกได้",
+      ],
+    },
+    solution: {
+      title: "Workshop 1 วัน — มาตัวเปล่า กลับไปพร้อม Claude พร้อมใช้ทุก feature",
+      body: "Seminar กลุ่ม 15 ท่าน · เน้น hands-on setup Claude บนเครื่องคุณ · พี่แบงค์ + ทีม BizDrive วนโต๊ะช่วย setup Projects + Claude Code + MCP · จบวันมี Claude workspace ของคุณเอง พร้อมใช้กับธุรกิจ",
+    },
+    modules: [
+      { num: "09:00", title: "เปิดวัน + Setup", text: "Install Claude Pro/Code + MCP basics", bullets: [
+        "Welcome + แนะนำตัว 15 ท่าน",
+        "Setup laptop + sign in Claude",
+        "Install Claude Code CLI",
+        "Test first command — แต่ละคนได้ผลลัพธ์แรก"
+      ] },
+      { num: "10:30", title: "Projects + Knowledge Base", text: "สร้าง workspace ของธุรกิจคุณใน Claude", bullets: [
+        "อัปโหลด knowledge ของคุณ (brand voice, products, FAQ)",
+        "Test query — Claude ตอบเป็นเสียงคุณ",
+        "Coffee break (15 นาที)"
+      ] },
+      { num: "11:30", title: "Artifacts Hands-on", text: "สร้าง mini-app/landing/dashboard ในคลาส", bullets: [
+        "Build landing page ของคุณใน Artifact",
+        "Interactive form/calculator",
+        "Peer review — เพื่อนข้าง ๆ feedback"
+      ] },
+      { num: "13:00", title: "พักเที่ยง + Networking", text: "อาหารเที่ยงรวม คุยกับ Claude power users", bullets: [
+        "Lunch รวม (รวมในราคา)",
+        "Speed networking",
+        "Q&A free flow"
+      ] },
+      { num: "14:00", title: "Claude Code Workshop", text: "ใช้ Claude Code เขียน script/app ในคลาส", bullets: [
+        "Setup project structure",
+        "สั่ง Claude Code เขียน feature แรก",
+        "Debug + iterate"
+      ] },
+      { num: "15:30", title: "MCP Servers Setup", text: "เชื่อม Claude กับเครื่องมือที่คุณใช้", bullets: [
+        "เลือก MCP จาก 10 ตัวยอดนิยม",
+        "Setup + test — Notion/Slack/Drive/GitHub",
+        "สั่ง Claude ทำงานข้ามแอป"
+      ] },
+      { num: "17:00", title: "Wrap + Action Plan", text: "30-day plan + buddy system", bullets: [
+        "30-day action plan ของแต่ละคน",
+        "Buddy system — accountability 30 วัน",
+        "Group chat invite — start วันถัดไป"
+      ] },
+    ],
+    outcomes: [
+      "Claude workspace ของคุณเอง — Projects + Code + MCP พร้อมใช้",
+      "Setup ทำงานบนเครื่องคุณ ออกจากห้องไปใช้ต่อทันที",
+      "เครือข่าย Claude power users ไทย 14 คน",
+      "Recording + 30-day group support",
+      "Prompt + workflow library เฉพาะธุรกิจคุณ",
+    ],
+    bonuses: [
+      { title: "วิดีโอบันทึก Seminar เต็มวัน", valueAmount: 4900, value: "฿4,900", text: "ทบทวนได้ทุกที่ ทุกเวลา หลังจบ Workshop" },
+      { title: "30-Day Group Support", valueAmount: 9900, value: "฿9,900", text: "กลุ่ม support 30 วันหลัง seminar ทีม BizDrive ตอบเอง" },
+      { title: "Claude AI Online Course", valueAmount: 3900, value: "฿3,900", text: "แถมคอร์สออนไลน์เต็มชุด เรียนต่อหลัง Workshop" },
+    ],
+    guarantee: {
+      title: "รับประกันความพอใจ",
+      text: "ถ้าจบวัน ไม่รู้สึกว่าคุ้ม ทักมาภายใน 7 วัน คืนเงินครึ่งหนึ่งโดยไม่ถาม",
+    },
+    faqs: [
+      { q: "Seminar จัดที่ไหน วันไหน?", a: "BizDrive Academy กรุงเทพมหานคร · วันที่จะแจ้งเมื่อยืนยันการจอง · ที่นั่ง 15 ท่าน/รอบ" },
+      { q: "ต้องเตรียมอะไรมา?", a: "Notebook + Claude Pro account (เราช่วย setup ในคลาส) + ข้อมูลธุรกิจ + งานจริงที่อยากให้ Claude ช่วยทำ" },
+      { q: "ต้องเขียนโค้ดเป็นไหม?", a: "ไม่จำเป็น — Claude Code เขียนให้ · คอร์สสอนทุกคน · ถ้าเขียนโค้ดเป็นจะใช้ได้ลึกกว่า" },
+      { q: "เหมาะกับใคร?", a: "เจ้าของธุรกิจ/freelancer/manager/developer ที่อยากใช้ Claude ลึกกว่าผิวๆ" },
+      { q: "ราคา ฿9,900 คุ้มยังไง?", a: "ของรวมเกิน ฿18,000 — Workshop + วิดีโอบันทึก + 30-day support + แถม Online · ค่าเดินทาง/อาหารรวม" },
+      { q: "ไปกับทีมได้ไหม?", a: "ได้ครับ ทีม 2-3 คนจากบริษัทเดียวกันมีส่วนลด 15% — แจ้งตอนจอง" },
+      { q: "ออกใบกำกับภาษีได้ไหม?", a: "ได้ครับ เต็มรูปแบบ — แจ้งข้อมูลบริษัทตอนจอง" },
+    ],
+    scarcity: "รอบนี้เหลือ 15 ที่นั่ง · ปิดรับสมัครเมื่อเต็ม",
+    deadline: {
+      rolling: { days: 5 },
+      label: "รอบปัจจุบันปิดรับใน",
+      expiredLabel: "รอบนี้เต็มแล้ว — แจ้งรอบถัดไป",
+    },
+    idealFor: {
+      title: "Seminar เหมาะกับคุณถ้า…",
+      yes: [
+        "ใช้ Claude มาบ้างแล้วและอยาก setup จริงจัง",
+        "อยาก setup Claude Code + MCP บนเครื่องตัวเองให้ทำงานได้จบในวันเดียว",
+        "ต้องการคนช่วย troubleshoot ตรงโต๊ะคุณ ไม่ใช่นั่งงมเอง",
+        "พร้อมเดินทางมากรุงเทพฯ ในวันที่กำหนด",
+      ],
+      no: [
+        { text: "อยากเรียนตามจังหวะตัวเอง ไม่อยากเดินทาง", linkTo: "claude-online" },
+        { text: "ธุรกิจซับซ้อน ต้องการ workflow เฉพาะตัว 1:1", linkTo: "manus-ai-private" },
+      ],
+    },
+  },
+
   "one-person-online": {
     slug: "one-person-online",
     name: "One Person Business — Online",
@@ -811,12 +1044,13 @@ export const PLANS = {
 };
 
 export const MANUS_PLAN_ORDER = ["manus-ai-online", "manus-ai-seminar"];
+export const CLAUDE_PLAN_ORDER = ["claude-online", "claude-seminar"];
 export const AI_EDITOR_PLAN_ORDER = ["ai-editor-online", "ai-editor-seminar"];
 export const ONE_PERSON_PLAN_ORDER = ["one-person-online", "one-person-seminar"];
 export const PRIVATE_SLUG = "manus-ai-private";
 // PLAN_ORDER kept for backward compat (3 manus slugs incl. private) — new code should use MANUS_PLAN_ORDER + PRIVATE_SLUG
 export const PLAN_ORDER = [...MANUS_PLAN_ORDER, PRIVATE_SLUG];
-export const ALL_PLAN_SLUGS = [...MANUS_PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER, ...ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG];
+export const ALL_PLAN_SLUGS = [...MANUS_PLAN_ORDER, ...CLAUDE_PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER, ...ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG];
 
 export const ACADEMY = {
   name: "BizDrive Academy",

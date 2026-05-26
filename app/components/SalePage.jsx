@@ -15,6 +15,8 @@ const PLAN_SHORT_NAME = {
   "manus-ai-online": "Manus Online",
   "manus-ai-seminar": "Manus Seminar",
   "manus-ai-private": "Private 1:1 Custom",
+  "claude-online": "Claude Online",
+  "claude-seminar": "Claude Seminar",
   "ai-editor-online": "AI Editor Online",
   "ai-editor-seminar": "AI Editor Seminar",
   "one-person-online": "One Person Online",

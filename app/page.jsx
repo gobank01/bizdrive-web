@@ -1,4 +1,4 @@
-import { PLANS, PLAN_ORDER, MANUS_PLAN_ORDER, AI_EDITOR_PLAN_ORDER, ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG } from "./class/_data";
+import { PLANS, PLAN_ORDER, MANUS_PLAN_ORDER, CLAUDE_PLAN_ORDER, AI_EDITOR_PLAN_ORDER, ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG } from "./class/_data";
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./components/LeadForm";
 import LocationContact from "./components/LocationContact";
@@ -667,7 +667,25 @@ const COURSE_TRACKS = [
     },
   },
   {
-    label: "Course 2 · ใหม่",
+    label: "Course 2",
+    title: "Claude AI — เจาะลึก Anthropic Claude",
+    sub: "Projects · Artifacts · Claude Code · MCP servers — AI ที่คิดลึกกว่า ChatGPT",
+    count: "2 รูปแบบ",
+    accent: { bg: "bg-[#191919]/10", text: "text-[#191919]" },
+    cols: 2,
+    slugs: CLAUDE_PLAN_ORDER,
+    advice: {
+      title: "Course นี้เหมาะกับคุณถ้า…",
+      bullets: [
+        "ใช้ ChatGPT มาแล้วและอยากยกระดับด้วย AI ที่คิดลึกกว่า",
+        "ทำงานเอกสารยาว / analysis / strategy / coding",
+        "อยากเชื่อม Claude กับ Slack/Notion/Drive ผ่าน MCP",
+      ],
+      pickHint: "💡 เริ่มเอง → Online · setup กับเครื่องคุณในวันเดียว → Seminar",
+    },
+  },
+  {
+    label: "Course 3 · ใหม่",
     title: "AI Video Editor — ตัดต่อด้วย AI Agent",
     sub: "Codex CLI / Claude Code + Hyperframes — pipeline จาก footage 1 ชม. → Reels 5 นาที",
     count: "2 รูปแบบ",
@@ -685,7 +703,7 @@ const COURSE_TRACKS = [
     },
   },
   {
-    label: "Course 3 · เร็ว ๆ นี้",
+    label: "Course 4 · เร็ว ๆ นี้",
     title: "One Person Business — วาง business system ด้วย AI",
     sub: "เปิดรอบแรก กรกฎาคม 2026 · ลงทะเบียนรอเพื่อรับสิทธิ์ early-bird",
     count: "2 รูปแบบ",
@@ -715,7 +733,7 @@ function PricingSection() {
             เรียน AI แบบลงมือทำจริง — เลือก Course ที่ใช่กับคุณ
           </h2>
           <p className="mx-auto mt-[14px] max-w-[680px] text-center text-muted">
-            3 Courses (Online / Seminar) · พร้อม Private 1:1 Custom สำหรับธุรกิจซับซ้อน
+            4 Courses (Online / Seminar) · พร้อม Private 1:1 Custom สำหรับธุรกิจซับซ้อน
           </p>
         </div>
 
