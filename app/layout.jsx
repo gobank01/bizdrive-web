@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import ClientEffects from "./components/ClientEffects";
 import ConsentProvider from "./components/ConsentProvider";
 import LeadPopup from "./components/LeadPopup";
+import OrganizationSchema from "./components/OrganizationSchema";
 import "./globals.css";
 
 const noto = Noto_Sans_Thai({
@@ -51,6 +52,7 @@ export default async function RootLayout({ children }) {
             <a className="skip-link" href="#main">
               ข้ามไปเนื้อหา
             </a>
+            <OrganizationSchema />
             <Nav />
             <main id="main">{children}</main>
             <Footer />
