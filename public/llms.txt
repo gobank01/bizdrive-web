@@ -23,6 +23,13 @@ BizDrive มี 2 courses หลัก (Online + Seminar) แต่ละ course
 - [AI Video Editor Online (฿3,900)](https://bizdrive-web.vercel.app/ai-editor/online): คอร์สออนไลน์ · 6 modules · Brand Kit template · Prompt library 30+ ชุด · community + office hour · ตัด Reels 1 ชม. footage → 5 นาทีงานเสร็จ
 - [AI Video Editor Seminar (฿9,900)](https://bizdrive-web.vercel.app/ai-editor/seminar): Workshop 1 วัน · กลุ่ม 15 ท่าน · setup pipeline บนเครื่องคุณเอง · ตัด Reels แรกในคลาส · 30-day group support + แถม Online course
 
+### Course 3: One Person Business — วาง business system ด้วย AI (เปิด ก.ค. 2026)
+
+วางระบบธุรกิจคนเดียวให้ scale ได้ — positioning, pricing, sales pipeline, ops, AI workflow, finance, scale roadmap · ใช้ AI เป็น leverage แทนการจ้างคน
+
+- [One Person Business Online (฿3,900)](https://bizdrive-web.vercel.app/one-person/online): คอร์สออนไลน์ · 6 modules · Notion template + Prompt library 50+ ชุด · community + office hour · **เปิดรอบแรก กรกฎาคม 2026** (waitlist)
+- [One Person Business Seminar (฿9,900)](https://bizdrive-web.vercel.app/one-person/seminar): Workshop 1 วัน · 15 ท่าน · ออกแบบ business blueprint ในคลาส · 30-day group support · **เปิดรอบแรก กรกฎาคม 2026** (waitlist)
+
 ### Private 1:1 — Custom (ทางเลือกพิเศษ)
 
 - [Private 1:1 Custom AI Coaching (฿39,000)](https://bizdrive-web.vercel.app/private): โค้ช 1:1 กับพี่แบงค์ · เนื้อหา Custom ทุก session ตามธุรกิจและเป้าหมาย (Manus AI / AI Editor / workflow / automation / business strategy) · 4 sessions × 90 นาที · 60-day group support · ไม่ใช่ template สำเร็จรูป

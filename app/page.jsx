@@ -1,4 +1,4 @@
-import { PLANS, PLAN_ORDER, MANUS_PLAN_ORDER, AI_EDITOR_PLAN_ORDER, PRIVATE_SLUG } from "./class/_data";
+import { PLANS, PLAN_ORDER, MANUS_PLAN_ORDER, AI_EDITOR_PLAN_ORDER, ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG } from "./class/_data";
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./components/LeadForm";
 import LocationContact from "./components/LocationContact";
@@ -684,6 +684,25 @@ const COURSE_TRACKS = [
       pickHint: "💡 อยากลองก่อน → เริ่ม Online · ต้องการ setup pipeline ในวันเดียว → Seminar",
     },
   },
+  {
+    label: "Course 3 · เร็ว ๆ นี้",
+    title: "One Person Business — วาง business system ด้วย AI",
+    sub: "เปิดรอบแรก กรกฎาคม 2026 · ลงทะเบียนรอเพื่อรับสิทธิ์ early-bird",
+    count: "2 รูปแบบ",
+    accent: { bg: "bg-[#047857]/10", text: "text-[#047857]" },
+    cols: 2,
+    slugs: ONE_PERSON_PLAN_ORDER,
+    comingSoon: true,
+    advice: {
+      title: "Course นี้เหมาะกับคุณถ้า…",
+      bullets: [
+        "ทำธุรกิจคนเดียว/freelancer มาแล้ว และเริ่มรู้สึกติดเพดาน",
+        "อยากวางระบบทั้งภาพ (positioning, sales, ops, finance, scale)",
+        "ใช้ AI เป็น leverage แทนการจ้างคน — ทำคนเดียว output เหมือนทีม",
+      ],
+      pickHint: "🟢 เปิดรับลงทะเบียน waitlist แล้ว — early-bird ได้ราคาดีสุด",
+    },
+  },
 ];
 
 function PricingSection() {
@@ -696,7 +715,7 @@ function PricingSection() {
             เรียน AI แบบลงมือทำจริง — เลือก Course ที่ใช่กับคุณ
           </h2>
           <p className="mx-auto mt-[14px] max-w-[680px] text-center text-muted">
-            2 Courses หลัก (Online / Seminar) · หรือถ้าอยากได้ workflow Custom ดู Private 1:1 ด้านล่าง
+            3 Courses (Online / Seminar) · พร้อม Private 1:1 Custom สำหรับธุรกิจซับซ้อน
           </p>
         </div>
 
@@ -823,9 +842,16 @@ function CourseTrack({ track }) {
 }
 
 function ClassCard({ plan, featured }) {
+  const isComingSoon = plan.comingSoon;
   return (
-    <article className={`flex flex-col rounded-[14px] border bg-white p-[28px] text-center transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-brand ${featured ? "border-brand-blue/35 shadow-brand" : "border-line"}`}>
-      <span className={`mx-auto mb-4 inline-flex items-center rounded-full px-[14px] py-1.5 text-[13px] font-extrabold ${featured ? "bg-brand-yellow text-ink" : "bg-soft text-brand-blue"}`}>
+    <article className={`relative flex flex-col rounded-[14px] border bg-white p-[28px] text-center transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-brand ${featured && !isComingSoon ? "border-brand-blue/35 shadow-brand" : "border-line"} ${isComingSoon ? "border-[#047857]/35" : ""}`}>
+      {isComingSoon ? (
+        <span className="absolute -top-3 right-4 inline-flex items-center gap-1.5 rounded-full bg-[#047857] px-3 py-1 text-[11.5px] font-extrabold text-white shadow-brand-sm">
+          <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-yellow" />
+          เปิด {plan.availableFrom || "เร็ว ๆ นี้"}
+        </span>
+      ) : null}
+      <span className={`mx-auto mb-4 inline-flex items-center rounded-full px-[14px] py-1.5 text-[13px] font-extrabold ${isComingSoon ? "bg-[#047857]/10 text-[#047857]" : featured ? "bg-brand-yellow text-ink" : "bg-soft text-brand-blue"}`}>
         {plan.badge}
       </span>
       <h3 className="text-[1.2rem] font-extrabold leading-[1.3]">{plan.name}</h3>
@@ -835,10 +861,11 @@ function ClassCard({ plan, featured }) {
         <span className="text-[clamp(2rem,5vw,2.6rem)] font-extrabold leading-none text-brand-blue">
           {plan.price.toLocaleString()}
         </span>
+        {isComingSoon ? <span className="ml-2 text-[12px] font-bold text-[#047857]">Early-bird</span> : null}
       </div>
       <p className="mb-[20px] text-[13.5px] text-muted">{plan.tagline}</p>
-      <a href={urlForPlan(plan.slug)} className={`btn mt-auto w-full ${featured ? "btn-primary" : "btn-outline"}`}>
-        ดูรายละเอียด
+      <a href={urlForPlan(plan.slug)} className={`btn mt-auto w-full ${isComingSoon ? "bg-[#047857] text-white hover:brightness-110" : featured ? "btn-primary" : "btn-outline"}`}>
+        {isComingSoon ? "ลงทะเบียนรอ" : "ดูรายละเอียด"}
       </a>
     </article>
   );

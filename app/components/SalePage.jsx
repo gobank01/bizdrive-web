@@ -17,6 +17,8 @@ const PLAN_SHORT_NAME = {
   "manus-ai-private": "Private 1:1 Custom",
   "ai-editor-online": "AI Editor Online",
   "ai-editor-seminar": "AI Editor Seminar",
+  "one-person-online": "One Person Online",
+  "one-person-seminar": "One Person Seminar",
 };
 
 const ACCENT = {
@@ -60,6 +62,12 @@ function Hero({ plan, accent }) {
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#fff_72%)] pt-[88px] pb-[72px] max-[620px]:pt-[58px] max-[620px]:pb-[54px]">
       <div className="hero-grid pointer-events-none absolute inset-0" />
       <div className="bx-container relative max-w-[880px] text-center">
+        {plan.comingSoon ? (
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border-2 border-[#047857] bg-[#047857]/[.08] px-4 py-1.5 text-[13px] font-extrabold text-[#047857]">
+            <span aria-hidden="true" className="h-2 w-2 animate-pulse rounded-full bg-[#047857]" />
+            COMING SOON · เปิดรอบแรก {plan.availableFrom}
+          </div>
+        ) : null}
         <span className={`mb-[22px] inline-flex items-center rounded-full px-[14px] py-2 text-sm font-bold ${accent.badge}`}>
           {plan.badge} · {plan.name}
         </span>

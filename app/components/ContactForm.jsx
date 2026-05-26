@@ -8,6 +8,8 @@ const TOPICS = [
   { value: "manus-seminar", label: "สมัครคลาส Manus AI Seminar (฿9,900)" },
   { value: "ai-editor-online", label: "สมัคร AI Video Editor Online (฿3,900)" },
   { value: "ai-editor-seminar", label: "สมัคร AI Video Editor Seminar (฿9,900)" },
+  { value: "one-person-online", label: "ลงทะเบียนรอ One Person Business Online (เปิด ก.ค.)" },
+  { value: "one-person-seminar", label: "ลงทะเบียนรอ One Person Business Seminar (เปิด ก.ค.)" },
   { value: "manus-private", label: "Private 1:1 Custom Coaching (฿39,000)" },
   { value: "consulting", label: "ปรึกษาเรื่องวางระบบ AI ในธุรกิจ" },
   { value: "partnership", label: "ความร่วมมือ / Partnership" },
@@ -38,6 +40,8 @@ export default function ContactForm() {
         "manus-private": "manus-ai-private",
         "ai-editor-online": "ai-editor-online",
         "ai-editor-seminar": "ai-editor-seminar",
+        "one-person-online": "one-person-online",
+        "one-person-seminar": "one-person-seminar",
       };
       const res = await fetch("/api/leads", {
         method: "POST",

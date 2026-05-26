@@ -7,6 +7,8 @@ const CLASSES = [
   { href: "/manus/seminar", label: "Manus AI — Seminar", price: "฿9,900" },
   { href: "/ai-editor/online", label: "AI Video Editor — Online", price: "฿3,900" },
   { href: "/ai-editor/seminar", label: "AI Video Editor — Seminar", price: "฿9,900" },
+  { href: "/one-person/online", label: "One Person Business — Online", price: "เปิด กค" },
+  { href: "/one-person/seminar", label: "One Person Business — Seminar", price: "เปิด กค" },
   { href: "/private", label: "Private 1:1 Custom", price: "฿39,000" },
 ];
 

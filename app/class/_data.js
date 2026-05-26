@@ -582,14 +582,241 @@ export const PLANS = {
       ],
     },
   },
+
+  "one-person-online": {
+    slug: "one-person-online",
+    name: "One Person Business — Online",
+    tagline: "วางระบบธุรกิจคนเดียวให้เหมือนมีทีมใหญ่ ด้วย AI + ระบบที่ scale ได้",
+    price: 3900,
+    originalPrice: 5900,
+    priceLabel: "฿3,900",
+    priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
+    badge: "เปิด กค",
+    accent: "blue",
+    cardSub: "เรียน self-paced · เปิดรอบแรก ก.ค. 2026",
+    comingSoon: true,
+    availableFrom: "กรกฎาคม 2026",
+    stripeUrl: null,
+    hero: {
+      headline: "ทำธุรกิจคนเดียวอย่างเป็นระบบ — ไม่เหนื่อย ไม่ติดที่ตัวเอง สเกลได้",
+      sub: "เรียนทุกขั้นตอน: positioning · pricing · sales · ระบบหลังบ้าน · AI workflow · finance · scale plan — สำหรับเจ้าของธุรกิจคนเดียว / freelancer / solopreneur",
+      ctaPrimary: "ลงทะเบียนรอรอบแรก",
+      ctaSecondary: "ดูเนื้อหาคอร์ส",
+    },
+    problem: {
+      title: "ทำคนเดียวมาสักพัก — เริ่มรู้สึกติดเพดาน ทำงาน 60-80 ชม./สัปดาห์",
+      points: [
+        "งานเข้าเยอะ แต่ทำคนเดียวไม่ทันแล้ว — เริ่มปฏิเสธลูกค้า",
+        "อยากจ้างคน แต่ยังไม่กล้า / ยังไม่มีระบบให้คนตามได้",
+        "ทำเองทุกอย่าง — sales, ดูแลลูกค้า, การเงิน, คอนเทนต์ — เลยไม่มีเวลาคิด strategy",
+        "รายได้ดี แต่รู้สึกว่าตัวเองคือคอขวด ลาป่วยไม่ได้ ไปเที่ยวไม่ได้",
+      ],
+    },
+    solution: {
+      title: "วางระบบ + AI แทนทีม — ทำคนเดียวให้ output เหมือนทีม 5-10 คน",
+      body: "ไม่ใช่คอร์สสอนใช้ AI เพียวๆ แต่เป็น blueprint ทั้งระบบของธุรกิจคนเดียวที่ scale ได้ — positioning, pricing, sales pipeline, automation, finance tracking, AI workflow, scale roadmap · ใช้ AI เป็น leverage หลัก (ไม่ใช่จ้างคน)",
+    },
+    modules: [
+      { num: "01", title: "Positioning + Niche", text: "เลือก niche ที่ขายได้ · ตั้งราคาให้คุ้ม · ไม่แข่งราคา", bullets: [
+        "Niche selection framework — เลือก market ที่ buy ไม่ shop",
+        "Positioning statement ที่ทำให้แพงได้",
+        "Pricing psychology สำหรับ solo business",
+        "Case study: ธุรกิจคนเดียวรายได้ 7 หลัก/เดือน"
+      ] },
+      { num: "02", title: "Sales Pipeline สำหรับคนเดียว", text: "ระบบขายที่ไม่ต้อง cold call · ลูกค้ามาเอง", bullets: [
+        "Inbound funnel: content → lead → call → close",
+        "Lead qualifying framework — กรองลูกค้าก่อนเสียเวลา",
+        "AI-powered DM auto-reply (ไม่เสียโอกาส)",
+        "Proposal template + closing script"
+      ] },
+      { num: "03", title: "ระบบหลังบ้าน (Operations)", text: "ลูกค้าเข้า → ส่งมอบ → invoice → follow-up · auto", bullets: [
+        "Client intake form + onboarding flow",
+        "Project tracking ที่ทำคนเดียวก็ไม่หลุด",
+        "Invoice + payment reminder อัตโนมัติ",
+        "Document management — ไฟล์อะไรอยู่ไหน หาเจอเร็ว"
+      ] },
+      { num: "04", title: "AI Workflow ที่แทนพนักงาน", text: "ใช้ AI เป็นทีม — ผู้ช่วย, นักการตลาด, นักออกแบบ", bullets: [
+        "Map งานในธุรกิจคุณ → AI ทำได้กี่อย่าง",
+        "Content engine — สัปดาห์ละ 1 ชั่วโมง = 1 เดือนของคอนเทนต์",
+        "Customer support ที่ AI ช่วยร่าง คุณแค่ approve",
+        "Research + analysis ด้วย Claude/Gemini"
+      ] },
+      { num: "05", title: "Finance + Tracking", text: "รู้ว่าธุรกิจกำไรจริงเท่าไหร่ · เก็บเงินไม่หาย", bullets: [
+        "Profit-First framework สำหรับ solo business",
+        "Tax planning เบื้องต้น — บุคคล vs นิติบุคคล",
+        "Track รายรับ-รายจ่าย ใน Sheets + AI categorize",
+        "Cash flow forecast 3-6 เดือน"
+      ] },
+      { num: "06", title: "Scale Plan — จาก 1 → 5 → 10x", text: "เมื่อพร้อมขยาย ทำยังไงโดยไม่เสียคุณภาพ", bullets: [
+        "Productize service — เปลี่ยน custom job เป็น scalable offer",
+        "Hire first team member — อะไรควรจ้างคนแรก",
+        "Systems → SOPs → Team handoff",
+        "Exit strategy — ถ้าวันนึงอยากขาย/ลดบทบาท"
+      ] },
+    ],
+    outcomes: [
+      "มี business model + positioning ที่ขายได้ ไม่แข่งราคา",
+      "ระบบขาย + ส่งมอบ + ดูแลลูกค้า ที่ทำคนเดียวก็ไม่หลุด",
+      "AI workflow ที่ทำงานแทน 3-5 คน — content, support, research, ops",
+      "รู้ว่าธุรกิจกำไรจริงเท่าไหร่ · เก็บเงินครบ · วางแผนภาษีเบื้องต้นได้",
+      "Roadmap 90 วันสำหรับ scale ถัดไป — ถ้าอยากเติบโต",
+    ],
+    bonuses: [
+      { title: "Solo Business OS Template", valueAmount: 2900, value: "฿2,900", text: "Notion template ครบชุด — pipeline, client, finance, content" },
+      { title: "AI Prompt Library 50+ ชุด", valueAmount: 1900, value: "฿1,900", text: "Prompt สำหรับ sales/support/content ที่ใช้จริง" },
+      { title: "Community + Office Hour", valueAmount: 2900, value: "฿2,900", text: "เข้ากลุ่ม solopreneur ไทย + office hour สัปดาห์ละครั้ง" },
+    ],
+    guarantee: {
+      title: "รับประกัน 7 วัน คืนเงินเต็มจำนวน",
+      text: "ลองเรียน 7 วัน ถ้ารู้สึกว่าไม่ใช่ทางคุณ ทักมา คืนเงินให้เต็มจำนวน ไม่ถาม",
+    },
+    faqs: [
+      { q: "เปิดเรียนเมื่อไหร่?", a: "เปิดรอบแรกกรกฎาคม 2026 · ฝากอีเมลไว้ — เราจะแจ้งทันทีที่เปิดรับสมัคร · ผู้ที่ลงทะเบียนรอจะได้ราคา early-bird" },
+      { q: "ต่างจาก Manus AI ยังไง?", a: "Manus AI เน้นใช้ AI tools เป็นหลัก · One Person Business เน้นวางระบบธุรกิจทั้งภาพ (sales, ops, finance, scale) โดยใช้ AI เป็น leverage · เหมาะกับคนที่อยากออกแบบธุรกิจคนเดียวให้ scale ได้" },
+      { q: "เหมาะกับใคร?", a: "เจ้าของธุรกิจคนเดียว / freelancer / consultant / solopreneur ที่ทำมา 6 เดือน-3 ปี และเริ่มรู้สึกติดเพดาน · ไม่เหมาะกับมือใหม่ที่ยังไม่ได้เริ่มทำ" },
+      { q: "ราคา ฿3,900 คุ้มยังไง?", a: "ของรวมเกิน ฿11,000 — คอร์ส + Notion template + Prompt library + community · เทียบเวลาที่ประหยัด คุ้มภายใน 1-2 สัปดาห์" },
+      { q: "ใช้ภาษาไทยตลอดไหม?", a: "ใช่ครับ — ภาษาไทยล้วน · ตัวอย่างจริงจากธุรกิจไทย" },
+      { q: "อัปเดตเนื้อหาไหม?", a: "อัปเดตทุก 3-6 เดือน — ตามเทคนิคและเครื่องมือใหม่ที่คุ้มเอาไปใช้" },
+      { q: "ออกใบกำกับภาษีได้ไหม?", a: "ออกใบกำกับภาษี/ใบเสร็จเต็มรูปแบบได้ — แจ้งทีมตอนสมัคร" },
+    ],
+    scarcity: "รอบแรก Early-bird ราคา ฿3,900 · ราคาจะปรับขึ้นหลังเปิดรอบจริง",
+    deadline: null,
+    idealFor: {
+      title: "คลาสนี้เหมาะกับคุณถ้า…",
+      yes: [
+        "ทำธุรกิจคนเดียว/ฟรีแลนซ์มา 6 เดือน-3 ปี และเริ่มรู้สึกติดเพดาน",
+        "อยากใช้ AI วางระบบทั้งภาพ ไม่ใช่แค่ใช้ tool",
+        "พร้อมลงทุนในตัวเอง — คิดเชิง business owner ไม่ใช่ freelancer",
+        "อยากมีเวลาคิด strategy · ไม่ติดอยู่กับงาน admin",
+      ],
+      no: [
+        { text: "เพิ่งเริ่มต้น ยังไม่มีลูกค้า/ธุรกิจ", linkTo: "manus-ai-online" },
+        { text: "อยากเรียนใช้ AI tools เป็นหลัก (ไม่ใช่ business system)", linkTo: "manus-ai-online" },
+        { text: "ต้องการ workflow เฉพาะธุรกิจคุณ 1:1", linkTo: "manus-ai-private" },
+      ],
+    },
+  },
+
+  "one-person-seminar": {
+    slug: "one-person-seminar",
+    name: "One Person Business — Seminar",
+    tagline: "Workshop 1 วันเต็ม — วาง business system ครบทั้งภาพในวันเดียว",
+    price: 9900,
+    originalPrice: 14900,
+    priceLabel: "฿9,900",
+    priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 15 คน",
+    badge: "เปิด กค",
+    accent: "orange",
+    cardSub: "1 วันเต็ม · กลุ่มเล็ก · เปิดรอบแรก ก.ค. 2026",
+    comingSoon: true,
+    availableFrom: "กรกฎาคม 2026",
+    stripeUrl: null,
+    hero: {
+      headline: "1 วันเต็ม — ออกจากห้องไปพร้อม business plan + AI workflow ของคุณเอง",
+      sub: "Workshop กลุ่มเล็ก 15 ท่าน · พี่แบงค์ + ทีม BizDrive วนโต๊ะช่วยออกแบบ business system เฉพาะธุรกิจคุณ · ไม่ใช่ฟังบรรยายแล้วกลับบ้าน",
+      ctaPrimary: "ลงทะเบียนรอรอบแรก",
+      ctaSecondary: "ดูตารางวัน",
+    },
+    problem: {
+      title: "เรียนคอร์สมาเยอะแล้ว แต่ยังไม่ลงมือสักที",
+      points: [
+        "อ่านหนังสือ business มาสิบเล่ม แต่ก็ไม่ได้เริ่มทำจริง",
+        "ทำคนเดียวเลยไม่มีคนช่วยคิด strategy ระดับ business",
+        "อยากเจอ solopreneur คนอื่นที่อยู่ในจังหวะคล้าย ๆ กัน",
+        "ต้องการ momentum + accountability — ลงมือใน 1 วัน",
+      ],
+    },
+    solution: {
+      title: "Workshop 1 วัน — มา 1 ท่าน กลับไปพร้อม business blueprint ของตัวเอง",
+      body: "Seminar กลุ่มเล็ก 15 ท่าน · เน้น hands-on ออกแบบ business system ของคุณเองในคลาส · พี่แบงค์ + ทีม BizDrive วนโต๊ะช่วยทุกท่าน · จบวันมี positioning + sales pipeline + AI workflow + scale plan ของตัวเอง พร้อมใช้",
+    },
+    modules: [
+      { num: "09:00", title: "เปิดวัน + Business Audit", text: "audit ธุรกิจปัจจุบัน · ระบุจุดติดเพดาน", bullets: [
+        "Welcome + แนะนำตัว 15 ท่าน",
+        "Business audit worksheet — กรอกข้อมูลธุรกิจคุณ",
+        "Map จุดที่ติดเพดานของแต่ละคน"
+      ] },
+      { num: "10:30", title: "Positioning + Pricing", text: "เลือก niche + ตั้งราคาใหม่ในคลาส", bullets: [
+        "Positioning statement workshop",
+        "Pricing audit — ราคาคุณตอนนี้ vs ราคาที่ควรเป็น",
+        "Coffee break (15 นาที)"
+      ] },
+      { num: "12:00", title: "Sales Pipeline Design", text: "ออกแบบ inbound funnel ของคุณเอง", bullets: [
+        "Funnel mapping — จาก content → lead → close",
+        "Lead qualifying script",
+        "Peer review — เพื่อนข้าง ๆ ดู funnel ของคุณ"
+      ] },
+      { num: "13:00", title: "พักเที่ยง + Networking", text: "อาหารเที่ยงรวม + คุยกับ solopreneur คนอื่น", bullets: [
+        "Lunch รวม (รวมในราคา)",
+        "Speed networking — เปลี่ยนคู่คุย",
+        "พี่แบงค์ตอบคำถาม free flow"
+      ] },
+      { num: "14:00", title: "AI Workflow Build", text: "เลือก workflow แรก → build ในคลาส", bullets: [
+        "Map AI ที่จะแทนงานไหน",
+        "Build workflow 1 ตัว live (sales / content / support)",
+        "Setup + test กับ data ของคุณ"
+      ] },
+      { num: "15:30", title: "Finance + Scale Plan", text: "วาง finance system + 90-day plan", bullets: [
+        "Profit-First template + Cash flow forecast",
+        "90-day action plan ของแต่ละคน",
+        "Scale roadmap — เมื่อพร้อมขยาย"
+      ] },
+      { num: "17:00", title: "Wrap + Commit", text: "Commit กับ buddy + 30 วัน accountability", bullets: [
+        "Buddy system — จับคู่ accountability 30 วัน",
+        "Group chat invite — start วันถัดไป",
+        "Photo + closing"
+      ] },
+    ],
+    outcomes: [
+      "Business blueprint ของคุณเอง — positioning + pricing + sales + ops",
+      "AI workflow 1 ตัวที่ build เสร็จในคลาส พร้อมใช้",
+      "Finance + 90-day plan ที่กรอกข้อมูลธุรกิจคุณแล้ว",
+      "เครือข่าย solopreneur ไทย 14 คน",
+      "30 วัน group support หลัง seminar + recording + buddy",
+    ],
+    bonuses: [
+      { title: "วิดีโอบันทึก Seminar เต็มวัน", valueAmount: 4900, value: "฿4,900", text: "ทบทวนได้ทุกที่ ทุกเวลา หลังจบ Workshop" },
+      { title: "30-Day Group Support", valueAmount: 9900, value: "฿9,900", text: "กลุ่ม support + accountability 30 วัน" },
+      { title: "One Person Business Online Course", valueAmount: 3900, value: "฿3,900", text: "แถมคอร์สออนไลน์เต็มชุด เรียนต่อหลัง Workshop" },
+    ],
+    guarantee: {
+      title: "รับประกันความพอใจ",
+      text: "ถ้าจบวัน ไม่รู้สึกว่าคุ้ม ทักมาภายใน 7 วัน คืนเงินครึ่งหนึ่งโดยไม่ถาม",
+    },
+    faqs: [
+      { q: "เปิดเรียนเมื่อไหร่?", a: "เปิดรอบแรกกรกฎาคม 2026 · ฝากอีเมลไว้ — เราจะแจ้งวันที่และตารางทันทีที่ยืนยัน" },
+      { q: "จัดที่ไหน?", a: "BizDrive Academy กรุงเทพมหานคร · ที่นั่งจำกัด 15 ท่าน/รอบ" },
+      { q: "เหมาะกับใคร?", a: "เจ้าของธุรกิจคนเดียว / freelancer / consultant ที่ทำมา 6 เดือน-3 ปี และอยากวาง business system จริงจัง" },
+      { q: "ต้องเตรียมอะไรมา?", a: "Notebook + ข้อมูลธุรกิจ (รายได้, ลูกค้า, ราคาปัจจุบัน, pain point) — เราเตรียม template ให้กรอก" },
+      { q: "ราคา ฿9,900 คุ้มยังไง?", a: "ของรวมเกิน ฿18,000 — Workshop + วิดีโอบันทึก + 30-day support + แถม Online · ค่าเดินทาง/อาหารรวมแล้ว" },
+      { q: "ไปกับทีมได้ไหม?", a: "ได้ครับ ทีม 2-3 คนจากบริษัทเดียวกันมีส่วนลด 15% — แจ้งตอนจอง" },
+      { q: "ออกใบกำกับภาษีได้ไหม?", a: "ได้ครับ เต็มรูปแบบ — แจ้งข้อมูลบริษัทตอนจอง" },
+    ],
+    scarcity: "รอบแรก Early-bird ที่นั่งจำกัด 15 ท่าน · ลงทะเบียนรอเพื่อรับสิทธิ์จองก่อน",
+    deadline: null,
+    idealFor: {
+      title: "Seminar เหมาะกับคุณถ้า…",
+      yes: [
+        "ทำธุรกิจคนเดียว/freelancer มาแล้วและอยากวางระบบจริงจัง",
+        "อยากเจอและคุยกับ solopreneur คนอื่นในจังหวะคล้ายกัน",
+        "ต้องการ momentum + คนชี้แนะตรงโต๊ะคุณ ไม่ใช่เรียนคนเดียว",
+        "พร้อมเดินทางมากรุงเทพฯ ในวันที่กำหนด",
+      ],
+      no: [
+        { text: "อยากเรียนตามจังหวะตัวเอง ไม่อยากเดินทาง", linkTo: "one-person-online" },
+        { text: "ธุรกิจซับซ้อน ต้องการ workflow เฉพาะตัว 1:1", linkTo: "manus-ai-private" },
+      ],
+    },
+  },
 };
 
 export const MANUS_PLAN_ORDER = ["manus-ai-online", "manus-ai-seminar"];
 export const AI_EDITOR_PLAN_ORDER = ["ai-editor-online", "ai-editor-seminar"];
+export const ONE_PERSON_PLAN_ORDER = ["one-person-online", "one-person-seminar"];
 export const PRIVATE_SLUG = "manus-ai-private";
 // PLAN_ORDER kept for backward compat (3 manus slugs incl. private) — new code should use MANUS_PLAN_ORDER + PRIVATE_SLUG
 export const PLAN_ORDER = [...MANUS_PLAN_ORDER, PRIVATE_SLUG];
-export const ALL_PLAN_SLUGS = [...MANUS_PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER, PRIVATE_SLUG];
+export const ALL_PLAN_SLUGS = [...MANUS_PLAN_ORDER, ...AI_EDITOR_PLAN_ORDER, ...ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG];
 
 export const ACADEMY = {
   name: "BizDrive Academy",

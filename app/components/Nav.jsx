@@ -135,15 +135,18 @@ function MobileDrawer({ onClose }) {
             { href: "/manus/seminar", label: "Manus AI — Seminar" },
             { href: "/ai-editor/online", label: "AI Video Editor — Online" },
             { href: "/ai-editor/seminar", label: "AI Video Editor — Seminar" },
+            { href: "/one-person/online", label: "One Person Business — Online", soon: true },
+            { href: "/one-person/seminar", label: "One Person Business — Seminar", soon: true },
             { href: "/private", label: "Private 1:1 Custom" },
           ].map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={onClose}
-              className="rounded-lg px-3 py-2.5 text-[14px] text-ink/80 hover:bg-soft hover:text-brand-blue"
+              className="flex items-center justify-between rounded-lg px-3 py-2.5 text-[14px] text-ink/80 hover:bg-soft hover:text-brand-blue"
             >
-              {l.label}
+              <span>{l.label}</span>
+              {l.soon ? <span className="rounded-full bg-[#047857]/10 px-2 py-0.5 text-[10.5px] font-extrabold text-[#047857]">เปิด กค</span> : null}
             </a>
           ))}
         </nav>
