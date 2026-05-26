@@ -7,6 +7,7 @@ export const PLANS = {
     originalPrice: 5900,
     priceLabel: "฿3,900",
     priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
+    stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "เริ่มต้นง่าย",
     accent: "blue",
     cardSub: "เรียน self-paced · เริ่มได้ทันที",
@@ -124,6 +125,7 @@ export const PLANS = {
     originalPrice: 14900,
     priceLabel: "฿9,900",
     priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 20 คน",
+    stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "Workshop",
     accent: "orange",
     cardSub: "1 วันเต็ม · กลุ่มเล็ก · hands-on",
@@ -244,6 +246,7 @@ export const PLANS = {
     badge: "Custom 1:1",
     accent: "blue-dark",
     cardSub: "4 sessions · ปรับเนื้อหาได้ทุกหัวข้อ",
+    stripeUrl: null, // Private requires manual booking — keep null
     hero: {
       headline: "Private 1:1 — เนื้อหา Custom เต็มรูปแบบ ตามธุรกิจและเป้าหมายของคุณ",
       sub: "4 sessions กับพี่แบงค์ · เลือกหัวข้อเองได้ทุก session (Manus AI / AI Video Editor / workflow / automation / business strategy) · ออกแบบและส่งมอบให้ใช้ได้จริง · 60 วัน support หลังจบ",
@@ -347,6 +350,7 @@ export const PLANS = {
     originalPrice: 5900,
     priceLabel: "฿3,900",
     priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
+    stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "Video Workflow",
     accent: "blue",
     cardSub: "เรียน self-paced · ตัดคลิป Reels/TikTok ได้เองใน 1 สัปดาห์",
@@ -467,6 +471,7 @@ export const PLANS = {
     originalPrice: 14900,
     priceLabel: "฿9,900",
     priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 15 คน",
+    stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "Workshop",
     accent: "orange",
     cardSub: "1 วันเต็ม · กลุ่มเล็ก · setup pipeline บนเครื่องคุณเอง",

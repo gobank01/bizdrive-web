@@ -1,5 +1,6 @@
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./LeadForm";
+import CheckoutButton from "./CheckoutButton";
 import LocationContact from "./LocationContact";
 import Reviews from "./Reviews";
 import Countdown from "./Countdown";
@@ -445,10 +446,9 @@ function Offer({ plan, accent }) {
               />
             </div>
           ) : null}
-          <p className="mt-4 mb-3 text-center text-[13px] font-semibold text-brand-blue">
-            เปิดรับสมัครเร็ว ๆ นี้ — ฝากอีเมลเพื่อรับแจ้งเตือนก่อนใคร
-          </p>
-          <LeadForm planSlug={plan.slug} source="salepage-offer" buttonLabel="แจ้งเตือนฉัน" />
+          <div className="mt-4">
+            <CheckoutButton plan={plan} source="salepage-offer" />
+          </div>
           <p className="mt-4 text-center text-[13px] text-muted">{plan.scarcity}</p>
         </div>
       </div>
