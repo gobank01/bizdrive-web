@@ -42,35 +42,35 @@ const SERVICES = [
 
 const GALLERY = [
   {
-    src: "/assets/gallery/bizdrive-ai-workflow",
-    alt: "เจ้าของธุรกิจไทยใช้แดชบอร์ด AI เพื่อวางแผนคอนเทนต์และงานประจำวัน",
-    title: "AI Workflow",
-    sub: "คอนเทนต์และงานซ้ำ",
+    src: "/assets/gallery/seminar/seminar-17.jpg",
+    alt: "บรรยากาศ Seminar กลุ่มเล็กที่ BizDrive Academy",
+    title: "Workshop ที่ Academy",
+    sub: "Hands-on กลุ่มเล็ก",
     featured: true,
   },
   {
-    src: "/assets/gallery/bizdrive-command-center",
-    alt: "ภาพ command center สำหรับจัดการวิดีโอ แคปชั่น ลูกค้า และยอดขายด้วย AI",
-    title: "Command Center",
-    sub: "เห็นงานทั้งระบบ",
+    src: "/assets/gallery/seminar/seminar-20.jpg",
+    alt: "นักเรียนลงมือทำกับ AI workflow ในคลาส",
+    title: "ลงมือทำจริง",
+    sub: "เห็นผลในคลาส",
   },
   {
-    src: "/assets/gallery/bizdrive-cafe-owner",
-    alt: "เจ้าของร้านกาแฟไทยใช้ AI ช่วยทำคอนเทนต์และตอบลูกค้าหลังร้านปิด",
-    title: "Local Business",
-    sub: "เริ่มจากงานจริง",
+    src: "/assets/gallery/private/private-16.jpg",
+    alt: "Private 1:1 session กับพี่แบงค์",
+    title: "Private 1:1",
+    sub: "ออกแบบเฉพาะธุรกิจ",
   },
   {
-    src: "/assets/gallery/bizdrive-growth-system",
-    alt: "ระบบ AI แบบโมดูลาร์ช่วยผลักดันการเติบโตของธุรกิจไทย",
-    title: "Growth System",
-    sub: "ต่อยอดเป็นระบบ",
+    src: "/assets/gallery/seminar/seminar-15.jpg",
+    alt: "พี่แบงค์สอน AI workflow ในคลาส",
+    title: "พี่แบงค์สอนเอง",
+    sub: "ทุกคลาส",
   },
   {
-    src: "/assets/gallery/bizdrive-training-workshop",
-    alt: "เวิร์กช็อปสอนเจ้าของธุรกิจใช้เวิร์กโฟลว์ AI แบบลงมือทำ",
-    title: "Hands-on Setup",
-    sub: "ส่งมอบและสอนใช้",
+    src: "/assets/gallery/private/private-19.jpg",
+    alt: "ออกแบบ AI workflow เฉพาะธุรกิจในคลาส Private",
+    title: "Workflow เฉพาะคุณ",
+    sub: "Custom ทุก session",
   },
 ];
 
@@ -154,28 +154,25 @@ function HeroSection() {
 
         <div className="mx-auto mt-7 grid max-w-[720px] grid-cols-[minmax(0,1fr)_112px] gap-4 text-left max-[620px]:mt-7 max-[620px]:max-w-[320px] max-[620px]:grid-cols-1">
           <figure className="overflow-hidden rounded-xl border border-line bg-white shadow-brand">
-            <picture>
-              <source srcSet="/assets/gallery/bizdrive-command-center.webp" type="image/webp" />
-              <img
-                src="/assets/gallery/bizdrive-command-center.jpg"
-                width="1254"
-                height="1254"
-                alt="ตัวอย่างภาพ AI เจ้าของธุรกิจไทยใช้เครื่องมือ AI วางแผนคอนเทนต์และระบบงาน"
-                fetchPriority="high"
-                className="block aspect-video w-full object-cover max-[620px]:aspect-square"
-              />
-            </picture>
+            <img
+              src="/assets/gallery/seminar/seminar-03.jpg"
+              width="1200"
+              height="900"
+              alt="บรรยากาศ Seminar ที่ BizDrive Academy — พี่แบงค์สอน AI workflow แบบ hands-on กับเจ้าของธุรกิจ"
+              fetchPriority="high"
+              className="block aspect-video w-full object-cover max-[620px]:aspect-square"
+            />
             <figcaption className="flex items-start justify-between gap-3 p-4 max-[620px]:flex-col">
-              <strong className="text-[15px] leading-[1.35] text-ink">ภาพ AI พร้อมใช้กับแบรนด์</strong>
+              <strong className="text-[15px] leading-[1.35] text-ink">บรรยากาศจริงจากคลาส</strong>
               <span className="max-w-[260px] text-right text-[13px] leading-[1.45] text-muted max-[620px]:max-w-none max-[620px]:text-left">
-                จากโจทย์ธุรกิจ สู่ภาพประกอบคอนเทนต์และหน้าเว็บ
+                Seminar + Private ที่ BizDrive Academy กรุงเทพฯ
               </span>
             </figcaption>
           </figure>
           <div className="grid gap-2.5 max-[620px]:grid-cols-3">
-            <Thumb src="/assets/gallery/bizdrive-ai-workflow" alt="ตัวอย่างภาพแดชบอร์ด AI สำหรับวางแผนธุรกิจ" />
-            <Thumb src="/assets/gallery/bizdrive-cafe-owner" alt="ตัวอย่างภาพเจ้าของร้านกาแฟใช้ AI ช่วยทำคอนเทนต์" />
-            <Thumb src="/assets/gallery/bizdrive-training-workshop" alt="ตัวอย่างภาพเวิร์กช็อปสอนใช้ AI สำหรับธุรกิจ" />
+            <Thumb src="/assets/gallery/seminar/seminar-09.jpg" alt="นักเรียนลงมือทำกับ AI workflow ใน Seminar" />
+            <Thumb src="/assets/gallery/private/private-20.jpg" alt="Private 1:1 session กับพี่แบงค์ออกแบบ workflow" />
+            <Thumb src="/assets/gallery/private/private-11.jpg" alt="คลาส Private ออกแบบระบบเฉพาะธุรกิจ" />
           </div>
         </div>
 
@@ -198,9 +195,9 @@ function HeroSection() {
 function Thumb({ src, alt }) {
   return (
     <img
-      src={`${src}.webp`}
-      width="1254"
-      height="1254"
+      src={src}
+      width="900"
+      height="900"
       alt={alt}
       loading="lazy"
       className="aspect-square w-full rounded-[10px] border border-line bg-white object-cover shadow-brand-sm"
@@ -524,12 +521,12 @@ function GallerySection() {
     <section id="ai-gallery" className="bg-soft py-[84px] max-[620px]:py-[62px]">
       <div className="bx-container">
         <div className="mb-[34px] text-center">
-          <span className="section-kicker mb-[14px]">AI visual samples</span>
+          <span className="section-kicker mb-[14px]">ผลงานจริง</span>
           <h2 className="mx-auto max-w-[760px] text-balance text-center text-[clamp(1.75rem,4vw,2.6rem)] font-extrabold leading-[1.18]">
-            ตัวอย่างภาพ AI สำหรับธุรกิจ
+            งานจริงจากคลาส BizDrive
           </h2>
           <p className="mx-auto mt-[14px] max-w-[620px] text-center text-muted">
-            ภาพตัวอย่าง 5 แบบที่สะท้อนงานจริงของ BizDrive: คอนเทนต์ วิดีโอ ระบบงาน และการสอนใช้งาน
+            ภาพจริงจาก Seminar และ Private 1:1 ที่ผ่านมา · พี่แบงค์ลงมือสอนเอง · ออกแบบ workflow กับลูกค้าจริง
           </p>
         </div>
 
@@ -550,10 +547,7 @@ function GalleryItem({ src, alt, title, sub, featured = false }) {
         featured ? "col-span-2 row-span-2 max-[620px]:col-span-1 max-[620px]:row-span-1" : ""
       }`}
     >
-      <picture>
-        <source srcSet={`${src}.webp`} type="image/webp" />
-        <img src={`${src}.jpg`} width="1254" height="1254" alt={alt} loading="lazy" className="aspect-square w-full object-cover" />
-      </picture>
+      <img src={src} width="900" height="900" alt={alt} loading="lazy" className="aspect-square w-full object-cover" />
       <div className="flex items-start justify-between gap-3 p-[14px] text-[13px] text-muted max-[620px]:flex-col">
         <strong className="text-[14px] leading-[1.25] text-ink">{title}</strong>
         <span className="text-right leading-[1.35] max-[620px]:text-left">{sub}</span>
