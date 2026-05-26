@@ -769,7 +769,7 @@ function PrivateCallout() {
               ดูรายละเอียด Private
             </a>
             <a href="/contact" className="btn btn-outline w-full" style={{ borderColor: "rgba(255,255,255,0.35)", color: "white", background: "rgba(255,255,255,0.06)" }}>
-              นัดคุยฟรี 30 นาที
+              ทักมาสอบถาม
             </a>
           </div>
         </div>
@@ -1037,7 +1037,7 @@ const HOME_FAQS = [
   },
   {
     q: "ถ้าอยากปรึกษาก่อนสมัคร ทำยังไง?",
-    a: "ทักผ่าน LINE @bizdrive (ตอบเร็วสุด 1-2 ชม. ในเวลาทำการ) หรือกรอกฟอร์มที่หน้า /contact · สำหรับ Private มี discovery call ฟรี 30 นาทีก่อนตัดสินใจ",
+    a: "ทักผ่าน LINE @bizdrive (ตอบเร็วสุด 1-2 ชม. ในเวลาทำการ) หรือกรอกฟอร์มที่หน้า /contact · สอบถามรายละเอียดก่อนสมัครได้ทุก course",
   },
 ];
 

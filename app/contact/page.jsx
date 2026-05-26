@@ -54,7 +54,7 @@ export default function ContactPage() {
             มีคำถาม? ทักมาได้เลย — เราตอบเอง
           </h1>
           <p className="mx-auto my-5 mb-2 max-w-[640px] text-[clamp(1rem,2vw,1.13rem)] text-muted">
-            สอบถามคลาส · ปรึกษาวางระบบ AI · นัด discovery call ฟรี 30 นาที (สำหรับ Private)
+            สอบถามคลาส · ปรึกษาวางระบบ AI · ขอข้อมูล Private 1:1 Custom Coaching
           </p>
         </div>
       </section>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                 <h3 className="text-[1rem] font-extrabold text-ink">ทักเรื่องอะไรได้บ้าง</h3>
                 <ul className="mt-3 grid list-none gap-2 text-[14px] leading-[1.55] text-ink/85">
                   <li className="flex gap-2"><span aria-hidden="true" className="mt-[2px] text-brand-blue">✓</span><span>สอบถามคลาสและเปรียบเทียบ Online/Seminar/Private</span></li>
-                  <li className="flex gap-2"><span aria-hidden="true" className="mt-[2px] text-brand-blue">✓</span><span>ขอ discovery call ฟรี 30 นาที (สำหรับ Private)</span></li>
+                  <li className="flex gap-2"><span aria-hidden="true" className="mt-[2px] text-brand-blue">✓</span><span>สอบถามรายละเอียด Private 1:1 Custom Coaching</span></li>
                   <li className="flex gap-2"><span aria-hidden="true" className="mt-[2px] text-brand-blue">✓</span><span>ปรึกษาเรื่อง AI workflow ในธุรกิจคุณ</span></li>
                   <li className="flex gap-2"><span aria-hidden="true" className="mt-[2px] text-brand-blue">✓</span><span>ขอใบกำกับภาษี / ส่วนลดทีม / Partnership</span></li>
                 </ul>
