@@ -8,13 +8,13 @@ import StickyMobileBar from "./components/StickyMobileBar";
 import SectionDivider from "./components/SectionDivider";
 
 const TRUST_LOGOS = [
-  { name: "Manus AI", src: "/assets/brand/ai/manus.svg", w: 28, h: 28 },
-  { name: "ChatGPT", src: "/assets/brand/ai/chatgpt.svg", w: 28, h: 28 },
-  { name: "Claude (Anthropic)", src: "/assets/brand/ai/anthropic.svg", w: 28, h: 28, invert: true },
-  { name: "Google Gemini", src: "/assets/brand/ai/gemini.svg", w: 28, h: 28 },
-  { name: "OpenAI Codex CLI", src: "/assets/brand/ai/openai.svg", w: 92, h: 26, invert: true },
-  { name: "Cursor", src: "/assets/brand/ai/cursor.svg", w: 28, h: 28, invert: true },
-  { name: "Hyperframes", src: "/assets/brand/ai/hyperframes-icon.png", w: 30, h: 30 },
+  { name: "Manus AI", src: "/assets/brand/ai/manus.svg", wide: false },
+  { name: "ChatGPT", src: "/assets/brand/ai/chatgpt.svg", wide: false },
+  { name: "Claude (Anthropic)", src: "/assets/brand/ai/anthropic.svg", wide: false },
+  { name: "Google Gemini", src: "/assets/brand/ai/gemini.svg", wide: false },
+  { name: "OpenAI Codex CLI", src: "/assets/brand/ai/openai.svg", wide: true },
+  { name: "Cursor", src: "/assets/brand/ai/cursor.svg", wide: false },
+  { name: "Hyperframes", src: "/assets/brand/ai/hyperframes-icon.png", wide: false },
 ];
 
 const SERVICES = [
@@ -227,21 +227,23 @@ function Proof({ children }) {
 /* ─── Trust ─────────────────────────────────────────────── */
 function TrustSection() {
   return (
-    <section className="border-y border-line bg-brand-blue-dark py-[26px] text-white" aria-label="AI tools ที่เราสอน">
+    <section className="border-y border-line bg-brand-blue-dark py-[28px] text-white" aria-label="AI tools ที่เราสอน">
       <div className="bx-container">
-        <p className="mb-4 text-center text-[13px] font-bold uppercase tracking-wider text-white/70 max-[620px]:text-[12px]">
+        <p className="mb-5 text-center text-[13px] font-bold uppercase tracking-wider text-white/70 max-[620px]:text-[12px]">
           AI Stack ที่เราสอน — ใช้เครื่องมือที่ใช่กับงาน
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-4 max-[620px]:gap-x-5">
+        <div className="flex flex-wrap items-center justify-center gap-3 max-[620px]:gap-2.5">
           {TRUST_LOGOS.map((l) => (
-            <div key={l.name} className="flex h-[36px] items-center" title={l.name}>
+            <div
+              key={l.name}
+              title={l.name}
+              className={`grid h-[48px] place-items-center rounded-lg bg-white shadow-brand-sm transition-transform duration-150 hover:-translate-y-0.5 ${l.wide ? "w-[88px] px-3" : "w-[48px] px-2"}`}
+            >
               <img
                 src={l.src}
                 alt={l.name}
-                width={l.w}
-                height={l.h}
                 loading="lazy"
-                className={`max-h-[28px] w-auto opacity-90 transition-opacity hover:opacity-100 ${l.invert ? "invert" : ""}`}
+                className={`w-auto object-contain ${l.wide ? "max-h-[22px]" : "max-h-[30px]"}`}
               />
             </div>
           ))}
