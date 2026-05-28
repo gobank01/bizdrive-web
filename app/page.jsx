@@ -647,12 +647,20 @@ function ClassroomSection() {
 }
 
 /* ─── Pricing / Class ───────────────────────────────────── */
+const TRACK_COLORS = {
+  blue:   { stripe: "bg-brand-blue",     priceText: "text-brand-blue",   border: "border-brand-blue/40",   theme: "theme-blue",   solid: "bg-brand-blue text-white" },
+  orange: { stripe: "bg-[#c2410c]",      priceText: "text-[#c2410c]",    border: "border-[#c2410c]/40",    theme: "theme-orange", solid: "bg-[#c2410c] text-white" },
+  yellow: { stripe: "bg-brand-yellow",   priceText: "text-[#a16207]",    border: "border-brand-yellow",    theme: "theme-yellow", solid: "bg-brand-yellow text-ink" },
+  purple: { stripe: "bg-[#6b46c1]",      priceText: "text-[#6b46c1]",    border: "border-[#6b46c1]/40",    theme: "theme-purple", solid: "bg-[#6b46c1] text-white" },
+};
+
 const COURSE_TRACKS = [
   {
     label: "Course 1",
     title: "Manus AI — วางระบบธุรกิจด้วย AI",
     sub: "Online เรียนเอง · Seminar 1 วันเต็ม · เลือกที่จังหวะคุณ",
     count: "2 รูปแบบ",
+    theme: "blue",
     accent: { bg: "bg-brand-blue/10", text: "text-brand-blue" },
     cols: 2,
     slugs: MANUS_PLAN_ORDER,
@@ -671,7 +679,8 @@ const COURSE_TRACKS = [
     title: "Claude AI — เจาะลึก Anthropic Claude",
     sub: "Projects · Artifacts · Claude Code · MCP servers — AI ที่คิดลึกกว่า ChatGPT",
     count: "2 รูปแบบ",
-    accent: { bg: "bg-[#191919]/10", text: "text-[#191919]" },
+    theme: "orange",
+    accent: { bg: "bg-[#c2410c]/10", text: "text-[#c2410c]" },
     cols: 2,
     slugs: CLAUDE_PLAN_ORDER,
     advice: {
@@ -689,7 +698,8 @@ const COURSE_TRACKS = [
     title: "AI Video Editor — ตัดต่อด้วย AI Agent",
     sub: "Codex CLI / Claude Code + Hyperframes — pipeline จาก footage 1 ชม. → Reels 5 นาที",
     count: "2 รูปแบบ",
-    accent: { bg: "bg-[#c2410c]/10", text: "text-[#c2410c]" },
+    theme: "yellow",
+    accent: { bg: "bg-[#fef3c7]", text: "text-[#a16207]" },
     cols: 2,
     slugs: AI_EDITOR_PLAN_ORDER,
     advice: {
@@ -707,7 +717,8 @@ const COURSE_TRACKS = [
     title: "One Person Business — วาง business system ด้วย AI",
     sub: "เปิดรอบแรก กรกฎาคม 2026 · ลงทะเบียนรอเพื่อรับสิทธิ์ early-bird",
     count: "2 รูปแบบ",
-    accent: { bg: "bg-[#047857]/10", text: "text-[#047857]" },
+    theme: "purple",
+    accent: { bg: "bg-[#6b46c1]/10", text: "text-[#6b46c1]" },
     cols: 2,
     slugs: ONE_PERSON_PLAN_ORDER,
     comingSoon: true,
@@ -818,6 +829,7 @@ function PrivateCallout() {
 
 function CourseTrack({ track }) {
   const colsClass = track.cols === 3 ? "grid-cols-3 max-[900px]:grid-cols-1" : "grid-cols-2 max-[900px]:grid-cols-1";
+  const colors = TRACK_COLORS[track.theme] || TRACK_COLORS.blue;
   return (
     <div>
       <div className="mb-[22px] flex items-start justify-between gap-3 max-[620px]:flex-col">
@@ -852,37 +864,37 @@ function CourseTrack({ track }) {
 
       <div className={`grid gap-[22px] ${colsClass}`}>
         {track.slugs.map((slug, i) => (
-          <ClassCard key={slug} plan={PLANS[slug]} featured={i === 0} />
+          <ClassCard key={slug} plan={PLANS[slug]} featured={i === 0} colors={colors} />
         ))}
       </div>
     </div>
   );
 }
 
-function ClassCard({ plan, featured }) {
+function ClassCard({ plan, featured, colors }) {
   const isComingSoon = plan.comingSoon;
   return (
-    <article className={`relative flex flex-col rounded-[14px] border bg-white p-[28px] text-center transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-brand ${featured && !isComingSoon ? "border-brand-blue/35 shadow-brand" : "border-line"} ${isComingSoon ? "border-[#047857]/35" : ""}`}>
+    <article className={`${colors.theme} relative flex flex-col overflow-hidden rounded-[14px] border bg-white p-[28px] text-center transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-brand ${featured ? `border-2 ${colors.border} shadow-brand` : "border-line"}`}>
+      <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-1 ${colors.stripe}`} />
       {isComingSoon ? (
-        <span className="absolute -top-3 right-4 inline-flex items-center gap-1.5 rounded-full bg-[#047857] px-3 py-1 text-[11.5px] font-extrabold text-white shadow-brand-sm">
-          <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-yellow" />
+        <span className={`absolute -top-3 right-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11.5px] font-extrabold shadow-brand-sm ${colors.solid}`}>
           เปิด {plan.availableFrom || "เร็ว ๆ นี้"}
         </span>
       ) : null}
-      <span className={`mx-auto mb-4 inline-flex items-center rounded-full px-[14px] py-1.5 text-[13px] font-extrabold ${isComingSoon ? "bg-[#047857]/10 text-[#047857]" : featured ? "bg-brand-yellow text-ink" : "bg-soft text-brand-blue"}`}>
+      <span className={`mx-auto mb-4 inline-flex items-center rounded-full px-[14px] py-1.5 text-[13px] font-extrabold ${featured ? colors.solid : "bg-soft text-ink/80"}`}>
         {plan.badge}
       </span>
       <h3 className="text-[1.2rem] font-extrabold leading-[1.3]">{plan.name}</h3>
       <p className="mt-2 text-[14px] text-muted">{plan.cardSub}</p>
       <div className="my-5 flex flex-wrap items-baseline justify-center gap-1 border-y border-line py-[18px] [font-variant-numeric:tabular-nums]">
-        <span className="text-[1.4rem] font-extrabold text-brand-blue">฿</span>
-        <span className="text-[clamp(2rem,5vw,2.6rem)] font-extrabold leading-none text-brand-blue">
+        <span className={`text-[1.4rem] font-extrabold ${colors.priceText}`}>฿</span>
+        <span className={`text-[clamp(2rem,5vw,2.6rem)] font-extrabold leading-none ${colors.priceText}`}>
           {plan.price.toLocaleString()}
         </span>
-        {isComingSoon ? <span className="ml-2 text-[12px] font-bold text-[#047857]">Early-bird</span> : null}
+        {isComingSoon ? <span className={`ml-2 text-[12px] font-bold ${colors.priceText}`}>Early-bird</span> : null}
       </div>
       <p className="mb-[20px] text-[13.5px] text-muted">{plan.tagline}</p>
-      <a href={urlForPlan(plan.slug)} className={`btn mt-auto w-full ${isComingSoon ? "bg-[#047857] text-white hover:brightness-110" : featured ? "btn-primary" : "btn-outline"}`}>
+      <a href={urlForPlan(plan.slug)} className={`btn mt-auto w-full ${featured ? "btn-primary" : "btn-outline"}`}>
         {isComingSoon ? "ลงทะเบียนรอ" : "ดูรายละเอียด"}
       </a>
     </article>
@@ -1156,11 +1168,7 @@ function ContactSection() {
             href="tel:+66953340643"
             className="inline-flex min-h-[46px] items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 font-bold text-white transition-[background-color,border-color] hover:border-white/50 hover:bg-white/15 max-[620px]:w-full max-[620px]:max-w-[300px] max-[620px]:justify-center"
           >
-            <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-brand-yellow text-brand-blue">
-              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]">
-                <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />
-              </svg>
-            </span>
+            <img src="/assets/brand/contact/phone.svg" alt="" width="24" height="24" className="h-6 w-6 rounded-md" />
             <span className="font-extrabold tabular-nums">095-334-0643</span>
           </a>
         </div>

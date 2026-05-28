@@ -69,8 +69,8 @@ export default function SalepageStickyBar({ plan }) {
         <div className="hidden flex-1 min-[820px]:block">
           {!expired && target > 0 ? (
             <div className="flex items-center gap-2 [font-variant-numeric:tabular-nums]" suppressHydrationWarning>
-              <span className="text-[11.5px] font-semibold uppercase tracking-wider text-[#c2410c]">เหลือเวลา</span>
-              <span className="rounded-md bg-[#c2410c]/10 px-2 py-1 text-[13px] font-extrabold text-[#c2410c]">
+              <span className="text-[11.5px] font-semibold uppercase tracking-wider" style={{ color: "var(--btn-outline-color, #c2410c)" }}>เหลือเวลา</span>
+              <span className="rounded-md px-2 py-1 text-[13px] font-extrabold" style={{ color: "var(--btn-outline-color, #c2410c)", background: "color-mix(in srgb, var(--btn-outline-color, #c2410c) 12%, transparent)" }}>
                 {days}d {String(hours).padStart(2, "0")}h {String(minutes).padStart(2, "0")}m
               </span>
             </div>
@@ -81,7 +81,7 @@ export default function SalepageStickyBar({ plan }) {
             <span className="text-[11px] font-semibold text-muted line-through [font-variant-numeric:tabular-nums]">
               {plan.originalPrice ? `฿${plan.originalPrice.toLocaleString()}` : ""}
             </span>
-            <span className="text-[18px] font-extrabold text-brand-blue [font-variant-numeric:tabular-nums]">
+            <span className="text-[18px] font-extrabold [font-variant-numeric:tabular-nums]" style={{ color: "var(--btn-outline-color, #1b3a8c)" }}>
               {plan.priceLabel}
             </span>
           </div>

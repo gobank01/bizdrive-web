@@ -127,7 +127,7 @@ export const PLANS = {
     priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 20 คน",
     stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "Workshop",
-    accent: "orange",
+    accent: "blue",
     cardSub: "1 วันเต็ม · กลุ่มเล็ก · hands-on",
     hero: {
       headline: "1 วันเต็ม กับ BizDrive — ออกจากห้อง มีระบบ AI ใช้กับธุรกิจคุณทันที",
@@ -352,7 +352,7 @@ export const PLANS = {
     priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
     stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "Video Workflow",
-    accent: "blue",
+    accent: "yellow",
     cardSub: "เรียน self-paced · ตัดคลิป Reels/TikTok ได้เองใน 1 สัปดาห์",
     heroVideo: { youtubeId: null, caption: "ตัวอย่างผลงานจริง — กำลังอัปโหลด เร็ว ๆ นี้" },
     hero: {
@@ -473,7 +473,7 @@ export const PLANS = {
     priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 15 คน",
     stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
     badge: "Workshop",
-    accent: "orange",
+    accent: "yellow",
     cardSub: "1 วันเต็ม · กลุ่มเล็ก · setup pipeline บนเครื่องคุณเอง",
     heroVideo: { youtubeId: "dQw4w9WgXcQ", caption: "ตัวอย่างผลงานจาก seminar ก่อนหน้า" },
     hero: {
@@ -825,7 +825,7 @@ export const PLANS = {
     priceLabel: "฿3,900",
     priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
     badge: "เปิด กค",
-    accent: "blue",
+    accent: "purple",
     cardSub: "เรียน self-paced · เปิดรอบแรก ก.ค. 2026",
     comingSoon: true,
     availableFrom: "กรกฎาคม 2026",
@@ -939,7 +939,7 @@ export const PLANS = {
     priceLabel: "฿9,900",
     priceNote: "ราคาต่อท่าน · รวมอาหารและเอกสาร · ที่นั่งจำกัด 15 คน",
     badge: "เปิด กค",
-    accent: "orange",
+    accent: "purple",
     cardSub: "1 วันเต็ม · กลุ่มเล็ก · เปิดรอบแรก ก.ค. 2026",
     comingSoon: true,
     availableFrom: "กรกฎาคม 2026",

@@ -31,8 +31,8 @@ const QUICK_LINKS = [
     cta: "โทรเลย",
     note: "เวลาทำการ จันทร์-ศุกร์ · 9:00-18:00",
     iconBg: "bg-brand-blue",
-    logo: null,
-    iconSvg: <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />,
+    logo: "/assets/brand/contact/phone.svg",
+    iconSvg: null,
     tabular: true,
   },
   {
@@ -42,8 +42,8 @@ const QUICK_LINKS = [
     cta: "ส่งอีเมล",
     note: "ตอบกลับภายใน 1 วันทำการ",
     iconBg: "bg-[#c2410c]",
-    logo: null,
-    iconSvg: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></>,
+    logo: "/assets/brand/contact/gmail.svg",
+    iconSvg: null,
   },
 ];
 
@@ -76,9 +76,9 @@ export default function ContactPage() {
                   rel={isExt ? "noopener noreferrer" : undefined}
                   className="group flex items-start gap-3 rounded-[14px] border border-line bg-white p-4 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-brand-sky/45 hover:shadow-brand-sm"
                 >
-                  <div className={`grid h-11 w-11 flex-shrink-0 place-items-center rounded-lg ${q.logo ? "bg-white border border-line" : `${q.iconBg} text-white`}`}>
+                  <div className={`grid h-11 w-11 flex-shrink-0 place-items-center overflow-hidden ${q.logo ? "rounded-[10px]" : `rounded-lg ${q.iconBg} text-white`}`}>
                     {q.logo ? (
-                      <img src={q.logo} alt={q.label} className="h-6 w-6 object-contain" />
+                      <img src={q.logo} alt={q.label} className="h-11 w-11 object-contain" />
                     ) : (
                       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[22px] w-[22px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2]">
                         {q.iconSvg}

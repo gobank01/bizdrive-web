@@ -24,17 +24,20 @@ const PLAN_SHORT_NAME = {
 };
 
 const ACCENT = {
-  blue: { bg: "bg-brand-blue", badge: "bg-brand-yellow text-ink" },
-  orange: { bg: "bg-[#c2410c]", badge: "bg-brand-yellow text-ink" },
-  "blue-dark": { bg: "bg-brand-blue-dark", badge: "bg-brand-yellow text-ink" },
+  blue:        { bg: "bg-brand-blue",      badge: "bg-brand-blue text-white",      text: "text-white", innerBadge: "bg-brand-yellow text-ink",    overlay: "bg-white/[.08]", checkColor: "text-brand-yellow", priceText: "text-brand-blue",      discountBadge: "bg-brand-blue text-white",      savingsText: "text-brand-blue" },
+  orange:      { bg: "bg-[#c2410c]",       badge: "bg-[#c2410c] text-white",       text: "text-white", innerBadge: "bg-brand-yellow text-ink",    overlay: "bg-white/[.08]", checkColor: "text-brand-yellow", priceText: "text-[#c2410c]",       discountBadge: "bg-[#c2410c] text-white",       savingsText: "text-[#c2410c]" },
+  yellow:      { bg: "bg-brand-yellow",    badge: "bg-ink text-brand-yellow",      text: "text-ink",   innerBadge: "bg-ink text-brand-yellow",    overlay: "bg-ink/[.06]",   checkColor: "text-ink",          priceText: "text-[#a16207]",       discountBadge: "bg-[#a16207] text-white",       savingsText: "text-[#a16207]" },
+  purple:      { bg: "bg-[#6b46c1]",       badge: "bg-[#6b46c1] text-white",       text: "text-white", innerBadge: "bg-brand-yellow text-ink",    overlay: "bg-white/[.08]", checkColor: "text-brand-yellow", priceText: "text-[#6b46c1]",       discountBadge: "bg-[#6b46c1] text-white",       savingsText: "text-[#6b46c1]" },
+  "blue-dark": { bg: "bg-brand-blue-dark", badge: "bg-brand-blue-dark text-white", text: "text-white", innerBadge: "bg-brand-yellow text-ink",    overlay: "bg-white/[.08]", checkColor: "text-brand-yellow", priceText: "text-brand-blue-dark", discountBadge: "bg-brand-blue-dark text-white", savingsText: "text-brand-blue-dark" },
 };
 
 export default function SalePage({ plan }) {
   if (!plan) return null;
   const accent = ACCENT[plan.accent] || ACCENT.blue;
+  const theme = `theme-${plan.accent}`;
 
   return (
-    <>
+    <div className={theme}>
       <CourseSchema plan={plan} />
       <Hero plan={plan} accent={accent} />
       <Problem plan={plan} />
@@ -55,7 +58,7 @@ export default function SalePage({ plan }) {
       <FinalCta plan={plan} accent={accent} />
       <div aria-hidden="true" className="h-[72px]" />
       <SalepageStickyBar plan={plan} />
-    </>
+    </div>
   );
 }
 
@@ -168,10 +171,10 @@ function Modules({ plan }) {
 
 function Outcomes({ plan, accent }) {
   return (
-    <section className={`py-[84px] text-white max-[620px]:py-[62px] ${accent.bg}`}>
+    <section className={`py-[84px] max-[620px]:py-[62px] ${accent.bg} ${accent.text}`}>
       <div className="bx-container max-w-[880px]">
         <div className="mb-[34px] text-center">
-          <span className="inline-flex items-center rounded-full bg-brand-yellow px-[14px] py-1.5 text-sm font-extrabold text-ink">
+          <span className={`inline-flex items-center rounded-full px-[14px] py-1.5 text-sm font-extrabold ${accent.innerBadge}`}>
             ผลลัพธ์
           </span>
           <h2 className="mx-auto mt-4 max-w-[760px] text-balance text-[clamp(1.65rem,3.8vw,2.5rem)] font-extrabold leading-[1.2]">
@@ -180,8 +183,8 @@ function Outcomes({ plan, accent }) {
         </div>
         <ul className="mx-auto grid max-w-[680px] gap-3">
           {plan.outcomes.map((o) => (
-            <li key={o} className="flex gap-3 rounded-lg bg-white/[.08] px-5 py-4 text-[15px] backdrop-blur-sm">
-              <span aria-hidden="true" className="mt-[2px] text-brand-yellow">✓</span>
+            <li key={o} className={`flex gap-3 rounded-lg px-5 py-4 text-[15px] backdrop-blur-sm ${accent.overlay}`}>
+              <span aria-hidden="true" className={`mt-[2px] ${accent.checkColor}`}>✓</span>
               <span>{o}</span>
             </li>
           ))}
@@ -264,7 +267,7 @@ function Offer({ plan, accent }) {
                   <strong className="block text-[15px] font-extrabold text-ink">{plan.name}</strong>
                   <span className="text-[13.5px] text-muted">{plan.tagline}</span>
                 </div>
-                <span className="self-start text-[14px] font-bold text-brand-blue [font-variant-numeric:tabular-nums]">
+                <span className={`self-start text-[14px] font-bold [font-variant-numeric:tabular-nums] ${accent.priceText}`}>
                   ฿{(plan.originalPrice || plan.price).toLocaleString()}
                 </span>
               </li>
@@ -275,7 +278,7 @@ function Offer({ plan, accent }) {
                     <strong className="block text-[15px] font-extrabold text-ink">{b.title}</strong>
                     <span className="text-[13.5px] text-muted">{b.text}</span>
                   </div>
-                  <span className="self-start text-[14px] font-bold text-brand-blue [font-variant-numeric:tabular-nums]">{b.value}</span>
+                  <span className={`self-start text-[14px] font-bold [font-variant-numeric:tabular-nums] ${accent.priceText}`}>{b.value}</span>
                 </li>
               ))}
             </ul>
@@ -288,8 +291,8 @@ function Offer({ plan, accent }) {
             </div>
             {savings > 0 ? (
               <div className="mt-1.5 flex items-center justify-between gap-3 text-[13.5px]">
-                <span className="font-semibold text-[#c2410c]">ส่วนลดรอบนี้</span>
-                <span className="font-extrabold text-[#c2410c]">-฿{(stackedValue - plan.price).toLocaleString()} ({Math.round(((stackedValue - plan.price) / stackedValue) * 100)}%)</span>
+                <span className={`font-semibold ${accent.savingsText}`}>ส่วนลดรอบนี้</span>
+                <span className={`font-extrabold ${accent.savingsText}`}>-฿{(stackedValue - plan.price).toLocaleString()} ({Math.round(((stackedValue - plan.price) / stackedValue) * 100)}%)</span>
               </div>
             ) : null}
           </div>
@@ -301,12 +304,12 @@ function Offer({ plan, accent }) {
                 ฿{plan.originalPrice.toLocaleString()}
               </span>
             ) : null}
-            <span className="text-[1.7rem] font-extrabold text-brand-blue">฿</span>
-            <span className="text-[clamp(2.6rem,8vw,3.3rem)] font-extrabold leading-none text-brand-blue">
+            <span className={`text-[1.7rem] font-extrabold ${accent.priceText}`}>฿</span>
+            <span className={`text-[clamp(2.6rem,8vw,3.3rem)] font-extrabold leading-none ${accent.priceText}`}>
               {plan.price.toLocaleString()}
             </span>
             {savingsPercent > 0 ? (
-              <span className="ml-2 rounded-full bg-[#c2410c] px-2.5 py-1 text-[12px] font-extrabold text-white">
+              <span className={`ml-2 rounded-full px-2.5 py-1 text-[12px] font-extrabold ${accent.discountBadge}`}>
                 ประหยัด {savingsPercent}%
               </span>
             ) : null}
@@ -442,24 +445,25 @@ function Faq({ plan }) {
 }
 
 function FinalCta({ plan, accent }) {
+  const formVariant = plan.accent === "yellow" ? "ink" : "light";
   return (
-    <section className={`py-[84px] text-center text-white max-[620px]:py-[62px] ${accent.bg}`}>
+    <section className={`py-[84px] text-center max-[620px]:py-[62px] ${accent.bg} ${accent.text}`}>
       <div className="bx-container max-w-[720px]">
         <h2 className="mx-auto max-w-[640px] text-balance text-[clamp(1.7rem,4vw,2.6rem)] font-extrabold leading-[1.2]">
           พร้อมเริ่มใช้ AI กับธุรกิจคุณแล้วใช่ไหม
         </h2>
-        <p className="mx-auto mt-4 max-w-[560px] text-white">
+        <p className="mx-auto mt-4 max-w-[560px]">
           {plan.tagline}
         </p>
         <div className="mx-auto mt-7 max-w-[460px] text-left">
           <LeadForm
             planSlug={plan.slug}
             source="salepage-final"
-            variant="light"
+            variant={formVariant}
             buttonLabel="แจ้งเตือนฉัน"
           />
         </div>
-        <p className="mt-4 text-[13px] text-white">{plan.scarcity}</p>
+        <p className="mt-4 text-[13px]">{plan.scarcity}</p>
       </div>
     </section>
   );

@@ -46,7 +46,10 @@ export default async function RootLayout({ children }) {
     <html lang="th" className={noto.variable}>
       <body className="bg-white font-thai leading-[1.65] text-ink antialiased">
         {isAdmin ? (
-          children
+          <>
+            {children}
+            <ConsentProvider />
+          </>
         ) : (
           <>
             <a className="skip-link" href="#main">

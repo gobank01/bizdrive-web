@@ -3,22 +3,22 @@ import SocialIcons from "./SocialIcons";
 import { ACADEMY, CONTACT } from "../class/_data";
 
 const CLASSES = [
-  { href: "/manus/online", label: "Manus AI — Online", price: "฿3,900" },
-  { href: "/manus/seminar", label: "Manus AI — Seminar", price: "฿9,900" },
-  { href: "/claude/online", label: "Claude AI — Online", price: "฿3,900" },
-  { href: "/claude/seminar", label: "Claude AI — Seminar", price: "฿9,900" },
-  { href: "/ai-editor/online", label: "AI Video Editor — Online", price: "฿3,900" },
-  { href: "/ai-editor/seminar", label: "AI Video Editor — Seminar", price: "฿9,900" },
-  { href: "/one-person/online", label: "One Person — Online", price: "เปิด กค" },
-  { href: "/one-person/seminar", label: "One Person — Seminar", price: "เปิด กค" },
-  { href: "/private", label: "Private 1:1 Custom", price: "฿39,000" },
+  { href: "/manus/online", label: "Manus AI — Online" },
+  { href: "/manus/seminar", label: "Manus AI — Seminar" },
+  { href: "/claude/online", label: "Claude AI — Online" },
+  { href: "/claude/seminar", label: "Claude AI — Seminar" },
+  { href: "/ai-editor/online", label: "AI Video Editor — Online" },
+  { href: "/ai-editor/seminar", label: "AI Video Editor — Seminar" },
+  { href: "/one-person/online", label: "One Person — Online" },
+  { href: "/one-person/seminar", label: "One Person — Seminar" },
+  { href: "/private", label: "Private 1:1 Custom" },
 ];
 
 const RESOURCES = [
   { href: "/#class", label: "ดูคลาสทั้งหมด" },
+  { href: "/ebooks", label: "eBook · ฿390/เล่ม" },
   { href: "/#how", label: "วิธีทำงาน" },
   { href: "/#faq", label: "คำถามที่พบบ่อย" },
-  { href: "/#about", label: "เกี่ยวกับ BizDrive" },
   { href: "/contact", label: "ติดต่อเรา" },
 ];
 
@@ -62,10 +62,9 @@ export default function Footer() {
                 <li key={c.href}>
                   <a
                     href={c.href}
-                    className="grid grid-cols-[1fr_auto] items-baseline gap-3 text-[#aeb7c5] transition-colors hover:text-white max-[620px]:justify-items-center"
+                    className="block text-[#aeb7c5] transition-colors hover:text-white max-[620px]:text-center"
                   >
-                    <span>{c.label}</span>
-                    <span className="text-[11.5px] font-bold tabular-nums text-[#8a96a8]">{c.price}</span>
+                    {c.label}
                   </a>
                 </li>
               ))}
@@ -122,11 +121,7 @@ export default function Footer() {
                   href={`tel:${CONTACT.phoneTel}`}
                   className="group inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[.04] px-3 py-2 text-white transition-[border-color,background-color] duration-150 hover:border-white/25 hover:bg-white/[.08]"
                 >
-                  <span aria-hidden="true" className="grid h-[26px] w-[26px] flex-shrink-0 place-items-center rounded-md bg-brand-blue text-brand-yellow">
-                    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]">
-                      <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />
-                    </svg>
-                  </span>
+                  <img src="/assets/brand/contact/phone.svg" alt="" width="26" height="26" className="h-[26px] w-[26px] flex-shrink-0 rounded-md" />
                   <span className="flex flex-col">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#8a96a8] group-hover:text-white/70">โทร</span>
                     <span className="text-[14.5px] font-extrabold leading-tight tabular-nums">{CONTACT.phone}</span>
@@ -138,11 +133,8 @@ export default function Footer() {
                   href={`mailto:${CONTACT.email}`}
                   className="group inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[.04] px-3 py-2 text-white transition-[border-color,background-color] duration-150 hover:border-white/25 hover:bg-white/[.08]"
                 >
-                  <span aria-hidden="true" className="grid h-[26px] w-[26px] flex-shrink-0 place-items-center rounded-md bg-[#c2410c] text-white">
-                    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]">
-                      <rect x="3" y="5" width="18" height="14" rx="2" />
-                      <path d="M3 7l9 6 9-6" />
-                    </svg>
+                  <span aria-hidden="true" className="grid h-[26px] w-[26px] flex-shrink-0 place-items-center rounded-md bg-white">
+                    <img src="/assets/brand/contact/gmail.svg" alt="" width="18" height="18" className="h-[18px] w-[18px]" />
                   </span>
                   <span className="flex flex-col">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#8a96a8] group-hover:text-white/70">Email</span>
@@ -150,13 +142,18 @@ export default function Footer() {
                   </span>
                 </a>
               </li>
-              <li className="mt-1 text-[13px] leading-[1.6] text-[#8a96a8]">
-                <strong className="block text-white">{ACADEMY.name}</strong>
-                {ACADEMY.city}
-                <br />
-                <a href={ACADEMY.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1.5 text-[#aeb7c5] underline decoration-[#5a6678] underline-offset-2 hover:text-white hover:decoration-white">
-                  <img src="/assets/brand/contact/googlemaps.svg" alt="" width="14" height="14" className="h-[14px] w-[14px]" />
-                  เปิดใน Google Maps
+              <li>
+                <a
+                  href={ACADEMY.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[.04] px-3 py-2 text-white transition-[border-color,background-color] duration-150 hover:border-white/25 hover:bg-white/[.08]"
+                >
+                  <img src="/assets/brand/contact/googlemaps.svg" alt="" width="26" height="26" className="h-[26px] w-[26px] flex-shrink-0 rounded-md" />
+                  <span className="flex flex-col">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#8a96a8] group-hover:text-white/70">Google Maps</span>
+                    <span className="text-[13px] font-bold leading-tight">{ACADEMY.name}</span>
+                  </span>
                 </a>
               </li>
             </ul>

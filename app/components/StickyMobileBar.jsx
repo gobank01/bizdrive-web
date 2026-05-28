@@ -14,9 +14,7 @@ export default function StickyMobileBar() {
             aria-label={`โทร ${CONTACT.phone}`}
             className="flex h-12 flex-col items-center justify-center gap-0.5 rounded-lg text-brand-blue transition-colors hover:bg-soft active:bg-soft"
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.9]">
-              <path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />
-            </svg>
+            <img src="/assets/brand/contact/phone.svg" alt="" width="22" height="22" className="h-[22px] w-[22px] rounded-md" />
             <span className="text-[11px] font-extrabold">โทรเลย</span>
           </a>
         </li>

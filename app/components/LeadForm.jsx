@@ -49,6 +49,7 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
   }
 
   const onLight = variant === "light";
+  const onInk = variant === "ink";
 
   if (status === "success") {
     return (
@@ -58,6 +59,8 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
         className={`rounded-lg border px-5 py-4 text-center text-[14px] font-semibold ${
           onLight
             ? "border-white/25 bg-white/10 text-white"
+            : onInk
+            ? "border-ink/25 bg-ink/10 text-ink"
             : "border-brand-mint/35 bg-brand-mint/[.08] text-brand-blue"
         }`}
       >
@@ -95,18 +98,18 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={`flex-1 rounded-full border-2 bg-white px-5 py-[12px] text-[15px] text-ink outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-muted ${
-            onLight ? "border-white focus:border-brand-yellow" : "border-line focus:border-brand-blue"
+            onLight ? "border-white focus:border-brand-yellow" : onInk ? "border-ink/30 focus:border-ink" : "border-line focus:border-brand-blue"
           }`}
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className={`btn ${onLight ? "bg-brand-yellow text-ink" : "btn-primary"} disabled:opacity-70`}
+          className={`btn ${onLight ? "bg-brand-yellow text-ink" : onInk ? "bg-ink text-white hover:brightness-110" : "btn-primary"} disabled:opacity-70`}
         >
           {status === "loading" ? "กำลังส่ง…" : buttonLabel}
         </button>
       </div>
-      <label className={`flex items-start gap-2 text-[12px] leading-[1.55] ${onLight ? "text-white" : "text-muted"}`}>
+      <label className={`flex items-start gap-2 text-[12px] leading-[1.55] ${onLight ? "text-white" : onInk ? "text-ink/85" : "text-muted"}`}>
         <input
           type="checkbox"
           name="consent"
@@ -121,7 +124,7 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
             href="/privacy"
             target="_blank"
             rel="noopener noreferrer"
-            className={`font-bold underline underline-offset-2 ${onLight ? "text-brand-yellow" : "text-brand-blue"}`}
+            className={`font-bold underline underline-offset-2 ${onLight ? "text-brand-yellow" : onInk ? "text-ink" : "text-brand-blue"}`}
           >
             นโยบายความเป็นส่วนตัว
           </a>

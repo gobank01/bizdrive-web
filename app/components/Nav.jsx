@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { href: "/#class", label: "คลาสเรียน" },
+  { href: "/ebooks", label: "eBook" },
   { href: "/#how", label: "วิธีทำงาน" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/#about", label: "เกี่ยวกับเรา" },
 ];
 
 export default function Nav() {

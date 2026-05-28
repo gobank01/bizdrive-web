@@ -1,0 +1,19 @@
+{
+  "name": "chillpay-sdk",
+  "version": "0.1.0",
+  "description": "Drop-in ChillPay (Praln FinTech) SDK — PayLink, Transaction, Recurring. Node 18+, zero dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./nextjs": "./nextjs/route-factory.js",
+    "./webhook": "./nextjs/webhook.js",
+    "./client": "./client/chillpay.js"
+  },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node test/sandbox.test.js"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

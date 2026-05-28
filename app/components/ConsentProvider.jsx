@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 const CONSENT_KEY = "bizdrive_consent_v1";
 const CONSENT_VERSION = 1;
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GTM_ID = "GTM-PTS3CZDW";
 
 export default function ConsentProvider() {
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith("/admin");
   const [state, setState] = useState({ ready: false, banner: false, analytics: false });
 
   useEffect(() => {
@@ -20,6 +23,10 @@ export default function ConsentProvider() {
         return;
       }
     } catch {}
+    if (isAdmin) {
+      setState({ ready: true, banner: false, analytics: true });
+      return;
+    }
     setState({ ready: true, banner: true, analytics: false });
 
     function onOpen() {
@@ -27,7 +34,7 @@ export default function ConsentProvider() {
     }
     window.addEventListener("bizdrive:open-consent", onOpen);
     return () => window.removeEventListener("bizdrive:open-consent", onOpen);
-  }, []);
+  }, [isAdmin]);
 
   function save(analytics) {
     try {
@@ -42,8 +49,8 @@ export default function ConsentProvider() {
   return (
     <>
       {state.analytics ? <Analytics /> : null}
-      {state.analytics && GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
-      {state.ready && state.banner ? (
+      {state.analytics ? <GoogleTagManager gtmId={GTM_ID} /> : null}
+      {state.ready && state.banner && !isAdmin ? (
         <ConsentBanner onAcceptAll={() => save(true)} onDecline={() => save(false)} />
       ) : null}
     </>

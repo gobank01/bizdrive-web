@@ -38,7 +38,8 @@ export default function LocationContact({ darkBg = false }) {
             />
             <ContactRow
               darkBg={darkBg}
-              icon={<path d="M3 5a2 2 0 0 1 2-2h2.5a1 1 0 0 1 .94.66l1.5 4.1a1 1 0 0 1-.27 1.04l-1.6 1.6a14 14 0 0 0 6.5 6.5l1.6-1.6a1 1 0 0 1 1.04-.27l4.1 1.5a1 1 0 0 1 .66.94V19a2 2 0 0 1-2 2A18 18 0 0 1 3 5z" />}
+              logo="/assets/brand/contact/phone.svg"
+              logoAlt="โทร"
               label="โทร"
               primary={CONTACT.phone}
               cta={{ href: `tel:${CONTACT.phoneTel}`, label: "โทรเลย" }}
@@ -50,6 +51,14 @@ export default function LocationContact({ darkBg = false }) {
               label="LINE"
               primary={CONTACT.line}
               cta={{ href: CONTACT.lineUrl, label: "เพิ่มเพื่อน LINE" }}
+            />
+            <ContactRow
+              darkBg={darkBg}
+              logo="/assets/brand/contact/gmail.svg"
+              logoAlt="Email"
+              label="อีเมล"
+              primary={CONTACT.email}
+              cta={{ href: `mailto:${CONTACT.email}`, label: "ส่งอีเมล" }}
             />
             <ContactRow
               darkBg={darkBg}
@@ -89,9 +98,9 @@ function ContactRow({ icon, logo, logoAlt, paymentLogos, label, primary, seconda
   const isExt = cta?.href?.startsWith("http");
   return (
     <article className={`flex items-start gap-3 rounded-lg border p-4 ${card}`}>
-      <div aria-hidden="true" className={`grid h-10 w-10 flex-shrink-0 place-items-center overflow-hidden rounded-lg ${logo ? logoBg : iconBg}`}>
+      <div aria-hidden="true" className={`grid h-11 w-11 flex-shrink-0 place-items-center overflow-hidden ${logo ? "rounded-[10px]" : `rounded-lg ${iconBg}`}`}>
         {logo ? (
-          <img src={logo} alt={logoAlt || ""} loading="lazy" className="h-6 w-6 object-contain" />
+          <img src={logo} alt={logoAlt || ""} loading="lazy" className="h-11 w-11 object-contain" />
         ) : (
           <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.8]">
             {icon}
