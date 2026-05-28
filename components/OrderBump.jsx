@@ -22,7 +22,9 @@ export function OrderBump({
   perItemPrice = 390,
 }) {
   const [upgraded, setUpgraded] = useState(false);
-  const [remainingMs, setRemainingMs] = useState(null);
+  // Initial render shows full duration so SSR + first client paint match.
+  // useEffect below overwrites with real remaining time from localStorage.
+  const [remainingMs, setRemainingMs] = useState(OFFER_DURATION_MS);
 
   useEffect(() => {
     let deadline = Number(localStorage.getItem(OFFER_KEY));
@@ -46,8 +48,8 @@ export function OrderBump({
   const label = upgraded ? bumpLabel : defaultLabel;
 
   const expired = remainingMs === 0;
-  const mm = remainingMs != null ? String(Math.floor(remainingMs / 60000)).padStart(2, "0") : "20";
-  const ss = remainingMs != null ? String(Math.floor((remainingMs % 60000) / 1000)).padStart(2, "0") : "00";
+  const mm = String(Math.floor(remainingMs / 60000)).padStart(2, "0");
+  const ss = String(Math.floor((remainingMs % 60000) / 1000)).padStart(2, "0");
 
   return (
     <div className="grid gap-3">
