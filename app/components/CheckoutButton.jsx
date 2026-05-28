@@ -1,4 +1,5 @@
 import LeadForm from "./LeadForm";
+import { CONTACT } from "../class/_data";
 
 /**
  * CheckoutButton — renders Stripe Payment Link button when plan.stripeUrl is set,
@@ -28,6 +29,15 @@ export default function CheckoutButton({ plan, source, leadButtonLabel = "แจ
         <p className="text-center text-[12.5px] text-muted">
           จ่ายผ่าน Stripe · บัตรเครดิต/PromptPay · เข้าเรียนทันทีหลังชำระ
         </p>
+        <a
+          href={CONTACT.lineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center text-[13px] font-bold text-[#00C300] hover:underline"
+        >
+          💬 ยังไม่แน่ใจ? ทักถาม {CONTACT.line} ก่อน
+          <span className="ml-1 text-[11.5px] font-normal text-muted">(ตอบใน 1-2 ชม. เวลาทำการ)</span>
+        </a>
       </div>
     );
   }

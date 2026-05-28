@@ -1,6 +1,21 @@
 import { notFound } from "next/navigation";
 import { EBOOKS, EBOOK_SLUGS, BUNDLES, ebookBySlug } from "../_data";
 import { PaymentButton } from "@/components/PaymentButton";
+import { CONTACT } from "../../class/_data";
+
+function LineHelpLink() {
+  return (
+    <a
+      href={CONTACT.lineUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-1 inline-flex flex-wrap items-baseline justify-center gap-x-1 text-[13px] font-bold text-[#00C300] hover:underline max-[620px]:w-full max-[620px]:max-w-[320px]"
+    >
+      💬 ยังไม่แน่ใจ? ทักถาม {CONTACT.line} ก่อน
+      <span className="text-[11.5px] font-normal text-muted">(ตอบใน 1-2 ชม. เวลาทำการ)</span>
+    </a>
+  );
+}
 
 export function generateStaticParams() {
   return EBOOK_SLUGS.map((slug) => ({ slug }));
@@ -85,6 +100,7 @@ export default async function EbookDetailPage({ params }) {
                   </a>
                 ) : null}
               </div>
+              <div className="mt-2"><LineHelpLink /></div>
             </div>
             <div className="grid place-items-center">
               <div className={`aspect-[3/4] w-[280px] overflow-hidden rounded-[14px] border-2 ${accent.ring} bg-white shadow-brand max-[620px]:w-[220px] transition-transform duration-300 hover:-rotate-1 hover:scale-[1.02]`}>
@@ -177,6 +193,7 @@ export default async function EbookDetailPage({ params }) {
               </a>
             )}
           </div>
+          <div className="mt-3"><LineHelpLink /></div>
         </div>
       </section>
 
