@@ -9,10 +9,10 @@ function LineHelpLink() {
       href={CONTACT.lineUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-1 inline-flex flex-wrap items-baseline justify-center gap-x-1 text-[13px] font-bold text-[#00C300] hover:underline max-[620px]:w-full max-[620px]:max-w-[320px]"
+      className="inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border-2 border-[#00C300] bg-white px-5 py-2.5 text-[15px] font-extrabold text-[#00C300] transition-colors hover:bg-[#00C300]/[.08] max-[620px]:w-full max-[620px]:max-w-[320px]"
     >
-      💬 ยังไม่แน่ใจ? ทักถาม {CONTACT.line} ก่อน
-      <span className="text-[11.5px] font-normal text-muted">(ตอบใน 1-2 ชม. เวลาทำการ)</span>
+      <span>💬 ยังไม่แน่ใจ? ทักถาม {CONTACT.line} ก่อน</span>
+      <span className="text-[12.5px] font-semibold text-muted">(ตอบใน 1-2 ชม.)</span>
     </a>
   );
 }

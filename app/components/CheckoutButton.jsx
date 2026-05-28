@@ -33,10 +33,10 @@ export default function CheckoutButton({ plan, source, leadButtonLabel = "แจ
           href={CONTACT.lineUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-center text-[13px] font-bold text-[#00C300] hover:underline"
+          className="inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border-2 border-[#00C300] bg-white px-5 py-2.5 text-[15px] font-extrabold text-[#00C300] transition-colors hover:bg-[#00C300]/[.08]"
         >
-          💬 ยังไม่แน่ใจ? ทักถาม {CONTACT.line} ก่อน
-          <span className="ml-1 text-[11.5px] font-normal text-muted">(ตอบใน 1-2 ชม. เวลาทำการ)</span>
+          <span>💬 ยังไม่แน่ใจ? ทักถาม {CONTACT.line} ก่อน</span>
+          <span className="text-[12.5px] font-semibold text-muted">(ตอบใน 1-2 ชม.)</span>
         </a>
       </div>
     );
