@@ -86,15 +86,13 @@ export default async function EbookDetailPage({ params }) {
                     defaultLabel="ซื้อ eBook"
                     defaultPrice={ebook.price}
                     defaultUrl={ebook.stripeUrl}
-                    bumpLabel="ซื้อ Bundle 4 เล่ม"
+                    bumpLabel="ซื้อ Bundle"
                     bumpPrice={bundle.price}
                     bumpUrl={bundle.stripeUrl}
-                    bumpHeadline={`อัปเกรดเป็น Bundle 4 เล่ม +฿${(bundle.price - ebook.price).toLocaleString()}`}
-                    bumpSubline={bundle.bookSlugs
+                    perItemPrice={ebook.price}
+                    bumpItems={bundle.bookSlugs
                       .map((s) => EBOOKS[s]?.title?.split("—")[0]?.trim())
-                      .filter(Boolean)
-                      .join(" + ")}
-                    bumpSavings={bundle.originalPrice - bundle.price}
+                      .filter(Boolean)}
                   />
                 ) : ebook.productId || ebook.stripeUrl ? (
                   <PaymentButton
