@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { EBOOKS, EBOOK_SLUGS, BUNDLES, ebookBySlug } from "../_data";
-import { BuyButton } from "@/components/BuyButton";
+import { PaymentButton } from "@/components/PaymentButton";
 
 export function generateStaticParams() {
   return EBOOK_SLUGS.map((slug) => ({ slug }));
@@ -65,17 +65,15 @@ export default async function EbookDetailPage({ params }) {
                 <span className="text-[13.5px] text-muted">· PDF ส่งทันทีหลังชำระเงิน</span>
               </div>
               <div className="mt-5 flex flex-wrap gap-3">
-                {ebook.productId ? (
-                  <BuyButton
-                    productId={ebook.productId}
+                {ebook.productId || ebook.stripeUrl ? (
+                  <PaymentButton
+                    chillpayProductId={ebook.productId}
+                    stripeUrl={ebook.stripeUrl}
+                    amount={ebook.price}
                     className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]"
                   >
                     ซื้อ eBook — ฿{ebook.price.toLocaleString()}
-                  </BuyButton>
-                ) : ebook.stripeUrl ? (
-                  <a href={ebook.stripeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]">
-                    ซื้อ eBook — ฿{ebook.price.toLocaleString()}
-                  </a>
+                  </PaymentButton>
                 ) : (
                   <a href={`/contact?topic=ebook-${ebook.slug}`} className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]">
                     แจ้งความสนใจ
@@ -164,17 +162,15 @@ export default async function EbookDetailPage({ params }) {
           <p className="mt-3 text-[15.5px] text-ink/75">PDF ส่งทันทีหลังชำระเงิน · เปิดอ่านได้ทุกอุปกรณ์</p>
           <div className={`mt-5 inline-block text-[2.4rem] font-extrabold tabular-nums ${accent.text}`}>฿{ebook.price.toLocaleString()}</div>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
-            {ebook.productId ? (
-              <BuyButton
-                productId={ebook.productId}
+            {ebook.productId || ebook.stripeUrl ? (
+              <PaymentButton
+                chillpayProductId={ebook.productId}
+                stripeUrl={ebook.stripeUrl}
+                amount={ebook.price}
                 className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]"
               >
                 ซื้อ eBook — ฿{ebook.price.toLocaleString()}
-              </BuyButton>
-            ) : ebook.stripeUrl ? (
-              <a href={ebook.stripeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]">
-                ซื้อ eBook — ฿{ebook.price.toLocaleString()}
-              </a>
+              </PaymentButton>
             ) : (
               <a href={`/contact?topic=ebook-${ebook.slug}`} className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]">
                 แจ้งความสนใจ

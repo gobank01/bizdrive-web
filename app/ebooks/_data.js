@@ -32,7 +32,8 @@ export const EBOOKS = {
     ],
     price: EBOOK_PRICE,
     productId: "ebook-manus-ai",
-    stripeUrl: null,
+    stripeUrl: "https://buy.stripe.com/7sYeVd0G1cIvfc99GH1VK07",
+    stripePriceId: "price_1TbwI8GwqPLvBau9hHZUs4uX",
     pdfUrl: null,
   },
   "claude": {

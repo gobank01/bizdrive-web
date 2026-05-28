@@ -28,7 +28,8 @@ export default function CheckoutCancelPage() {
             ทักผ่าน LINE {CONTACT.line}
           </a>
           <a href="/contact" className="btn btn-outline">กรอกฟอร์มติดต่อ</a>
-          <a href="/#class" className="btn btn-outline">ดูคลาสอีกครั้ง</a>
+          <a href="/ebooks" className="btn btn-outline">ดู eBook</a>
+          <a href="/#class" className="btn btn-outline">ดูคลาสเรียน</a>
         </div>
       </div>
     </section>

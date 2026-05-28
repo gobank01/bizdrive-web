@@ -63,7 +63,7 @@ async function sendEbookEmail(email, name, books) {
   }
 }
 
-function resolveProductFromSession(session) {
+async function resolveProductFromSession(session) {
   const meta = session.metadata || {};
   const productType = meta.product_type;
   if (productType === "ebook" && meta.ebook_slug) {
@@ -77,6 +77,20 @@ function resolveProductFromSession(session) {
       if (books.length > 0) return { kind: "bundle", books };
     }
   }
+
+  // Fallback: Payment Link (no metadata) — match line item price_id with ebook stripePriceId
+  try {
+    const lineItems = await getStripe().checkout.sessions.listLineItems(session.id, { limit: 10 });
+    const priceIds = lineItems.data.map((li) => li.price?.id).filter(Boolean);
+    const matchedBooks = Object.values(EBOOKS).filter(
+      (e) => e.stripePriceId && priceIds.includes(e.stripePriceId)
+    );
+    if (matchedBooks.length === 1) return { kind: "ebook", books: matchedBooks };
+    if (matchedBooks.length > 1) return { kind: "bundle", books: matchedBooks };
+  } catch (err) {
+    console.error("Failed to fetch line items:", err.message);
+  }
+
   return { kind: "course", books: [] };
 }
 
@@ -105,7 +119,7 @@ export async function POST(request) {
     const email = session.customer_details?.email;
     const name = session.customer_details?.name || "คุณ";
     if (email) {
-      const product = resolveProductFromSession(session);
+      const product = await resolveProductFromSession(session);
       if (product.kind === "ebook" || product.kind === "bundle") {
         after(sendEbookEmail(email, name, product.books));
       } else {
