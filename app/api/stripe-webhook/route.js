@@ -90,6 +90,14 @@ async function resolveProductFromSession(session) {
     const lineItems = await getStripe().checkout.sessions.listLineItems(session.id, { limit: 10 });
     const priceIds = lineItems.data.map((li) => li.price?.id).filter(Boolean);
 
+    const matchedBundle = BUNDLES.find(
+      (b) => b.stripePriceId && priceIds.includes(b.stripePriceId)
+    );
+    if (matchedBundle) {
+      const books = matchedBundle.bookSlugs.map((s) => EBOOKS[s]).filter(Boolean);
+      if (books.length > 0) return { kind: "bundle", books };
+    }
+
     const matchedBooks = Object.values(EBOOKS).filter(
       (e) => e.stripePriceId && priceIds.includes(e.stripePriceId)
     );

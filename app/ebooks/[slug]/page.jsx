@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { EBOOKS, EBOOK_SLUGS, BUNDLES, ebookBySlug } from "../_data";
 import { PaymentButton } from "@/components/PaymentButton";
+import { OrderBump } from "@/components/OrderBump";
 import { CONTACT } from "../../class/_data";
 
 function LineHelpLink() {
@@ -79,28 +80,38 @@ export default async function EbookDetailPage({ params }) {
                 <span className={`text-[2.4rem] font-extrabold tabular-nums ${accent.text}`}>฿{ebook.price.toLocaleString()}</span>
                 <span className="text-[13.5px] text-muted">· PDF ส่งทันทีหลังชำระเงิน</span>
               </div>
-              <div className="mt-5 flex flex-wrap gap-3">
-                {ebook.productId || ebook.stripeUrl ? (
+              <div className="mt-5 max-w-[480px]">
+                {ebook.stripeUrl && bundle?.stripeUrl ? (
+                  <OrderBump
+                    defaultLabel="ซื้อ eBook"
+                    defaultPrice={ebook.price}
+                    defaultUrl={ebook.stripeUrl}
+                    bumpLabel="ซื้อ Bundle 4 เล่ม"
+                    bumpPrice={bundle.price}
+                    bumpUrl={bundle.stripeUrl}
+                    bumpHeadline={`อัปเกรดเป็น Bundle 4 เล่ม +฿${(bundle.price - ebook.price).toLocaleString()}`}
+                    bumpSubline={bundle.bookSlugs
+                      .map((s) => EBOOKS[s]?.title?.split("—")[0]?.trim())
+                      .filter(Boolean)
+                      .join(" + ")}
+                    bumpSavings={bundle.originalPrice - bundle.price}
+                  />
+                ) : ebook.productId || ebook.stripeUrl ? (
                   <PaymentButton
                     chillpayProductId={ebook.productId}
                     stripeUrl={ebook.stripeUrl}
                     amount={ebook.price}
-                    className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]"
+                    className="btn btn-primary btn-lg w-full"
                   >
                     ซื้อ eBook — ฿{ebook.price.toLocaleString()}
                   </PaymentButton>
                 ) : (
-                  <a href={`/contact?topic=ebook-${ebook.slug}`} className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]">
+                  <a href={`/contact?topic=ebook-${ebook.slug}`} className="btn btn-primary btn-lg w-full">
                     แจ้งความสนใจ
                   </a>
                 )}
-                {bundle ? (
-                  <a href="/ebooks#books" className="btn btn-outline">
-                    หรือซื้อรวม Bundle ประหยัด ฿{(bundle.originalPrice - bundle.price).toLocaleString()}
-                  </a>
-                ) : null}
               </div>
-              <div className="mt-2"><LineHelpLink /></div>
+              <div className="mt-3"><LineHelpLink /></div>
             </div>
             <div className="grid place-items-center">
               <div className={`aspect-[3/4] w-[280px] overflow-hidden rounded-[14px] border-2 ${accent.ring} bg-white shadow-brand max-[620px]:w-[220px] transition-transform duration-300 hover:-rotate-1 hover:scale-[1.02]`}>

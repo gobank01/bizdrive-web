@@ -69,6 +69,74 @@ export const EBOOKS = {
     stripeUrl: null,
     pdfUrl: null,
   },
+  "one-person-business": {
+    slug: "one-person-business",
+    title: "One Person Business — ทำธุรกิจคนเดียวด้วย AI",
+    tagline: "Playbook สร้างธุรกิจ ฿1M/ปี โดยไม่ต้องจ้างพนักงาน",
+    pages: 72,
+    cover: "/assets/ebooks/manus-ai-cover.jpg",
+    badge: "Coming Soon",
+    accent: "purple",
+    summary:
+      "Framework ครบจบสำหรับทำธุรกิจคนเดียว — เลือก niche, สร้าง offer, build automation, ขยายโดยไม่จ้างคน · ใช้ AI แทนทีม 5 ตำแหน่ง (marketer, designer, support, ops, content)",
+    chapters: [
+      "Mindset ของ One Person Business",
+      "เลือก niche ที่ตลาดต้องการจริง",
+      "Offer Stacking — สร้างให้ลูกค้า say yes",
+      "Tech Stack ขั้นต่ำ (Notion + Stripe + AI)",
+      "Content Engine ที่รันเอง 80%",
+      "Sales Funnel ด้วย AI Agent",
+      "Scale to ฿1M/ปี without hiring",
+    ],
+    bonuses: [
+      "One Person Business Canvas",
+      "Stack template (Notion + AI tools)",
+      "Update ฟรีตลอดอายุ ebook",
+    ],
+    forWhom: [
+      "เจ้าของธุรกิจคนเดียว ไม่อยากจ้างคน",
+      "ฟรีแลนซ์ที่อยาก scale revenue โดยไม่ scale ชั่วโมง",
+      "พนักงานประจำที่อยากเริ่ม side business",
+    ],
+    price: EBOOK_PRICE,
+    stripeUrl: null,
+    pdfUrl: null,
+    comingSoon: true,
+  },
+  "ai-editor": {
+    slug: "ai-editor",
+    title: "AI Video Editor — ตัดต่อด้วย AI เร็วกว่า CapCut",
+    tagline: "ตัดวิดีโอ 1 ชม. ลงเหลือ 5 นาที ด้วย AI agent",
+    pages: 80,
+    cover: "/assets/ebooks/claude-cover.jpg",
+    badge: "Coming Soon",
+    accent: "blue",
+    summary:
+      "เปลี่ยน workflow ตัดต่อวิดีโอจาก manual editing → AI-powered editing · ใช้ Whisper + ChatGPT + HyperFrames + Auto caption ตัดได้ทั้ง reels, talking head, sales video",
+    chapters: [
+      "ทำไม AI Editor ดีกว่า CapCut/Premiere",
+      "Auto Transcribe + Cut dead air (Whisper)",
+      "Kinetic Captions + Punch animation",
+      "Auto B-roll + Stock footage matching",
+      "Voice clone + AI dubbing",
+      "Render pipeline — 9:16 + 1:1 + 16:9",
+      "Real Case: ตัด talking head 100 คลิป/เดือนคนเดียว",
+    ],
+    bonuses: [
+      "AI Editor Stack (Whisper + Claude + HyperFrames)",
+      "Caption template library",
+      "Update ฟรีตลอดอายุ ebook",
+    ],
+    forWhom: [
+      "Content creator ที่ตัดวิดีโอเองทุกวัน",
+      "เจ้าของธุรกิจที่อยากทำ video marketing โดยไม่ต้องจ้าง editor",
+      "ทีมที่อยากผลิตวิดีโอ 10x volume",
+    ],
+    price: EBOOK_PRICE,
+    stripeUrl: null,
+    pdfUrl: null,
+    comingSoon: true,
+  },
 };
 
 export const EBOOK_SLUGS = Object.keys(EBOOKS);
@@ -76,13 +144,14 @@ export const EBOOK_SLUGS = Object.keys(EBOOKS);
 export const BUNDLES = [
   {
     slug: "all-ebooks",
-    title: "BizDrive AI eBook Bundle",
-    tagline: "รวมทุกเล่ม · ราคาพิเศษ · ประหยัด ฿90",
-    bookSlugs: ["manus-ai", "claude"],
-    price: 690,
-    originalPrice: 780,
-    stripeUrl: null,
-    badge: "ประหยัดสุด",
+    title: "BizDrive AI eBook Bundle (4 เล่ม)",
+    tagline: "รวม 4 เล่มเด็ด · ประหยัด ฿570 · ส่ง PDF ทุกเล่มทันที (เล่มที่ยังไม่ออก ส่งให้ฟรีเมื่อพร้อม)",
+    bookSlugs: ["manus-ai", "claude", "one-person-business", "ai-editor"],
+    price: 990,
+    originalPrice: 1560,
+    stripeUrl: "https://buy.stripe.com/eVq5kD4Wh37Ve857yz1VK09",
+    stripePriceId: "price_1Tc2FFGwqPLvBau9jRlA5sAu",
+    badge: "ประหยัดสุด · คุ้มที่สุด",
   },
 ];
 
