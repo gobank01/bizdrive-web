@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-const OFFER_KEY = "bizdrive-bump-deadline";
-const OFFER_DURATION_MS = 20 * 60 * 1000; // 20 minutes
+const OFFER_KEY = "bizdrive-bump-deadline-v2";
+const OFFER_DURATION_MS = 45 * 60 * 1000; // 45 minutes
 
 /**
  * OrderBump — pre-purchase upsell with countdown urgency.
