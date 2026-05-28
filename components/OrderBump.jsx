@@ -54,11 +54,21 @@ export function OrderBump({
   return (
     <div className="grid gap-3">
       {/* Header: urgency banner */}
-      <div className={`flex items-center justify-between gap-3 rounded-t-[14px] px-4 py-2.5 text-white ${expired ? "bg-muted" : "bg-gradient-to-r from-[#dc2626] via-[#ef4444] to-[#f97316]"}`}>
+      <div
+        className="flex items-center justify-between gap-3 rounded-t-[14px] px-4 py-2.5 text-white"
+        style={{
+          background: expired
+            ? "#94a3b8"
+            : "linear-gradient(to right, #dc2626, #ef4444, #f97316)",
+        }}
+      >
         <span className="text-[13px] font-extrabold uppercase tracking-wider">
           🔥 ข้อเสนอพิเศษ
         </span>
-        <span className="inline-flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-0.5 text-[13px] font-extrabold tabular-nums">
+        <span
+          className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[13px] font-extrabold tabular-nums"
+          style={{ background: "rgba(255,255,255,0.2)" }}
+        >
           ⏱ {expired ? "หมดเวลาแล้ว" : `เหลือ ${mm}:${ss}`}
         </span>
       </div>
