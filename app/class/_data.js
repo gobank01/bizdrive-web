@@ -7,7 +7,9 @@ export const PLANS = {
     originalPrice: 5900,
     priceLabel: "฿3,900",
     priceNote: "จ่ายครั้งเดียว · เรียนได้ตลอด · อัปเดตเนื้อหาฟรี",
-    stripeUrl: null, // TODO: Stripe Payment Link — see /docs/STRIPE_SETUP.md
+    stripeUrl: "https://buy.stripe.com/00w9ATcoJeQD8NL2ef1VK08",
+    stripePriceId: "price_1TbxmqGwqPLvBau9vF1KMleZ",
+    skoolUrl: "https://www.skool.com/bizdrive/about",
     badge: "เริ่มต้นง่าย",
     accent: "blue",
     cardSub: "เรียน self-paced · เริ่มได้ทันที",
