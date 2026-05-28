@@ -34,7 +34,7 @@ export const EBOOKS = {
     productId: "ebook-manus-ai",
     stripeUrl: "https://buy.stripe.com/7sYeVd0G1cIvfc99GH1VK07",
     stripePriceId: "price_1TbwI8GwqPLvBau9hHZUs4uX",
-    pdfUrl: null,
+    pdfUrl: "https://bizdrive.app/downloads/manus-ai-ebook.pdf",
   },
   "claude": {
     slug: "claude",
