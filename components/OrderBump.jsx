@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const OFFER_KEY = "bizdrive-bump-deadline-v2";
 const OFFER_DURATION_MS = 45 * 60 * 1000; // 45 minutes
+const EMPTY_BUMP_ITEMS = [];
 
 /**
  * OrderBump — pre-purchase upsell with countdown urgency.
@@ -18,7 +19,7 @@ export function OrderBump({
   bumpLabel,
   bumpPrice,
   bumpUrl,
-  bumpItems = [],
+  bumpItems = EMPTY_BUMP_ITEMS,
   perItemPrice = 390,
 }) {
   const [upgraded, setUpgraded] = useState(false);
@@ -85,7 +86,7 @@ export function OrderBump({
           type="checkbox"
           checked={upgraded}
           onChange={(e) => setUpgraded(e.target.checked)}
-          className="mt-1 h-5 w-5 flex-shrink-0 cursor-pointer accent-brand-blue"
+          className="mt-1 size-5 flex-shrink-0 cursor-pointer accent-brand-blue"
         />
         <div className="flex-1 text-left">
           <div className="flex flex-wrap items-baseline gap-x-2">
@@ -127,7 +128,7 @@ export function OrderBump({
 
           <p className={`mt-3 text-[13px] font-bold ${expired ? "text-muted" : "text-[#dc2626]"}`}>
             {expired
-              ? "ข้อเสนอนี้หมดอายุแล้ว — รีเฟรชเพื่อเริ่มใหม่"
+              ? "ข้อเสนอนี้หมดอายุแล้ว รีเฟรชเพื่อเริ่มใหม่"
               : "⏰ ติ๊กที่ช่อง → เปลี่ยนเป็น Bundle ราคาพิเศษทันที"}
           </p>
         </div>
@@ -141,12 +142,12 @@ export function OrderBump({
         className="btn btn-primary btn-lg w-full"
         data-upgraded={upgraded ? "1" : "0"}
       >
-        {label} — ฿{price.toLocaleString()}
+        {label} ฿{price.toLocaleString()}
       </a>
 
       {upgraded ? (
         <p className="-mt-1 text-center text-[12.5px] font-extrabold text-[#047857]">
-          ✓ Upgrade applied — รับครบ {itemCount} เล่ม ฿{bumpPrice.toLocaleString()} (ประหยัด ฿{savings.toLocaleString()})
+          ✓ Upgrade applied, รับครบ {itemCount} เล่ม ฿{bumpPrice.toLocaleString()} (ประหยัด ฿{savings.toLocaleString()})
         </p>
       ) : null}
     </div>

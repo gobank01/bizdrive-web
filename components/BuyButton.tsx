@@ -77,6 +77,7 @@ export function BuyButton({ productId, email, className, children }: Props) {
   return (
     <div>
       <button
+        type="button"
         onClick={handleClick}
         disabled={loading}
         className={className ?? "px-6 py-3 bg-[#1B3A8C] text-[#F4C20F] font-semibold rounded-lg disabled:opacity-50"}

@@ -83,7 +83,7 @@ export default function ManusCapabilities() {
             Manus AI ทำอะไรได้บ้าง
           </h2>
           <p className="mx-auto mt-3 max-w-[680px] text-[15px] text-muted">
-            ต่างจาก chatbot ที่รอคุณพิมพ์ — Manus AI เป็น <strong className="text-ink">autonomous agent</strong> ที่วางแผน
+            ต่างจาก chatbot ที่รอคุณพิมพ์ Manus AI เป็น <strong className="text-ink">autonomous agent</strong> ที่วางแผน
             เปิดเครื่องมือจริง ทำงานเองทุกขั้นตอน แล้วส่งผลลัพธ์ให้คุณตรวจ
           </p>
         </div>
@@ -94,8 +94,8 @@ export default function ManusCapabilities() {
               key={c.title}
               className="group rounded-[14px] border border-line bg-white p-6 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand-sky/45 hover:shadow-brand-sm"
             >
-              <div className="mb-[18px] grid h-[50px] w-[50px] place-items-center rounded-lg bg-[#eef6ff] text-brand-blue">
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[25px] w-[25px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]">
+              <div className="mb-[18px] grid size-[50px] place-items-center rounded-lg bg-[#eef6ff] text-brand-blue">
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[25px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]">
                   {c.icon}
                 </svg>
               </div>
@@ -121,7 +121,7 @@ export default function ManusCapabilities() {
         </div>
 
         <p className="mt-5 text-center text-[12.5px] text-muted">
-          อ้างอิงเทคโนโลยีจาก <a href="https://manus.im" target="_blank" rel="noopener noreferrer" className="font-bold text-brand-blue underline-offset-2 hover:underline">manus.im</a> — autonomous AI agent platform · BizDrive Manus AI Class สอน workflow ที่ใช้ Manus + เครื่องมืออื่นร่วมกัน
+          อ้างอิงเทคโนโลยีจาก <a href="https://manus.im" target="_blank" rel="noopener noreferrer" className="font-bold text-brand-blue underline-offset-2 hover:underline">manus.im</a> (autonomous AI agent platform) · BizDrive Manus AI Class สอน workflow ที่ใช้ Manus + เครื่องมืออื่นร่วมกัน
         </p>
       </div>
     </section>

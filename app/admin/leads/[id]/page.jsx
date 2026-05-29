@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { getSql, logActivity } from "@/lib/db";
@@ -14,7 +15,10 @@ async function updateLeadAction(formData) {
   const status = String(formData.get("status") || "").slice(0, 32);
   const notes = String(formData.get("notes") || "").slice(0, 5000) || null;
   const tagsRaw = String(formData.get("tags") || "").slice(0, 500);
-  const tags = tagsRaw ? tagsRaw.split(",").map((s) => s.trim()).filter(Boolean).slice(0, 20) : null;
+  const tags = tagsRaw ? tagsRaw.split(",").flatMap((s) => {
+    const trimmed = s.trim();
+    return trimmed ? [trimmed] : [];
+  }).slice(0, 20) : null;
   const markContacted = formData.get("mark_contacted") === "1";
 
   const allowed = LEAD_STATUSES.map((s) => s.value);
@@ -93,7 +97,7 @@ export default async function LeadDetailPage({ params, searchParams }) {
     <div className="bx-container max-w-[960px]">
       <header className={`relative mb-6 overflow-hidden rounded-[14px] border border-line p-5 pt-6 ${currentStyle.bg}`}>
         <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-1.5 ${currentStyle.accent}`} />
-        <a href="/admin/leads" className="mb-2 inline-flex text-[13px] font-semibold text-muted hover:text-brand-blue">← Leads</a>
+        <Link href="/admin/leads" className="mb-2 inline-flex text-[13px] font-semibold text-muted hover:text-brand-blue">← Leads</Link>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
             <h1 className="break-all text-[1.4rem] font-extrabold text-ink">{lead.email}</h1>
@@ -108,9 +112,9 @@ export default async function LeadDetailPage({ params, searchParams }) {
       </header>
 
       {saved ? (
-        <div role="status" aria-live="polite" className="mb-4 rounded-lg border border-[#047857]/30 bg-[#047857]/[.08] px-4 py-3 text-[14px] font-semibold text-[#047857]">
+        <output aria-live="polite" className="mb-4 block rounded-lg border border-[#047857]/30 bg-[#047857]/[.08] px-4 py-3 text-[14px] font-semibold text-[#047857]">
           บันทึกแล้ว ✓
-        </div>
+        </output>
       ) : null}
 
       <div className="grid grid-cols-[1.2fr_1fr] gap-5 max-[900px]:grid-cols-1">
@@ -132,7 +136,7 @@ export default async function LeadDetailPage({ params, searchParams }) {
                       name="status"
                       value={s.value}
                       defaultChecked={lead.status === s.value}
-                      className="absolute h-0 w-0 opacity-0"
+                      className="absolute size-0 opacity-0"
                     />
                     <span aria-hidden="true" className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
                     {s.label}
@@ -153,7 +157,7 @@ export default async function LeadDetailPage({ params, searchParams }) {
 
             {!lead.contacted_at ? (
               <label className="flex cursor-pointer items-center gap-2 text-[13.5px] text-ink">
-                <input type="checkbox" name="mark_contacted" value="1" className="h-4 w-4" />
+                <input type="checkbox" name="mark_contacted" value="1" className="size-4" />
                 Mark ว่าติดต่อแล้วเป็นครั้งแรกตอนนี้
               </label>
             ) : (
@@ -211,7 +215,7 @@ function FunnelBar({ stage, currentStatus, className = "" }) {
     return (
       <div className={`flex items-center gap-2 rounded-lg border border-[#dfe2e8] bg-white/60 px-3 py-2 ${className}`}>
         <span aria-hidden="true" className="text-[14px] font-extrabold text-[#9aa3b2]">✕</span>
-        <span className="text-[12.5px] font-semibold text-[#4b5563]">ปิดทาง (Closed) — ออกจาก funnel แล้ว</span>
+        <span className="text-[12.5px] font-semibold text-[#4b5563]">ปิดทาง (Closed) ออกจาก funnel แล้ว</span>
       </div>
     );
   }

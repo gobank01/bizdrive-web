@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EBOOKS, EBOOK_SLUGS, BUNDLES, ebookBySlug } from "../_data";
 import { PaymentButton } from "@/components/PaymentButton";
@@ -48,7 +50,7 @@ export default async function EbookDetailPage({ params }) {
   const ebook = ebookBySlug(slug);
   if (!ebook) notFound();
   const accent = ACCENTS[ebook.accent] || ACCENTS.blue;
-  const otherEbooks = EBOOK_SLUGS.filter((s) => s !== slug).map((s) => EBOOKS[s]);
+  const otherEbooks = EBOOK_SLUGS.flatMap((s) => (s === slug ? [] : [EBOOKS[s]]));
   const bundle = BUNDLES.find((b) => b.bookSlugs.includes(slug));
 
   return (
@@ -56,9 +58,9 @@ export default async function EbookDetailPage({ params }) {
       <section className={`relative overflow-hidden bg-gradient-to-br ${accent.grad} pt-[64px] pb-[48px] max-[620px]:pt-[40px] max-[620px]:pb-[32px]`}>
         <div className="hero-grid pointer-events-none absolute inset-0 opacity-30" />
         <div className="bx-container relative max-w-[1080px]">
-          <a href="/ebooks" className="mb-5 inline-flex items-center gap-1 text-[13px] font-bold text-muted hover:text-brand-blue">
+          <Link href="/ebooks" className="mb-5 inline-flex items-center gap-1 text-[13px] font-bold text-muted hover:text-brand-blue">
             ← ดู eBook ทั้งหมด
-          </a>
+          </Link>
           <div className="grid grid-cols-[1fr_0.85fr] gap-10 items-center max-[760px]:grid-cols-1 max-[760px]:gap-7">
             <div>
               {ebook.badge ? (
@@ -90,9 +92,10 @@ export default async function EbookDetailPage({ params }) {
                     bumpPrice={bundle.price}
                     bumpUrl={bundle.stripeUrl}
                     perItemPrice={ebook.price}
-                    bumpItems={bundle.bookSlugs
-                      .map((s) => EBOOKS[s]?.title?.split("—")[0]?.trim())
-                      .filter(Boolean)}
+                    bumpItems={bundle.bookSlugs.flatMap((s) => {
+                      const t = EBOOKS[s]?.title?.split("—")[0]?.trim();
+                      return t ? [t] : [];
+                    })}
                   />
                 ) : ebook.productId || ebook.stripeUrl ? (
                   <PaymentButton
@@ -101,7 +104,7 @@ export default async function EbookDetailPage({ params }) {
                     amount={ebook.price}
                     className="btn btn-primary btn-lg w-full"
                   >
-                    ซื้อ eBook — ฿{ebook.price.toLocaleString()}
+                    ซื้อ eBook ฿{ebook.price.toLocaleString()}
                   </PaymentButton>
                 ) : (
                   <a href={`/contact?topic=ebook-${ebook.slug}`} className="btn btn-primary btn-lg w-full">
@@ -115,7 +118,7 @@ export default async function EbookDetailPage({ params }) {
               <div className={`aspect-[3/4] w-[280px] overflow-hidden rounded-[14px] border-2 ${accent.ring} bg-white shadow-brand max-[620px]:w-[220px] transition-transform duration-300 hover:-rotate-1 hover:scale-[1.02]`}>
                 <picture>
                   <source type="image/webp" srcSet={ebook.cover?.replace(/\.jpg$/, ".webp")} />
-                  <img src={ebook.cover} alt={ebook.title} width="280" height="373" className="h-full w-full object-cover" />
+                  <Image src={ebook.cover} alt={ebook.title} width={280} height={373} className="h-full w-full object-cover" />
                 </picture>
               </div>
             </div>
@@ -194,7 +197,7 @@ export default async function EbookDetailPage({ params }) {
                 amount={ebook.price}
                 className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]"
               >
-                ซื้อ eBook — ฿{ebook.price.toLocaleString()}
+                ซื้อ eBook ฿{ebook.price.toLocaleString()}
               </PaymentButton>
             ) : (
               <a href={`/contact?topic=ebook-${ebook.slug}`} className="btn btn-primary btn-lg max-[620px]:w-full max-[620px]:max-w-[320px]">
@@ -215,11 +218,11 @@ export default async function EbookDetailPage({ params }) {
               {otherEbooks.map((b) => {
                 const oa = ACCENTS[b.accent] || ACCENTS.blue;
                 return (
-                  <a key={b.slug} href={`/ebooks/${b.slug}`} className={`group flex items-center gap-4 rounded-[14px] border-2 ${oa.ring} bg-white p-4 transition-[transform,border-color] hover:-translate-y-0.5`}>
+                  <Link key={b.slug} href={`/ebooks/${b.slug}`} className={`group flex items-center gap-4 rounded-[14px] border-2 ${oa.ring} bg-white p-4 transition-[transform,border-color] hover:-translate-y-0.5`}>
                     <div className={`aspect-[3/4] w-[64px] flex-shrink-0 overflow-hidden rounded-[6px] border ${oa.ring} bg-white`}>
                       <picture>
                         <source type="image/webp" srcSet={b.cover?.replace(/\.jpg$/, ".webp")} />
-                        <img src={b.cover} alt={b.title} loading="lazy" width="64" height="85" className="h-full w-full object-cover" />
+                        <Image src={b.cover} alt={b.title} loading="lazy" width={64} height={85} className="h-full w-full object-cover" />
                       </picture>
                     </div>
                     <div className="flex-1">
@@ -227,7 +230,7 @@ export default async function EbookDetailPage({ params }) {
                       <div className="mt-1 text-[12.5px] text-muted">{b.tagline}</div>
                       <div className={`mt-1.5 text-[14px] font-extrabold ${oa.text}`}>฿{b.price.toLocaleString()} →</div>
                     </div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>

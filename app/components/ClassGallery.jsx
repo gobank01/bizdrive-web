@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const GALLERIES = {
   "manus-ai-seminar": Array.from({ length: 20 }, (_, i) => ({
     src: `/assets/gallery/seminar/seminar-${String(i + 1).padStart(2, "0")}.jpg`,
@@ -44,12 +46,12 @@ export default function ClassGallery({ slug }) {
                 i === 0 ? "col-span-2 row-span-2 aspect-square max-[900px]:col-span-2 max-[900px]:row-span-2 max-[620px]:col-span-2" : "aspect-square"
               }`}
             >
-              <img
+              <Image
                 src={g.src}
                 alt={g.alt}
                 loading="lazy"
-                width="1200"
-                height="1200"
+                width={1200}
+                height={1200}
                 className="h-full w-full object-cover"
               />
             </figure>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CONTACT } from "../../class/_data";
 import { EBOOKS } from "../../ebooks/_data";
 import { getOrder, getProduct, saveOrder, PRODUCTS } from "@/lib/chillpay";
@@ -59,8 +60,8 @@ export default async function CheckoutSuccessPage({ searchParams }) {
   return (
     <section className="bg-[linear-gradient(180deg,#f8fbff_0%,#fff_70%)] py-[72px] max-[620px]:py-[54px]">
       <div className="bx-container max-w-[760px] text-center">
-        <div className="mx-auto mb-5 grid h-[88px] w-[88px] place-items-center rounded-full bg-brand-mint/[.15] text-[#047857]">
-          <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[44px] w-[44px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:3]">
+        <div className="mx-auto mb-5 grid size-[88px] place-items-center rounded-full bg-brand-mint/[.15] text-[#047857]">
+          <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[44px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:3]">
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
@@ -90,15 +91,15 @@ export default async function CheckoutSuccessPage({ searchParams }) {
             ทักผ่าน LINE {CONTACT.line}
           </a>
           {isEbook ? (
-            <a href="/ebooks" className="btn btn-outline">ดู eBook เล่มอื่น</a>
+            <Link href="/ebooks" className="btn btn-outline">ดู eBook เล่มอื่น</Link>
           ) : (
-            <a href="/" className="btn btn-outline">กลับหน้าแรก</a>
+            <Link href="/" className="btn btn-outline">กลับหน้าแรก</Link>
           )}
         </div>
 
         {!isPaid && order ? (
           <p className="mx-auto mt-8 max-w-[560px] rounded-[10px] border border-brand-yellow/40 bg-brand-yellow/[.08] p-3.5 text-[13px] text-ink/80">
-            ⏳ ระบบยังกำลังยืนยันการชำระเงิน — ปกติใช้เวลาไม่เกิน 2-3 นาที ลอง refresh หน้านี้อีกครั้ง หรือทักทีมงานถ้าผ่านไป 10 นาทีแล้วยังไม่ได้รับอีเมล
+            ⏳ ระบบยังกำลังยืนยันการชำระเงิน ปกติใช้เวลาไม่เกิน 2-3 นาที ลอง refresh หน้านี้อีกครั้ง หรือทักทีมงานถ้าผ่านไป 10 นาทีแล้วยังไม่ได้รับอีเมล
           </p>
         ) : null}
 
@@ -157,7 +158,7 @@ function EbookSteps() {
   return (
     <>
       <NextStep num="1" title="เช็คอีเมล">
-        ลิงก์ดาวน์โหลด PDF จะส่งไปที่อีเมลที่คุณใช้จ่ายเงิน · เก็บอีเมลไว้ — โหลดได้ตลอด
+        ลิงก์ดาวน์โหลด PDF จะส่งไปที่อีเมลที่คุณใช้จ่ายเงิน · เก็บอีเมลไว้ โหลดได้ตลอด
       </NextStep>
       <NextStep num="2" title="โหลดไฟล์ PDF">
         เปิดอ่านได้ทุกอุปกรณ์ (iPhone, iPad, Android, Mac, Windows)
@@ -180,7 +181,7 @@ function CourseSteps() {
         อีเมลต้อนรับมีลิงก์เข้าเรียน + รายละเอียดการเริ่มต้น
       </NextStep>
       <NextStep num="2" title="เข้ากลุ่ม Community">
-        ลิงก์เข้ากลุ่มอยู่ในอีเมล — ทีม BizDrive ตอบทุกคำถาม
+        ลิงก์เข้ากลุ่มอยู่ในอีเมล ทีม BizDrive ตอบทุกคำถาม
       </NextStep>
       <NextStep num="3" title="ไม่ได้รับอีเมลภายใน 10 นาที?">
         ทักผ่าน LINE{" "}
@@ -196,7 +197,7 @@ function CourseSteps() {
 function NextStep({ num, title, children }) {
   return (
     <div className="grid grid-cols-[40px_1fr] gap-3 rounded-lg border border-line bg-white p-4 text-left shadow-brand-sm">
-      <span className="grid h-[36px] w-[36px] place-items-center rounded-full bg-brand-blue text-[15px] font-extrabold text-brand-yellow">
+      <span className="grid size-[36px] place-items-center rounded-full bg-brand-blue text-[15px] font-extrabold text-brand-yellow">
         {num}
       </span>
       <div>

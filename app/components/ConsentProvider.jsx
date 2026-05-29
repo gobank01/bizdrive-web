@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -75,11 +76,11 @@ function ConsentBanner({ onAcceptAll, onDecline }) {
             <h2 className="text-[15.5px] font-extrabold text-ink">เราใช้คุกกี้เพื่อปรับปรุงประสบการณ์</h2>
             <p className="mt-1.5 text-[13.5px] leading-[1.65] text-muted">
               BizDrive เก็บข้อมูลการใช้งานแบบไม่ระบุตัวตน (Vercel Analytics + Google Tag Manager) เพื่อพัฒนาคุณภาพเว็บ
-              — คุณเลือกได้ว่าจะให้เก็บหรือไม่ และเปลี่ยนใจเมื่อไหร่ก็ได้ที่ลิงก์ "ตั้งค่าคุกกี้" ใต้เว็บ
+              คุณเลือกได้ว่าจะให้เก็บหรือไม่ และเปลี่ยนใจเมื่อไหร่ก็ได้ที่ลิงก์ "ตั้งค่าคุกกี้" ใต้เว็บ
               {" "}
-              <a href="/privacy" className="font-bold text-brand-blue underline-offset-2 hover:underline">
+              <Link href="/privacy" className="font-bold text-brand-blue underline-offset-2 hover:underline">
                 อ่านนโยบายความเป็นส่วนตัว →
-              </a>
+              </Link>
             </p>
           </div>
           <div className="flex flex-wrap items-end gap-2 max-[620px]:flex-col">

@@ -101,8 +101,8 @@ export default function TermsPage() {
           {SECTIONS.map((s) => (
             <section key={s.h}>
               <h2 className="mb-3 text-[1.18rem] font-extrabold text-ink">{s.h}</h2>
-              {s.p?.map((para, i) => (
-                <p key={i} className="mb-2 text-[15px] leading-[1.8] text-ink/85">
+              {s.p?.map((para) => (
+                <p key={para} className="mb-2 text-[15px] leading-[1.8] text-ink/85">
                   {para}
                 </p>
               ))}

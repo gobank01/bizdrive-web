@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./LeadForm";
 import CheckoutButton from "./CheckoutButton";
@@ -69,7 +70,7 @@ function Hero({ plan, accent }) {
       <div className="bx-container relative max-w-[880px] text-center">
         {plan.comingSoon ? (
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border-2 border-[#047857] bg-[#047857]/[.08] px-4 py-1.5 text-[13px] font-extrabold text-[#047857]">
-            <span aria-hidden="true" className="h-2 w-2 animate-pulse rounded-full bg-[#047857]" />
+            <span aria-hidden="true" className="size-2 animate-pulse rounded-full bg-[#047857]" />
             COMING SOON · เปิดรอบแรก {plan.availableFrom}
           </div>
         ) : null}
@@ -154,7 +155,7 @@ function Modules({ plan }) {
                   <ul className="mt-3 grid list-none gap-1.5">
                     {m.bullets.map((b) => (
                       <li key={b} className="flex gap-2 text-[13.5px] leading-[1.6] text-ink/80">
-                        <span aria-hidden="true" className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-brand-blue" />
+                        <span aria-hidden="true" className="mt-[6px] size-1 flex-shrink-0 rounded-full bg-brand-blue" />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -202,11 +203,11 @@ function About() {
           <div className="relative max-[620px]:mx-auto">
             <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 rounded-full bg-brand-yellow/40 blur-sm" aria-hidden="true" />
             <div className="relative aspect-square w-[220px] overflow-hidden rounded-full border-4 border-white bg-soft shadow-brand max-[620px]:w-[180px]">
-              <img
+              <Image
                 src="/assets/profile/profile-bank.jpg"
-                width="440"
-                height="440"
-                alt="พี่แบงค์ ปรัชญา — ผู้ก่อตั้ง BizDrive"
+                width={440}
+                height={440}
+                alt="พี่แบงค์ ปรัชญา ผู้ก่อตั้ง BizDrive"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -217,11 +218,11 @@ function About() {
           <div>
             <span className="section-kicker mb-3">ผู้สอน</span>
             <h2 className="text-balance text-[clamp(1.45rem,3vw,2rem)] font-extrabold leading-[1.22]">
-              พี่แบงค์ ปรัชญา — Founder, BizDrive
+              พี่แบงค์ ปรัชญา · Founder, BizDrive
             </h2>
             <p className="mt-3 text-[15px] text-muted">
               ทำธุรกิจมาตลอด ลงมือทำเองทุกขั้นตอน ตั้งแต่คอนเทนต์ วิดีโอ ระบบงาน
-              จนถึงการดูแลลูกค้า — เลยรู้ว่าอะไรใช้ได้จริงในธุรกิจคนเดียว
+              จนถึงการดูแลลูกค้า เลยรู้ว่าอะไรใช้ได้จริงในธุรกิจคนเดียว
               อะไรแค่ดูดีในสไลด์
             </p>
             <p className="mt-3 text-[15px] text-muted">
@@ -273,7 +274,7 @@ function Offer({ plan, accent }) {
               </li>
               {plan.bonuses.map((b) => (
                 <li key={b.title} className="grid grid-cols-[auto_1fr_auto] gap-3 border-b border-line pb-3 last:border-0 last:pb-0">
-                  <span aria-hidden="true" className="mt-[2px] inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-yellow text-[10.5px] font-extrabold text-ink">+</span>
+                  <span aria-hidden="true" className="mt-[2px] inline-flex size-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-yellow text-[10.5px] font-extrabold text-ink">+</span>
                   <div>
                     <strong className="block text-[15px] font-extrabold text-ink">{b.title}</strong>
                     <span className="text-[13.5px] text-muted">{b.text}</span>
@@ -355,7 +356,7 @@ function IdealFor({ plan }) {
         <div className="grid grid-cols-2 gap-5 max-[620px]:grid-cols-1">
           <div className="rounded-[14px] border border-brand-mint/30 bg-brand-mint/[.06] p-6">
             <h3 className="mb-3 flex items-center gap-2 text-[1rem] font-extrabold text-[#047857]">
-              <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-[#047857] text-[13px] text-white">✓</span>
+              <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-[#047857] text-[13px] text-white">✓</span>
               ใช่เลย
             </h3>
             <ul className="grid list-none gap-2.5">
@@ -369,7 +370,7 @@ function IdealFor({ plan }) {
           </div>
           <div className="rounded-[14px] border border-line bg-soft p-6">
             <h3 className="mb-3 flex items-center gap-2 text-[1rem] font-extrabold text-muted">
-              <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-muted text-[13px] text-white">→</span>
+              <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-muted text-[13px] text-white">→</span>
               อาจไม่ใช่ทาง
             </h3>
             <ul className="grid list-none gap-2.5">
@@ -401,9 +402,9 @@ function Guarantee({ plan }) {
   return (
     <section className="bg-soft py-[64px] max-[620px]:py-[48px]">
       <div className="bx-container max-w-[680px]">
-        <div className="grid grid-cols-[60px_1fr] gap-5 rounded-lg border border-line bg-white px-7 py-7 shadow-brand-sm max-[620px]:grid-cols-1 max-[620px]:text-center">
-          <div className="grid h-[60px] w-[60px] place-items-center rounded-full bg-brand-mint/[.12] text-brand-mint max-[620px]:mx-auto">
-            <svg viewBox="0 0 24 24" className="h-[32px] w-[32px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]" aria-hidden="true">
+        <div className="grid grid-cols-[60px_1fr] gap-5 rounded-lg border border-line bg-white p-7 shadow-brand-sm max-[620px]:grid-cols-1 max-[620px]:text-center">
+          <div className="grid size-[60px] place-items-center rounded-full bg-brand-mint/[.12] text-brand-mint max-[620px]:mx-auto">
+            <svg viewBox="0 0 24 24" className="size-[32px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]" aria-hidden="true">
               <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
               <path d="M9 12l2 2 4-4" />
             </svg>

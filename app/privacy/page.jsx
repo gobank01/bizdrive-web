@@ -105,14 +105,14 @@ export default function PrivacyPage() {
           <div className="rounded-lg border border-brand-yellow/40 bg-brand-yellow/10 px-5 py-4 text-[14px] leading-[1.7] text-ink">
             <strong>ตอนนี้:</strong> เรารับฝากอีเมลเพื่อแจ้งเตือนเปิดรับสมัครก่อน
             ระบบชำระเงิน (Stripe) และอีเมลธุรกรรม (Resend) จะเปิดใช้งานเมื่อพร้อมเปิดรับสมัครจริง
-            — เราอัปเดตนโยบายนี้ทันทีถ้ามีการเปลี่ยนแปลงสำคัญ
+            เราอัปเดตนโยบายนี้ทันทีถ้ามีการเปลี่ยนแปลงสำคัญ
           </div>
 
           {SECTIONS.map((s) => (
             <section key={s.h}>
               <h2 className="mb-3 text-[1.18rem] font-extrabold text-ink">{s.h}</h2>
-              {s.p?.map((para, i) => (
-                <p key={i} className="mb-2 text-[15px] leading-[1.8] text-ink/85">
+              {s.p?.map((para) => (
+                <p key={para} className="mb-2 text-[15px] leading-[1.8] text-ink/85">
                   {para}
                 </p>
               ))}

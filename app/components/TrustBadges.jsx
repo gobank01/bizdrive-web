@@ -48,8 +48,8 @@ export default function TrustBadges() {
         <div className="grid grid-cols-4 gap-3 max-[900px]:grid-cols-2 max-[620px]:grid-cols-1">
           {BADGES.map((b) => (
             <div key={b.title} className="flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3">
-              <div aria-hidden="true" className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg bg-brand-blue/10 text-brand-blue">
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.9]">
+              <div aria-hidden="true" className="grid size-10 flex-shrink-0 place-items-center rounded-lg bg-brand-blue/10 text-brand-blue">
+                <svg viewBox="0 0 24 24" className="size-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.9]">
                   {b.icon}
                 </svg>
               </div>

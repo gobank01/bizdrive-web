@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./LeadForm";
 import CheckoutButton from "./CheckoutButton";
@@ -89,13 +90,14 @@ function VideoHero({ plan, accent }) {
           </div>
         </div>
         <div className="relative">
-          <div className="aspect-video w-full overflow-hidden rounded-[14px] border-2 border-brand-yellow/40 bg-black shadow-brand">
+          <div className="aspect-video w-full overflow-hidden rounded-[14px] border-2 border-brand-yellow/40 bg-neutral-900 shadow-brand">
             {yt ? (
               <iframe
                 src={`https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1`}
                 title={plan.heroVideo.caption || "ตัวอย่างผลงาน"}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                sandbox="allow-scripts allow-presentation allow-popups"
                 className="h-full w-full"
               />
             ) : (
@@ -138,10 +140,10 @@ function AiStackSection() {
         <div className="mb-[34px] text-center">
           <span className="section-kicker mb-[14px]">เครื่องมือที่ใช้</span>
           <h2 className="mx-auto max-w-[760px] text-balance text-[clamp(1.65rem,3.8vw,2.5rem)] font-extrabold leading-[1.2]">
-            AI Agent + Hyperframes — Stack ที่ BizDrive ใช้จริงทุกวัน
+            AI Agent + Hyperframes · Stack ที่ BizDrive ใช้จริงทุกวัน
           </h2>
           <p className="mx-auto mt-3 max-w-[640px] text-[15px] text-muted">
-            ไม่ใช่เครื่องมือคลิกลาก — แต่เป็นระบบที่สั่งครั้งเดียวทำงานต่อเองได้
+            ไม่ใช่เครื่องมือคลิกลาก แต่เป็นระบบที่สั่งครั้งเดียวทำงานต่อเองได้
           </p>
         </div>
         <div className="grid grid-cols-3 gap-5 max-[900px]:grid-cols-1">
@@ -155,7 +157,7 @@ function AiStackSection() {
               <ul className="mt-4 grid list-none gap-1.5">
                 {t.bullets.map((b) => (
                   <li key={b} className="flex gap-2 text-[13.5px] leading-[1.6] text-ink/85">
-                    <span aria-hidden="true" className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-brand-blue" />
+                    <span aria-hidden="true" className="mt-[6px] size-1 flex-shrink-0 rounded-full bg-brand-blue" />
                     <span>{b}</span>
                   </li>
                 ))}
@@ -184,7 +186,7 @@ function PipelineDiagram() {
             จากคลิปดิบ → Reels พร้อมโพสต์ ใน 4 ขั้น
           </h2>
           <p className="mx-auto mt-3 max-w-[640px] text-[15px] text-muted">
-            สั่งครั้งเดียวที่คอมมานด์ — AI Agent รัน pipeline ทั้งหมดให้
+            สั่งครั้งเดียวที่คอมมานด์ AI Agent รัน pipeline ทั้งหมดให้
           </p>
         </div>
         <div className="grid grid-cols-4 gap-3 max-[900px]:grid-cols-2 max-[480px]:grid-cols-1">
@@ -199,7 +201,7 @@ function PipelineDiagram() {
                 </span>
               </article>
               {i < steps.length - 1 ? (
-                <span aria-hidden="true" className="absolute top-1/2 -right-[8px] z-10 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-brand-blue text-white text-[14px] font-extrabold max-[900px]:hidden md:flex">
+                <span aria-hidden="true" className="absolute top-1/2 -right-[8px] z-10 hidden size-6 -translate-y-1/2 items-center justify-center rounded-full bg-brand-blue text-white text-[14px] font-extrabold max-[900px]:hidden md:flex">
                   →
                 </span>
               ) : null}
@@ -273,7 +275,7 @@ function Modules({ plan }) {
                   <ul className="mt-3 grid list-none gap-1.5">
                     {m.bullets.map((b) => (
                       <li key={b} className="flex gap-2 text-[13.5px] leading-[1.6] text-ink/80">
-                        <span aria-hidden="true" className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-brand-blue" />
+                        <span aria-hidden="true" className="mt-[6px] size-1 flex-shrink-0 rounded-full bg-brand-blue" />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -321,11 +323,11 @@ function About() {
           <div className="relative max-[620px]:mx-auto">
             <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 rounded-full bg-brand-yellow/40 blur-sm" aria-hidden="true" />
             <div className="relative aspect-square w-[220px] overflow-hidden rounded-full border-4 border-white bg-soft shadow-brand max-[620px]:w-[180px]">
-              <img
+              <Image
                 src="/assets/profile/profile-bank.jpg"
-                width="440"
-                height="440"
-                alt="พี่แบงค์ ปรัชญา — ผู้ก่อตั้ง BizDrive"
+                width={440}
+                height={440}
+                alt="พี่แบงค์ ปรัชญา ผู้ก่อตั้ง BizDrive"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -336,10 +338,10 @@ function About() {
           <div>
             <span className="section-kicker mb-3">ผู้สอน</span>
             <h2 className="text-balance text-[clamp(1.45rem,3vw,2rem)] font-extrabold leading-[1.22]">
-              พี่แบงค์ ปรัชญา — Founder, BizDrive
+              พี่แบงค์ ปรัชญา · Founder, BizDrive
             </h2>
             <p className="mt-3 text-[15px] text-muted">
-              ใช้ AI Agent (Codex/Claude) + Hyperframes ตัดวิดีโอให้ BizDrive ทุกวัน —
+              ใช้ AI Agent (Codex/Claude) + Hyperframes ตัดวิดีโอให้ BizDrive ทุกวัน
               ทั้ง Reels, TikTok, YouTube เก็บเป็นไปป์ไลน์ที่ scale ได้จริง
               จนกลั่นเป็นคอร์สนี้
             </p>
@@ -392,7 +394,7 @@ function Offer({ plan, accent }) {
               </li>
               {plan.bonuses.map((b) => (
                 <li key={b.title} className="grid grid-cols-[auto_1fr_auto] gap-3 border-b border-line pb-3 last:border-0 last:pb-0">
-                  <span aria-hidden="true" className="mt-[2px] inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-yellow text-[10.5px] font-extrabold text-ink">+</span>
+                  <span aria-hidden="true" className="mt-[2px] inline-flex size-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-yellow text-[10.5px] font-extrabold text-ink">+</span>
                   <div>
                     <strong className="block text-[15px] font-extrabold text-ink">{b.title}</strong>
                     <span className="text-[13.5px] text-muted">{b.text}</span>
@@ -474,7 +476,7 @@ function IdealFor({ plan }) {
         <div className="grid grid-cols-2 gap-5 max-[620px]:grid-cols-1">
           <div className="rounded-[14px] border border-brand-mint/30 bg-brand-mint/[.06] p-6">
             <h3 className="mb-3 flex items-center gap-2 text-[1rem] font-extrabold text-[#047857]">
-              <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-[#047857] text-[13px] text-white">✓</span>
+              <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-[#047857] text-[13px] text-white">✓</span>
               ใช่เลย
             </h3>
             <ul className="grid list-none gap-2.5">
@@ -488,7 +490,7 @@ function IdealFor({ plan }) {
           </div>
           <div className="rounded-[14px] border border-line bg-soft p-6">
             <h3 className="mb-3 flex items-center gap-2 text-[1rem] font-extrabold text-muted">
-              <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-muted text-[13px] text-white">→</span>
+              <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-muted text-[13px] text-white">→</span>
               อาจไม่ใช่ทาง
             </h3>
             <ul className="grid list-none gap-2.5">
@@ -520,9 +522,9 @@ function Guarantee({ plan }) {
   return (
     <section className="bg-soft py-[64px] max-[620px]:py-[48px]">
       <div className="bx-container max-w-[680px]">
-        <div className="grid grid-cols-[60px_1fr] gap-5 rounded-lg border border-line bg-white px-7 py-7 shadow-brand-sm max-[620px]:grid-cols-1 max-[620px]:text-center">
-          <div className="grid h-[60px] w-[60px] place-items-center rounded-full bg-brand-mint/[.12] text-brand-mint max-[620px]:mx-auto">
-            <svg viewBox="0 0 24 24" className="h-[32px] w-[32px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]" aria-hidden="true">
+        <div className="grid grid-cols-[60px_1fr] gap-5 rounded-lg border border-line bg-white p-7 shadow-brand-sm max-[620px]:grid-cols-1 max-[620px]:text-center">
+          <div className="grid size-[60px] place-items-center rounded-full bg-brand-mint/[.12] text-brand-mint max-[620px]:mx-auto">
+            <svg viewBox="0 0 24 24" className="size-[32px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.4]" aria-hidden="true">
               <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
               <path d="M9 12l2 2 4-4" />
             </svg>

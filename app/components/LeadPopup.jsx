@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const STORAGE_KEY = "bizdrive_popup_v1";
 const DELAY_MS = 15000;
@@ -126,9 +127,9 @@ export default function LeadPopup() {
             type="button"
             onClick={close}
             aria-label="ปิด"
-            className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/15 text-white hover:bg-white/25"
+            className="absolute right-3 top-3 grid size-9 place-items-center rounded-full bg-white/15 text-white hover:bg-white/25"
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-none stroke-current [stroke-linecap:round] [stroke-width:2.2]">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-none stroke-current [stroke-linecap:round] [stroke-width:2.2]">
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
@@ -145,15 +146,15 @@ export default function LeadPopup() {
             </li>
             <li className="flex items-start gap-1.5">
               <span aria-hidden="true" className="mt-[1px] text-brand-yellow">✓</span>
-              <span><strong className="text-brand-yellow">eBook "เริ่มใช้ Manus AI สำหรับธุรกิจ"</strong> <span className="text-white/75">มูลค่า ฿990 — ฟรี</span></span>
+              <span><strong className="text-brand-yellow">eBook "เริ่มใช้ Manus AI สำหรับธุรกิจ"</strong> <span className="text-white/75">มูลค่า ฿990 · ฟรี</span></span>
             </li>
           </ul>
         </div>
 
         {status === "success" ? (
           <div className="px-6 py-7 text-center">
-            <div className="mx-auto mb-3 grid h-14 w-14 place-items-center rounded-full bg-[#047857]/10 text-[#047857]">
-              <svg viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.5]">
+            <div className="mx-auto mb-3 grid size-14 place-items-center rounded-full bg-[#047857]/10 text-[#047857]">
+              <svg viewBox="0 0 24 24" className="size-7 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.5]">
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
@@ -216,7 +217,7 @@ export default function LeadPopup() {
             ) : (
               <p className="text-center text-[11.5px] text-muted">
                 ข้อมูลจะใช้แจ้งเรื่องคลาส/โปรเท่านั้น · ไม่สแปม ·
-                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="ml-1 font-semibold text-brand-blue hover:underline">นโยบายความเป็นส่วนตัว</a>
+                <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="ml-1 font-semibold text-brand-blue hover:underline">นโยบายความเป็นส่วนตัว</Link>
               </p>
             )}
             <button

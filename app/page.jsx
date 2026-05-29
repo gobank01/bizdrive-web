@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { PLANS, PLAN_ORDER, MANUS_PLAN_ORDER, CLAUDE_PLAN_ORDER, AI_EDITOR_PLAN_ORDER, ONE_PERSON_PLAN_ORDER, PRIVATE_SLUG } from "./class/_data";
 import { urlForPlan } from "@/lib/urls";
 import LeadForm from "./components/LeadForm";
@@ -6,6 +8,14 @@ import Reviews from "./components/Reviews";
 import SocialIcons from "./components/SocialIcons";
 import StickyMobileBar from "./components/StickyMobileBar";
 import SectionDivider from "./components/SectionDivider";
+
+export const metadata = {
+  title: "BizDrive — ทำธุรกิจคนเดียวให้เหมือนมีทีมใหญ่ด้วย AI",
+  description:
+    "BizDrive สอนใช้ AI หลายตัว (Manus, ChatGPT, Claude, Gemini, Codex CLI, Cursor, Hyperframes) เพื่อวางระบบธุรกิจ ตัดวิดีโอด้วย AI Agent ทำ Automation สร้างภาพ และ Dashboard ที่ใช้จริง",
+};
+
+const EMPTY_SVG_ARR = [];
 
 const TRUST_LOGOS = [
   { name: "Manus AI", src: "/assets/brand/ai/manus.svg", wide: false },
@@ -140,8 +150,8 @@ function HeroSection() {
           <span className="hl">ให้เหมือนมีทีมใหญ่</span>
         </h1>
         <p className="mx-auto my-6 mb-8 max-w-[760px] text-[clamp(1rem,2vw,1.18rem)] text-muted max-[620px]:max-w-[310px] max-[620px]:text-base">
-          BizDrive สอนใช้ AI หลายตัว — <strong className="text-ink">Manus AI · ChatGPT · Claude · Gemini · Codex CLI · Cursor · Hyperframes</strong>
-          {" "}— เพื่อวางระบบธุรกิจ · ตัดวิดีโอด้วย AI Agent · งาน Automation · สร้างภาพ และ Dashboard ที่ใช้จริง
+          BizDrive สอนใช้ AI หลายตัว <strong className="text-ink">(Manus AI · ChatGPT · Claude · Gemini · Codex CLI · Cursor · Hyperframes)</strong>
+          {" "}เพื่อวางระบบธุรกิจ · ตัดวิดีโอด้วย AI Agent · งาน Automation · สร้างภาพ และ Dashboard ที่ใช้จริง
         </p>
         <div className="flex flex-wrap justify-center gap-[14px]">
           <a href="#class" className="btn btn-primary max-[620px]:w-full max-[620px]:max-w-[284px]">
@@ -156,12 +166,12 @@ function HeroSection() {
           <figure className="overflow-hidden rounded-xl border border-line bg-white shadow-brand">
             <picture>
               <source srcSet="/assets/gallery/seminar/seminar-03.webp" type="image/webp" />
-              <img
+              <Image
                 src="/assets/gallery/seminar/seminar-03.jpg"
-                width="1100"
-                height="619"
-                alt="บรรยากาศ Seminar ที่ BizDrive Academy — พี่แบงค์สอน AI workflow แบบ hands-on กับเจ้าของธุรกิจ"
-                fetchPriority="high"
+                width={1100}
+                height={619}
+                alt="บรรยากาศ Seminar ที่ BizDrive Academy พี่แบงค์สอน AI workflow แบบ hands-on กับเจ้าของธุรกิจ"
+                priority
                 className="block aspect-video w-full object-cover max-[620px]:aspect-square"
               />
             </picture>
@@ -197,10 +207,10 @@ function HeroSection() {
 
 function Thumb({ src, alt }) {
   return (
-    <img
+    <Image
       src={src}
-      width="240"
-      height="240"
+      width={240}
+      height={240}
       alt={alt}
       loading="lazy"
       className="aspect-square w-full rounded-[10px] border border-line bg-white object-cover shadow-brand-sm"
@@ -233,7 +243,7 @@ function TrustSection() {
     <section className="border-y border-line bg-brand-blue-dark py-[28px] text-white" aria-label="AI tools ที่เราสอน">
       <div className="bx-container">
         <p className="mb-5 text-center text-[13px] font-bold uppercase tracking-wider text-white/70 max-[620px]:text-[12px]">
-          AI Stack ที่เราสอน — ใช้เครื่องมือที่ใช่กับงาน
+          AI Stack ที่เราสอน · ใช้เครื่องมือที่ใช่กับงาน
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 max-[620px]:gap-2.5">
           {TRUST_LOGOS.map((l) => (
@@ -242,7 +252,7 @@ function TrustSection() {
               title={l.name}
               className={`grid h-[48px] place-items-center rounded-lg bg-white shadow-brand-sm transition-transform duration-150 hover:-translate-y-0.5 ${l.wide ? "w-[88px] px-3" : "w-[48px] px-2"}`}
             >
-              <img
+              <Image
                 src={l.src}
                 alt={l.name}
                 width={l.wide ? 76 : 30}
@@ -264,7 +274,7 @@ const AI_TOOLS = [
     name: "Manus AI",
     logo: "/assets/brand/ai/manus.svg",
     role: "Autonomous Agent",
-    desc: "ทำงานครบขั้นตอนเอง — research → execute → deliver โดยไม่ต้องคอยพิมพ์สั่ง",
+    desc: "ทำงานครบขั้นตอนเอง (research → execute → deliver) โดยไม่ต้องคอยพิมพ์สั่ง",
     use: "สร้าง landing page, ทำ research แข่งขัน, ตัดวิดีโอ, ทำ workflow อัตโนมัติ",
     tone: "blue",
   },
@@ -272,7 +282,7 @@ const AI_TOOLS = [
     name: "ChatGPT",
     logo: "/assets/brand/ai/chatgpt.svg",
     role: "Conversation + Writing",
-    desc: "ตัวคุยและเขียน long-form ที่ wide ที่สุด — เหมาะกับงานคอนเทนต์ทุกประเภท",
+    desc: "ตัวคุยและเขียน long-form ที่ wide ที่สุด เหมาะกับงานคอนเทนต์ทุกประเภท",
     use: "เขียนแคปชั่น, brainstorm idea, summarize, voice/brand training",
     tone: "blue",
   },
@@ -288,7 +298,7 @@ const AI_TOOLS = [
     name: "Gemini",
     logo: "/assets/brand/ai/gemini.svg",
     role: "Multimodal + Long Context (Google)",
-    desc: "อ่านเอกสาร/วิดีโอยาวได้ทีเดียวเป็นชั่วโมง — เหมาะกับงานที่ต้อง context ใหญ่ + เชื่อม Google Workspace",
+    desc: "อ่านเอกสาร/วิดีโอยาวได้ทีเดียวเป็นชั่วโมง เหมาะกับงานที่ต้อง context ใหญ่ + เชื่อม Google Workspace",
     use: "วิเคราะห์เอกสารยาว, สรุปวิดีโอ/ประชุม, ทำงานใน Google Docs/Sheets",
     tone: "blue",
   },
@@ -297,7 +307,7 @@ const AI_TOOLS = [
     logo: "/assets/brand/ai/openai.svg",
     logoWide: true,
     role: "AI in Terminal (OpenAI)",
-    desc: "ใช้ AI ใน command line ของคุณ — automate งาน ops, file processing, scripting",
+    desc: "ใช้ AI ใน command line ของคุณ, automate งาน ops, file processing, scripting",
     use: "Batch process file, deploy script, automation รัน server",
     tone: "blue-dark",
   },
@@ -305,7 +315,7 @@ const AI_TOOLS = [
     name: "Cursor / Claude Code",
     logo: "/assets/brand/ai/cursor.svg",
     role: "AI IDE",
-    desc: "เขียนแอป/ทูลของคุณเองด้วย AI — แม้ไม่ใช่ developer ก็สร้างได้",
+    desc: "เขียนแอป/ทูลของคุณเองด้วย AI แม้ไม่ใช่ developer ก็สร้างได้",
     use: "Landing page, internal tool, dashboard, automation app",
     tone: "blue",
   },
@@ -313,7 +323,7 @@ const AI_TOOLS = [
     name: "Hyperframes",
     logo: "/assets/brand/ai/hyperframes-icon.png",
     role: "AI Video Framework",
-    desc: "HTML-as-source video framework จาก HeyGen — ใช้คู่กับ Codex/Claude ตัด Reels/TikTok อัตโนมัติ",
+    desc: "HTML-as-source video framework จาก HeyGen ใช้คู่กับ Codex/Claude ตัด Reels/TikTok อัตโนมัติ",
     use: "Reels, TikTok, YouTube Short, kinetic caption, brand-consistent video",
     tone: "orange",
   },
@@ -332,10 +342,10 @@ function AIStackSection() {
         <div className="mb-[34px] text-center">
           <span className="section-kicker mb-[14px]">AI Stack</span>
           <h2 className="mx-auto max-w-[760px] text-balance text-[clamp(1.65rem,3.8vw,2.5rem)] font-extrabold leading-[1.2]">
-            ไม่ใช่แค่ตัวเดียว — เราสอน AI ทุกตัวที่ใช่กับงาน
+            ไม่ใช่แค่ตัวเดียว · เราสอน AI ทุกตัวที่ใช่กับงาน
           </h2>
           <p className="mx-auto mt-3 max-w-[680px] text-[15px] text-muted">
-            BizDrive เลือกใช้ AI tool ที่เหมาะกับแต่ละงาน — ไม่ใช่ยัด tool เดียวให้ทุกอย่าง
+            BizDrive เลือกใช้ AI tool ที่เหมาะกับแต่ละงาน ไม่ใช่ยัด tool เดียวให้ทุกอย่าง
           </p>
         </div>
 
@@ -346,9 +356,11 @@ function AIStackSection() {
               <article key={t.name} className="flex flex-col rounded-[14px] border border-line bg-white p-5 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand-sky/45 hover:shadow-brand-sm">
                 <div className="mb-3 flex items-center gap-3">
                   <div className={`grid h-[44px] w-[44px] flex-shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-white ${t.logoWide ? "px-1.5" : ""}`}>
-                    <img
+                    <Image
                       src={t.logo}
                       alt={t.name}
+                      width={t.logoWide ? 76 : 30}
+                      height={t.logoWide ? 18 : 30}
                       loading="lazy"
                       className={`max-h-[30px] w-auto object-contain ${t.logoWide ? "max-h-[18px]" : ""}`}
                     />
@@ -380,7 +392,7 @@ const USE_CASES = [
     title: "ทำงานคนเดียว ผลงานเหมือนทีม",
     stack: "ChatGPT + Claude + Manus AI",
     result: "ลดเวลา 60-80%",
-    text: "เขียนแคปชั่น 1 เดือนใน 2 ชม., สรุปประชุม, draft email, brainstorm — สิ่งที่ผู้ช่วยทำ ให้ AI ทำแทน",
+    text: "เขียนแคปชั่น 1 เดือนใน 2 ชม., สรุปประชุม, draft email, brainstorm, สิ่งที่ผู้ช่วยทำ ให้ AI ทำแทน",
   },
   {
     kicker: "ทำระบบใช้เอง",
@@ -388,7 +400,7 @@ const USE_CASES = [
     title: "สร้างเครื่องมือของธุรกิจคุณเอง",
     stack: "Cursor / Claude Code + Manus",
     result: "Launch ใน 1 วัน",
-    text: "Landing page, ระบบจอง, mini-app ภายใน, lead form — ไม่ต้องจ้าง dev ไม่ต้องเช่า SaaS แพง ๆ",
+    text: "Landing page, ระบบจอง, mini-app ภายใน, lead form, ไม่ต้องจ้าง dev ไม่ต้องเช่า SaaS แพง ๆ",
   },
   {
     kicker: "งาน Automation",
@@ -404,7 +416,7 @@ const USE_CASES = [
     title: "ภาพแบรนด์/สินค้า/โฆษณา",
     stack: "Midjourney + DALL-E + Manus",
     result: "ภาพ 50 ภาพ/ชั่วโมง",
-    text: "Poster, banner, IG carousel, ภาพสินค้า, ภาพประกอบโพสต์ — รักษา brand consistency อัตโนมัติ",
+    text: "Poster, banner, IG carousel, ภาพสินค้า, ภาพประกอบโพสต์, รักษา brand consistency อัตโนมัติ",
   },
   {
     kicker: "สร้างวิดีโอ",
@@ -412,7 +424,7 @@ const USE_CASES = [
     title: "Reels / TikTok / YouTube Short",
     stack: "Codex / Claude + Hyperframes + Whisper",
     result: "1 ชม. ได้ 5 คลิป",
-    text: "Cut dead air, transcribe ไทย, caption + motion + B-Roll อัตโนมัติ — pipeline เดียวจบ พร้อมโพสต์",
+    text: "Cut dead air, transcribe ไทย, caption + motion + B-Roll อัตโนมัติ pipeline เดียวจบ พร้อมโพสต์",
     href: "/ai-editor/online",
     hrefLabel: "ดูคลาส AI Editor",
   },
@@ -422,7 +434,7 @@ const USE_CASES = [
     title: "Dashboard ของธุรกิจคุณ",
     stack: "Cursor + Sheets/Postgres + Charts",
     result: "Real-time ทุกเมตริก",
-    text: "Sales, leads, traffic, ad spend, KPI — ดูบนหน้าเดียว, refresh อัตโนมัติ, ไม่ต้องเปิดหลายแอป",
+    text: "Sales, leads, traffic, ad spend, KPI, ดูบนหน้าเดียว, refresh อัตโนมัติ, ไม่ต้องเปิดหลายแอป",
   },
 ];
 
@@ -433,7 +445,7 @@ function UseCasesSection() {
         <div className="mb-[34px] text-center">
           <span className="section-kicker mb-[14px]">Use Case จริง</span>
           <h2 className="mx-auto max-w-[820px] text-balance text-[clamp(1.65rem,3.8vw,2.5rem)] font-extrabold leading-[1.2]">
-            ใช้ AI กับงานไหนได้บ้าง — ดูตัวอย่างจากธุรกิจที่ทำจริง
+            ใช้ AI กับงานไหนได้บ้าง · ดูตัวอย่างจากธุรกิจที่ทำจริง
           </h2>
           <p className="mx-auto mt-3 max-w-[680px] text-[15px] text-muted">
             ทุก use case คือ workflow ที่เราใช้จริงและสอนในคลาส
@@ -444,8 +456,8 @@ function UseCasesSection() {
           {USE_CASES.map((u) => (
             <article key={u.title} className="flex flex-col rounded-[14px] border border-line bg-white p-5 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand-sky/45 hover:shadow-brand-sm">
               <div className="mb-3 flex items-start justify-between gap-2">
-                <div className="grid h-[44px] w-[44px] place-items-center rounded-lg bg-brand-blue/10 text-brand-blue">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[22px] w-[22px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.9]">
+                <div className="grid size-[44px] place-items-center rounded-lg bg-brand-blue/10 text-brand-blue">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[22px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.9]">
                     {u.icon}
                   </svg>
                 </div>
@@ -500,11 +512,11 @@ function ServicesSection() {
   );
 }
 
-function ServiceCard({ title, text, paths = [], rects = [], circles = [] }) {
+function ServiceCard({ title, text, paths = EMPTY_SVG_ARR, rects = EMPTY_SVG_ARR, circles = EMPTY_SVG_ARR }) {
   return (
     <article className="group rounded-lg border border-line bg-white px-[26px] py-[30px] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand-sky/45 hover:shadow-brand">
-      <div className="mb-[18px] grid h-[54px] w-[54px] place-items-center rounded-lg bg-[#eef6ff] text-brand-blue">
-        <svg viewBox="0 0 24 24" className="h-[27px] w-[27px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.8]" aria-hidden="true">
+      <div className="mb-[18px] grid size-[54px] place-items-center rounded-lg bg-[#eef6ff] text-brand-blue">
+        <svg viewBox="0 0 24 24" className="size-[27px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.8]" aria-hidden="true">
           {rects.map((r, i) => (
             <rect key={`r${i}`} x={r.x} y={r.y} width={r.w} height={r.h} rx={r.rx} />
           ))}
@@ -554,7 +566,7 @@ function GalleryItem({ src, alt, title, sub, featured = false }) {
         featured ? "col-span-2 row-span-2 max-[620px]:col-span-1 max-[620px]:row-span-1" : ""
       }`}
     >
-      <img src={src} width="900" height="900" alt={alt} loading="lazy" className="aspect-square w-full object-cover" />
+      <Image src={src} width={900} height={900} alt={alt} loading="lazy" className="aspect-square w-full object-cover" />
       <div className="flex items-start justify-between gap-3 p-[14px] text-[13px] text-muted max-[620px]:flex-col">
         <strong className="text-[14px] leading-[1.25] text-ink">{title}</strong>
         <span className="text-right leading-[1.35] max-[620px]:text-left">{sub}</span>
@@ -587,7 +599,7 @@ function HowSection() {
 function Step({ num, title, text }) {
   return (
     <div className="rounded-lg border border-line bg-white px-[24px] py-[30px] text-center">
-      <span className="mx-auto mb-4 grid h-[44px] w-[44px] place-items-center rounded-full bg-brand-blue text-[19px] font-extrabold text-brand-yellow">
+      <span className="mx-auto mb-4 grid size-[44px] place-items-center rounded-full bg-brand-blue text-[19px] font-extrabold text-brand-yellow">
         {num}
       </span>
       <h3 className="mb-2 text-[1.15rem] font-extrabold">{title}</h3>
@@ -630,12 +642,12 @@ function ClassroomSection() {
                 i === 0 ? "col-span-2 row-span-2 aspect-square max-[620px]:col-span-2 max-[620px]:row-span-1 max-[620px]:aspect-[4/3]" : "aspect-square"
               }`}
             >
-              <img
+              <Image
                 src={p.src}
                 alt={p.alt}
                 loading="lazy"
-                width="1200"
-                height="1200"
+                width={1200}
+                height={1200}
                 className="h-full w-full object-cover"
               />
             </figure>
@@ -741,7 +753,7 @@ function PricingSection() {
         <div className="mb-[44px] text-center">
           <span className="section-kicker mb-[14px]">Course เรียน AI</span>
           <h2 className="mx-auto max-w-[760px] text-balance text-center text-[clamp(1.75rem,4vw,2.6rem)] font-extrabold leading-[1.18]">
-            เรียน AI แบบลงมือทำจริง — เลือก Course ที่ใช่กับคุณ
+            เรียน AI แบบลงมือทำจริง · เลือก Course ที่ใช่กับคุณ
           </h2>
           <p className="mx-auto mt-[14px] max-w-[680px] text-center text-muted">
             4 Courses (Online / Seminar) · พร้อม Private 1:1 Custom สำหรับธุรกิจซับซ้อน
@@ -769,10 +781,10 @@ function PrivateCallout() {
             Custom 1:1 · ทางเลือกพิเศษ
           </span>
           <h3 className="mt-2 text-[1.3rem] font-extrabold text-ink max-[620px]:text-[1.15rem]">
-            Private 1:1 — เนื้อหา Custom ทุกอย่าง
+            Private 1:1 · เนื้อหา Custom ทุกอย่าง
           </h3>
           <p className="mt-1 text-[13.5px] text-muted">
-            ไม่ใช่ Manus หรือ AI Editor โดยเฉพาะ — เลือกหัวข้อเองได้ทุก session ตามธุรกิจคุณ
+            ไม่ใช่ Manus หรือ AI Editor โดยเฉพาะ เลือกหัวข้อเองได้ทุก session ตามธุรกิจคุณ
           </p>
         </div>
         <span className="flex-shrink-0 text-[12.5px] font-semibold text-muted max-[620px]:order-first">
@@ -817,9 +829,9 @@ function PrivateCallout() {
             <a href={urlForPlan(PRIVATE_SLUG)} className="btn btn-primary w-full">
               ดูรายละเอียด Private
             </a>
-            <a href="/contact" className="btn btn-outline w-full" style={{ borderColor: "rgba(255,255,255,0.35)", color: "white", background: "rgba(255,255,255,0.06)" }}>
+            <Link href="/contact" className="btn btn-outline w-full" style={{ borderColor: "rgba(255,255,255,0.35)", color: "white", background: "rgba(255,255,255,0.06)" }}>
               ทักมาสอบถาม
-            </a>
+            </Link>
           </div>
         </div>
       </article>
@@ -927,7 +939,7 @@ function ComparisonSection() {
             เลือก Course / รูปแบบที่ใช่กับธุรกิจคุณ
           </h2>
           <p className="mx-auto mt-3 max-w-[620px] text-[14.5px] text-muted">
-            4 รูปแบบ (Manus Online/Seminar + AI Editor Online/Seminar) · หากต้องการเนื้อหา Custom 1:1 ดู <a href="/private" className="font-bold text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:decoration-brand-blue">Private 1:1</a>
+            4 รูปแบบ (Manus Online/Seminar + AI Editor Online/Seminar) · หากต้องการเนื้อหา Custom 1:1 ดู <Link href="/private" className="font-bold text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:decoration-brand-blue">Private 1:1</Link>
           </p>
         </div>
 
@@ -957,17 +969,17 @@ function ComparisonSection() {
             <tbody>
               {COMPARE_ROWS.map((row, i) => (
                 <tr key={row.label} className={i % 2 === 1 ? "bg-soft/40" : ""}>
-                  <td className="sticky left-0 z-10 bg-inherit px-3 py-3 text-[12.5px] font-semibold text-muted">{row.label}</td>
+                  <td className="sticky left-0 z-10 bg-inherit p-3 text-[12.5px] font-semibold text-muted">{row.label}</td>
                   {row.values.map((v, j) => (
                     <td
-                      key={j}
-                      className={`px-3 py-3 text-center ${row.highlight ? "[font-variant-numeric:tabular-nums] text-[1rem] font-extrabold text-brand-blue" : ""}`}
+                      key={`${row.label}-${j}`}
+                      className={`p-3 text-center ${row.highlight ? "[font-variant-numeric:tabular-nums] text-[1rem] font-extrabold text-brand-blue" : ""}`}
                     >
                       {typeof v === "boolean" ? (
                         v ? (
-                          <span aria-label="ใช่" className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#047857]/10 text-[#047857]">✓</span>
+                          <span aria-label="ใช่" className="inline-flex size-7 items-center justify-center rounded-full bg-[#047857]/10 text-[#047857]">✓</span>
                         ) : (
-                          <span aria-label="ไม่" className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-muted/15 text-muted">—</span>
+                          <span aria-label="ไม่" className="inline-flex size-7 items-center justify-center rounded-full bg-muted/15 text-muted">–</span>
                         )
                       ) : (
                         <span className={row.highlight ? "" : "text-ink"}>{v}</span>
@@ -977,7 +989,9 @@ function ComparisonSection() {
                 </tr>
               ))}
               <tr>
-                <td className="px-3 py-4"></td>
+                <td className="px-3 py-4">
+                  <span className="sr-only">เลือก Course</span>
+                </td>
                 {COMPARE_COLS.map((slug, i) => (
                   <td key={slug} className="px-3 py-4 text-center">
                     <a href={urlForPlan(slug)} className={`btn ${i === 0 ? "btn-primary" : "btn-outline"} text-[12.5px]`} style={{ minHeight: "38px", padding: "7px 14px" }}>
@@ -1010,17 +1024,17 @@ function AboutSection() {
               เราเป็นทีมเล็ก ๆ ที่ลงมือทำธุรกิจจริง เลยเข้าใจว่าอะไรใช้ได้จริง อะไรแค่ดูดีในสไลด์
             </p>
             <p className="mt-4 text-[15px] text-muted">
-              เราไม่ขายเทคโนโลยีที่ฟังดูเท่ แต่ส่งมอบสิ่งที่ทำให้ ธุรกิจคุณเดินหน้าได้ — ทีละก้าว
+              เราไม่ขายเทคโนโลยีที่ฟังดูเท่ แต่ส่งมอบสิ่งที่ทำให้ ธุรกิจคุณเดินหน้าได้ ทีละก้าว
               อย่างมั่นคง
             </p>
           </div>
           <div className="rounded-lg bg-brand-blue-dark p-[34px] text-white max-[620px]:p-[26px]">
             <div className="mb-5 flex items-center gap-4">
-              <div className="relative h-[68px] w-[68px] flex-shrink-0 overflow-hidden rounded-full border-2 border-brand-yellow bg-white/10">
-                <img
+              <div className="relative size-[68px] flex-shrink-0 overflow-hidden rounded-full border-2 border-brand-yellow bg-white/10">
+                <Image
                   src="/assets/profile/profile-bank-sm.jpg"
-                  width="160"
-                  height="160"
+                  width={160}
+                  height={160}
                   alt="พี่แบงค์ ปรัชญา"
                   loading="lazy"
                   className="h-full w-full object-cover"
@@ -1031,7 +1045,7 @@ function AboutSection() {
                 <span className="text-[12.5px] text-white/70">Founder, BizDrive</span>
               </div>
             </div>
-            <blockquote className="border-l-4 border-brand-yellow pl-[18px] text-[1.32rem] font-extrabold leading-[1.5]">
+            <blockquote className="rounded-md bg-white/[.06] pl-[18px] pr-4 py-2 text-[1.32rem] font-extrabold leading-[1.5]">
               &ldquo;ทำธุรกิจคนเดียว ไม่ได้แปลว่าต้องทำทุกอย่างคนเดียว&rdquo;
             </blockquote>
             <p className="mt-[18px] text-[14px] text-white/[.78]">
@@ -1120,7 +1134,7 @@ function HomeFaqSection() {
             คำถามที่เจอบ่อย
           </h2>
           <p className="mx-auto mt-3 max-w-[600px] text-[14.5px] text-muted">
-            ตอบสิ่งที่ลูกค้าถามก่อนสมัครจริง ๆ · ถ้ายังไม่ครอบคลุม <a href="/contact" className="font-bold text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:decoration-brand-blue">ทักมาถามได้</a>
+            ตอบสิ่งที่ลูกค้าถามก่อนสมัครจริง ๆ · ถ้ายังไม่ครอบคลุม <Link href="/contact" className="font-bold text-brand-blue underline decoration-brand-blue/40 underline-offset-2 hover:decoration-brand-blue">ทักมาถามได้</Link>
           </p>
         </div>
         <div className="grid gap-3">
@@ -1135,7 +1149,7 @@ function HomeFaqSection() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <a href="/contact" className="btn btn-outline">มีคำถามเพิ่ม? ทักทีม BizDrive</a>
+          <Link href="/contact" className="btn btn-outline">มีคำถามเพิ่ม? ทักทีม BizDrive</Link>
         </div>
       </div>
     </section>
@@ -1152,23 +1166,23 @@ function ContactSection() {
         </h2>
         <p className="my-[14px] mb-7 text-white/[.82]">ทักมาคุยกันก่อนได้ ไม่มีค่าใช้จ่าย · ตอบทุกข้อความเอง</p>
         <div className="flex flex-wrap justify-center gap-3">
-          <a href="/contact" className="btn bg-brand-yellow text-ink hover:brightness-105 max-[620px]:w-full max-[620px]:max-w-[300px]">
+          <Link href="/contact" className="btn bg-brand-yellow text-ink hover:brightness-105 max-[620px]:w-full max-[620px]:max-w-[300px]">
             กรอกฟอร์มติดต่อ →
-          </a>
+          </Link>
           <a
             href="https://lin.ee/tLEXtzuJ"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-[46px] items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 font-bold text-white transition-[background-color,border-color] hover:border-white/50 hover:bg-white/15 max-[620px]:w-full max-[620px]:max-w-[300px] max-[620px]:justify-center"
           >
-            <img src="/assets/brand/contact/line.svg" alt="" width="20" height="20" className="h-[20px] w-[20px]" />
+            <Image src="/assets/brand/contact/line.svg" alt="" width="20" height="20" className="size-[20px]" />
             <span>LINE <span className="font-extrabold tabular-nums">@bizdrive</span></span>
           </a>
           <a
             href="tel:+66953340643"
             className="inline-flex min-h-[46px] items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 font-bold text-white transition-[background-color,border-color] hover:border-white/50 hover:bg-white/15 max-[620px]:w-full max-[620px]:max-w-[300px] max-[620px]:justify-center"
           >
-            <img src="/assets/brand/contact/phone.svg" alt="" width="24" height="24" className="h-6 w-6 rounded-md" />
+            <Image src="/assets/brand/contact/phone.svg" alt="" width="24" height="24" className="size-6 rounded-md" />
             <span className="font-extrabold tabular-nums">095-334-0643</span>
           </a>
         </div>

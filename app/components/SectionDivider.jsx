@@ -6,9 +6,9 @@ export default function SectionDivider({ tone = "white" }) {
         <div className="flex items-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-line to-line/70" />
           <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rotate-45 bg-brand-blue/30" />
-            <span className="h-2 w-2 rotate-45 bg-brand-yellow" />
-            <span className="h-1.5 w-1.5 rotate-45 bg-brand-blue/30" />
+            <span className="size-1.5 rotate-45 bg-brand-blue/30" />
+            <span className="size-2 rotate-45 bg-brand-yellow" />
+            <span className="size-1.5 rotate-45 bg-brand-blue/30" />
           </div>
           <div className="h-px flex-1 bg-gradient-to-r from-line/70 via-line to-transparent" />
         </div>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { EBOOKS, EBOOK_SLUGS, BUNDLES, EBOOK_PRICE } from "./_data";
 
 export const metadata = {
@@ -26,7 +28,7 @@ export default function EbooksIndexPage() {
         <div className="bx-container relative max-w-[860px] text-center">
           <span className="badge mb-[18px]">eBook BizDrive</span>
           <h1 className="mx-auto max-w-[760px] text-balance text-[clamp(2rem,5vw,3.3rem)] font-extrabold leading-[1.15]">
-            เรียน AI แบบกระชับ — เปิดอ่านได้ทุกที่
+            เรียน AI แบบกระชับ เปิดอ่านได้ทุกที่
           </h1>
           <p className="mx-auto my-5 max-w-[640px] text-[clamp(1rem,2vw,1.13rem)] text-muted">
             สำหรับเจ้าของธุรกิจที่อยากเริ่มเร็ว ไม่มีเวลาเรียนคลาส · เล่มละ ฿{EBOOK_PRICE} · PDF ส่งทันทีหลังชำระเงิน · อัปเดตฟรีตลอดอายุ
@@ -48,7 +50,7 @@ export default function EbooksIndexPage() {
           <div className="mb-9 text-center max-[620px]:mb-7">
             <span className="section-kicker mb-3">ทุกเล่ม</span>
             <h2 className="mx-auto max-w-[680px] text-balance text-[clamp(1.55rem,3.6vw,2.3rem)] font-extrabold leading-[1.22]">
-              เลือกเล่มที่ใช่ — หรือซื้อรวมประหยัดกว่า
+              เลือกเล่มที่ใช่ หรือซื้อรวมประหยัดกว่า
             </h2>
             <p className="mx-auto mt-3 max-w-[600px] text-[14.5px] text-muted">
               ทุกเล่มเล่มละ ฿{EBOOK_PRICE} · เนื้อหากระชับ 80-100 หน้า · มี case study + prompt template
@@ -86,11 +88,11 @@ export default function EbooksIndexPage() {
             อยากเรียนเชิงลึกกว่า eBook?
           </h2>
           <p className="mt-3 text-white/80">
-            ลองคลาสเรียน BizDrive — Online ฿3,900 · Seminar ฿9,900 · Workshop hands-on ที่ Bangkok
+            ลองคลาสเรียน BizDrive · Online ฿3,900 · Seminar ฿9,900 · Workshop hands-on ที่ Bangkok
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a href="/#class" className="btn bg-brand-yellow text-ink hover:brightness-105">ดูคลาสทั้งหมด →</a>
-            <a href="/contact" className="btn btn-outline border-white/40 text-white hover:bg-white/10">ปรึกษาทีม BizDrive</a>
+            <Link href="/#class" className="btn bg-brand-yellow text-ink hover:brightness-105">ดูคลาสทั้งหมด →</Link>
+            <Link href="/contact" className="btn btn-outline border-white/40 text-white hover:bg-white/10">ปรึกษาทีม BizDrive</Link>
           </div>
         </div>
       </section>
@@ -99,13 +101,16 @@ export default function EbooksIndexPage() {
 }
 
 function BundleHero({ bundle }) {
-  const books = bundle.bookSlugs.map((s) => EBOOKS[s]).filter(Boolean);
+  const books = bundle.bookSlugs.flatMap((s) => {
+    const b = EBOOKS[s];
+    return b ? [b] : [];
+  });
   const savings = (bundle.originalPrice || 0) - bundle.price;
   return (
     <section className="bg-white py-[56px] max-[620px]:py-[40px]">
       <div className="bx-container max-w-[1040px]">
         <div className="relative overflow-hidden rounded-[18px] border-2 border-brand-yellow/60 bg-gradient-to-br from-[#fffbeb] via-white to-[#fef3c7] p-7 shadow-brand max-[620px]:p-5">
-          <div className="absolute -right-6 -top-6 grid h-24 w-24 place-items-center rounded-full bg-brand-yellow text-center text-[12px] font-extrabold leading-tight text-ink max-[620px]:h-20 max-[620px]:w-20 max-[620px]:-right-4 max-[620px]:-top-4">
+          <div className="absolute -right-6 -top-6 grid size-24 place-items-center rounded-full bg-brand-yellow text-center text-[12px] font-extrabold leading-tight text-ink max-[620px]:h-20 max-[620px]:w-20 max-[620px]:-right-4 max-[620px]:-top-4">
             ประหยัด<br />฿{savings.toLocaleString()}
           </div>
           <div className="grid grid-cols-[1.1fr_1fr] gap-7 items-center max-[760px]:grid-cols-1">
@@ -134,12 +139,12 @@ function BundleHero({ bundle }) {
               <div className="mt-5 flex flex-wrap gap-3">
                 {bundle.stripeUrl ? (
                   <a href={bundle.stripeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg max-[620px]:w-full">
-                    ซื้อ Bundle — ฿{bundle.price.toLocaleString()}
+                    ซื้อ Bundle ฿{bundle.price.toLocaleString()}
                   </a>
                 ) : (
-                  <a href="/contact?topic=ebook-bundle" className="btn btn-primary btn-lg max-[620px]:w-full">
+                  <Link href="/contact?topic=ebook-bundle" className="btn btn-primary btn-lg max-[620px]:w-full">
                     แจ้งความสนใจ Bundle
-                  </a>
+                  </Link>
                 )}
                 <a href="#books" className="btn btn-outline">หรือเลือกซื้อแยกเล่ม</a>
               </div>
@@ -172,7 +177,7 @@ function BookCoverMini({ ebook, style }) {
     >
       <picture>
         <source type="image/webp" srcSet={webp} />
-        <img src={ebook.cover} alt={ebook.title} loading="lazy" className="h-full w-full object-cover" />
+        <Image src={ebook.cover} alt={ebook.title} loading="lazy" width={140} height={187} className="h-full w-full object-cover" />
       </picture>
     </div>
   );
@@ -191,7 +196,7 @@ function EbookCard({ ebook }) {
         <div className={`aspect-[3/4] w-[120px] overflow-hidden rounded-[8px] border-2 ${accent.ring} bg-white shadow-brand transition-transform duration-300 group-hover:-rotate-1 group-hover:scale-105`}>
           <picture>
             <source type="image/webp" srcSet={ebook.cover?.replace(/\.jpg$/, ".webp")} />
-            <img src={ebook.cover} alt={ebook.title} loading="lazy" width="120" height="160" className="h-full w-full object-cover" />
+            <Image src={ebook.cover} alt={ebook.title} loading="lazy" width={120} height={160} className="h-full w-full object-cover" />
           </picture>
         </div>
       </div>
@@ -226,5 +231,5 @@ function Faq({ q, a }) {
 }
 
 function Dot() {
-  return <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-brand-yellow" />;
+  return <span aria-hidden="true" className="inline-block size-1.5 rounded-full bg-brand-yellow" />;
 }

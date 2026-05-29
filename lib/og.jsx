@@ -10,6 +10,17 @@ const ACCENT_BG = {
   "blue-dark": "linear-gradient(135deg, #10265F 0%, #050D24 100%)",
 };
 
+const OG_ROOT_STYLE = {
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  padding: "72px 88px",
+  color: "white",
+  fontFamily: "Noto",
+};
+
 async function loadFont() {
   const url = `https://fonts.gstatic.com/s/notosansthai/v25/iJWnBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcd1MKVQt_So_9CdU5RtpzE.ttf`;
   const res = await fetch(url);
@@ -30,19 +41,7 @@ export async function renderSalepageOg(plan, urlPath) {
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "72px 88px",
-          background: bg,
-          color: "white",
-          fontFamily: "Noto",
-        }}
-      >
+      <div style={{ ...OG_ROOT_STYLE, background: bg }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <img src={logo} width={64} height={64} alt="" style={{ display: "block" }} />

@@ -53,10 +53,9 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
 
   if (status === "success") {
     return (
-      <div
-        role="status"
+      <output
         aria-live="polite"
-        className={`rounded-lg border px-5 py-4 text-center text-[14px] font-semibold ${
+        className={`block rounded-lg border px-5 py-4 text-center text-[14px] font-semibold ${
           onLight
             ? "border-white/25 bg-white/10 text-white"
             : onInk
@@ -65,7 +64,7 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
         }`}
       >
         {message}
-      </div>
+      </output>
     );
   }
 
@@ -79,6 +78,7 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
+        aria-label="honeypot"
         className="hidden"
       />
 
@@ -94,6 +94,7 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
           autoComplete="email"
           inputMode="email"
           spellCheck={false}
+          aria-label="อีเมล"
           placeholder="อีเมลของคุณ"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -115,7 +116,7 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
           name="consent"
           required
           defaultChecked={false}
-          className="mt-[3px] h-4 w-4 flex-shrink-0 accent-brand-blue"
+          className="mt-[3px] size-4 flex-shrink-0 accent-brand-blue"
         />
         <span>
           ฉันยอมรับ

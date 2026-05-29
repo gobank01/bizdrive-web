@@ -18,7 +18,7 @@ export default function ComparisonAlternatives() {
             เปรียบเทียบ 3 ทางเลือกที่คุณมี
           </h2>
           <p className="mx-auto mt-3 max-w-[620px] text-[15px] text-muted">
-            ทำเองอย่างเดียว · เรียนกับเรา · จ้าง agency — ดูข้อต่างก่อนตัดสินใจ
+            ทำเองอย่างเดียว · เรียนกับเรา · จ้าง agency, ดูข้อต่างก่อนตัดสินใจ
           </p>
         </div>
 
@@ -26,19 +26,19 @@ export default function ComparisonAlternatives() {
           <table className="w-full min-w-[760px] border-collapse text-left text-[14px]">
             <thead>
               <tr>
-                <th className="sticky left-0 z-10 bg-soft px-4 py-4 text-[12.5px] font-bold uppercase tracking-wide text-muted">
+                <th className="sticky left-0 z-10 bg-soft p-4 text-[12.5px] font-bold uppercase tracking-wide text-muted">
                   เรื่อง
                 </th>
-                <th className="bg-soft px-4 py-4 text-center text-[13.5px] font-extrabold text-muted">
+                <th className="bg-soft p-4 text-center text-[13.5px] font-extrabold text-muted">
                   ทำเองด้วย ChatGPT
                 </th>
-                <th className="bg-brand-blue px-4 py-4 text-center text-[14px] font-extrabold text-white">
+                <th className="bg-brand-blue p-4 text-center text-[14px] font-extrabold text-white">
                   <span className="inline-flex flex-col items-center">
                     <span className="text-[11.5px] font-bold uppercase tracking-wider text-brand-yellow">แนะนำ</span>
                     <span>เรียนกับ BizDrive</span>
                   </span>
                 </th>
-                <th className="bg-soft px-4 py-4 text-center text-[13.5px] font-extrabold text-muted">
+                <th className="bg-soft p-4 text-center text-[13.5px] font-extrabold text-muted">
                   จ้าง Agency
                 </th>
               </tr>

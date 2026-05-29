@@ -5,14 +5,16 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const sql = getSql();
-    const [{ version }] = await sql`SELECT version()`;
-    const [{ now }] = await sql`SELECT NOW() as now`;
-    const tableCheck = await sql`
-      SELECT EXISTS (
-        SELECT FROM information_schema.tables
-        WHERE table_schema = 'public' AND table_name = 'leads'
-      ) as has_leads_table
-    `;
+    const [[{ version }], [{ now }], tableCheck] = await Promise.all([
+      sql`SELECT version()`,
+      sql`SELECT NOW() as now`,
+      sql`
+        SELECT EXISTS (
+          SELECT FROM information_schema.tables
+          WHERE table_schema = 'public' AND table_name = 'leads'
+        ) as has_leads_table
+      `,
+    ]);
     return Response.json({
       ok: true,
       version,

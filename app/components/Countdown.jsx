@@ -81,7 +81,7 @@ export default function Countdown({ at, rolling, planSlug, label, expiredLabel, 
 function Box({ value, unit, colorClass }) {
   const padded = String(value).padStart(2, "0");
   return (
-    <div className="rounded-lg bg-white px-2 py-2 text-center shadow-brand-sm">
+    <div className="rounded-lg bg-white p-2 text-center shadow-brand-sm">
       <div className={`text-[clamp(1.4rem,3.4vw,1.8rem)] font-extrabold leading-none ${colorClass}`}>{padded}</div>
       <div className="mt-1 text-[10.5px] font-semibold uppercase tracking-wider text-muted">{unit}</div>
     </div>

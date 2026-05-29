@@ -49,7 +49,7 @@ export default function Reviews({ darkBg = false, limit = 6, seed = "default" })
             rel="noopener noreferrer"
             className={`inline-flex items-center gap-2 text-[14.5px] font-extrabold underline underline-offset-2 ${darkBg ? "text-brand-yellow decoration-brand-yellow/50 hover:decoration-brand-yellow" : "text-brand-blue decoration-brand-blue/40 hover:decoration-brand-blue"}`}
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-current">
               <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z" />
             </svg>
             ดูรีวิวทั้งหมด {REVIEWS.length} คลิปบน YouTube →
@@ -74,7 +74,7 @@ function ReviewCard({ video, darkBg }) {
       rel="noopener noreferrer"
       className={`group flex flex-col overflow-hidden rounded-[14px] border transition-[transform,box-shadow,background-color] duration-200 hover:-translate-y-1 ${card}`}
     >
-      <div className="relative aspect-video w-full overflow-hidden bg-black">
+      <div className="relative aspect-video w-full overflow-hidden bg-neutral-900">
         <img
           src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
           alt=""
@@ -84,8 +84,8 @@ function ReviewCard({ video, darkBg }) {
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
-          <span className="grid h-14 w-14 place-items-center rounded-full bg-black/55 text-white shadow-brand backdrop-blur-sm transition-transform duration-200 group-hover:scale-110">
-            <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+          <span className="grid size-14 place-items-center rounded-full bg-black/55 text-white shadow-brand backdrop-blur-sm transition-transform duration-200 group-hover:scale-110">
+            <svg viewBox="0 0 24 24" className="size-6 fill-current">
               <path d="M8 5v14l11-7z" />
             </svg>
           </span>

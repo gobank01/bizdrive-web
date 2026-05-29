@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContactForm from "../components/ContactForm";
 import LocationContact from "../components/LocationContact";
 import { CONTACT } from "../class/_data";
@@ -55,7 +56,7 @@ export default function ContactPage() {
         <div className="bx-container relative max-w-[840px] text-center">
           <span className="badge mb-[18px]">ทักทีม BizDrive</span>
           <h1 className="mx-auto max-w-[760px] text-balance text-[clamp(2rem,5vw,3.4rem)] font-extrabold leading-[1.15]">
-            มีคำถาม? ทักมาได้เลย — เราตอบเอง
+            มีคำถาม? ทักมาได้เลย เราตอบเอง
           </h1>
           <p className="mx-auto my-5 mb-2 max-w-[640px] text-[clamp(1rem,2vw,1.13rem)] text-muted">
             สอบถามคลาส · ปรึกษาวางระบบ AI · ขอข้อมูล Private 1:1 Custom Coaching
@@ -76,11 +77,11 @@ export default function ContactPage() {
                   rel={isExt ? "noopener noreferrer" : undefined}
                   className="group flex items-start gap-3 rounded-[14px] border border-line bg-white p-4 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-brand-sky/45 hover:shadow-brand-sm"
                 >
-                  <div className={`grid h-11 w-11 flex-shrink-0 place-items-center overflow-hidden ${q.logo ? "rounded-[10px]" : `rounded-lg ${q.iconBg} text-white`}`}>
+                  <div className={`grid size-11 flex-shrink-0 place-items-center overflow-hidden ${q.logo ? "rounded-[10px]" : `rounded-lg ${q.iconBg} text-white`}`}>
                     {q.logo ? (
-                      <img src={q.logo} alt={q.label} className="h-11 w-11 object-contain" />
+                      <Image src={q.logo} alt={q.label} width={44} height={44} className="size-11 object-contain" />
                     ) : (
-                      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[22px] w-[22px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2]">
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[22px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2]">
                         {q.iconSvg}
                       </svg>
                     )}
@@ -107,7 +108,7 @@ export default function ContactPage() {
               <div className="mb-5">
                 <span className="section-kicker mb-3">เก็บข้อมูลให้ทีม</span>
                 <h2 className="text-[clamp(1.4rem,3vw,1.9rem)] font-extrabold leading-[1.22]">
-                  ฝากข้อความ — เราติดต่อกลับใน 1 วันทำการ
+                  ฝากข้อความ เราติดต่อกลับใน 1 วันทำการ
                 </h2>
                 <p className="mt-2 text-[14.5px] text-muted">
                   ทีม BizDrive รับเองทุกข้อความ · ไม่ใช่บอท · ไม่มี cold call
@@ -130,7 +131,7 @@ export default function ContactPage() {
               <div className="rounded-[14px] border border-brand-yellow/40 bg-brand-yellow/[.08] p-5">
                 <h3 className="text-[1rem] font-extrabold text-ink">⚡ อยากได้คำตอบเร็วที่สุด</h3>
                 <p className="mt-2 text-[14px] leading-[1.55] text-ink/85">
-                  ทักผ่าน <strong>LINE @bizdrive</strong> — ทีมตอบใน 1-2 ชั่วโมงในเวลาทำการ · เร็วกว่าฟอร์มประมาณ 5-10 เท่า
+                  ทักผ่าน <strong>LINE @bizdrive</strong> ทีมตอบใน 1-2 ชั่วโมงในเวลาทำการ · เร็วกว่าฟอร์มประมาณ 5-10 เท่า
                 </p>
                 <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer" className="btn mt-3 w-full bg-[#00C300] text-white hover:brightness-105">
                   เปิด LINE ตอนนี้ →

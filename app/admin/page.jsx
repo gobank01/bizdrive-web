@@ -4,6 +4,8 @@ import { LEAD_STATUSES, statusClass, statusLabel, fmtTime } from "@/lib/admin";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Dashboard — BizDrive Admin", robots: { index: false, follow: false } };
 
+const FMT_DAY = new Intl.DateTimeFormat("th-TH", { day: "numeric", month: "short", timeZone: "Asia/Bangkok" });
+
 export default async function AdminDashboard() {
   const sql = getSql();
   const [totals, byStatus, byPlan, recent, daily, bySource] = await Promise.all([
@@ -167,7 +169,7 @@ function TrendChart({ data }) {
   const linePath = data.map((d, i) => `${i === 0 ? "M" : "L"} ${xAt(i).toFixed(1)} ${yAt(d.cnt).toFixed(1)}`).join(" ");
   const areaPath = `${linePath} L ${xAt(n - 1).toFixed(1)} ${(PAD.t + innerH).toFixed(1)} L ${xAt(0).toFixed(1)} ${(PAD.t + innerH).toFixed(1)} Z`;
   const yTicks = [0, Math.ceil(max / 2), max];
-  const fmtDay = new Intl.DateTimeFormat("th-TH", { day: "numeric", month: "short", timeZone: "Asia/Bangkok" });
+  const fmtDay = FMT_DAY;
 
   return (
     <div className="grid gap-3">

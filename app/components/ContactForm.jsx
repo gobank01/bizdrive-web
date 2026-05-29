@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const TOPICS = [
   { value: "", label: "เลือกหัวข้อที่ต้องการคุย…" },
@@ -84,20 +85,20 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-[14px] border border-brand-mint/40 bg-brand-mint/[.08] p-7 text-center">
-        <div className="mx-auto mb-3 grid h-[60px] w-[60px] place-items-center rounded-full bg-brand-mint/20 text-[#047857]">
-          <svg viewBox="0 0 24 24" className="h-8 w-8 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.5]" aria-hidden="true">
+        <div className="mx-auto mb-3 grid size-[60px] place-items-center rounded-full bg-brand-mint/20 text-[#047857]">
+          <svg viewBox="0 0 24 24" className="size-8 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.5]" aria-hidden="true">
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
         <h3 className="text-[1.2rem] font-extrabold text-[#047857]">ส่งข้อความเรียบร้อย</h3>
         <p className="mx-auto mt-2 max-w-[420px] text-[14.5px] text-ink/80">
-          ขอบคุณที่ทักมา ทีม BizDrive จะติดต่อกลับภายใน 1 วันทำการ — เช็คอีเมล (รวมถึงกล่องสแปม) ไว้ครับ
+          ขอบคุณที่ทักมา ทีม BizDrive จะติดต่อกลับภายใน 1 วันทำการ เช็คอีเมล (รวมถึงกล่องสแปม) ไว้ครับ
         </p>
         <div className="mt-5 flex flex-wrap justify-center gap-2.5">
           <a href="https://lin.ee/tLEXtzuJ" target="_blank" rel="noopener noreferrer" className="btn bg-brand-yellow text-ink hover:brightness-105">
             ทักผ่าน LINE ตอนนี้
           </a>
-          <a href="/" className="btn btn-outline">กลับหน้าแรก</a>
+          <Link href="/" className="btn btn-outline">กลับหน้าแรก</Link>
         </div>
       </div>
     );
@@ -179,7 +180,7 @@ export default function ContactForm() {
         </button>
         {error ? <p className="text-center text-[13.5px] font-semibold text-[#c2410c]">{error}</p> : null}
         <p className="text-center text-[12.5px] text-muted">
-          เราจะไม่แชร์ข้อมูลของคุณ ดู <a href="/privacy" className="underline decoration-line underline-offset-2 hover:decoration-brand-blue">นโยบายความเป็นส่วนตัว</a>
+          เราจะไม่แชร์ข้อมูลของคุณ ดู <Link href="/privacy" className="underline decoration-line underline-offset-2 hover:decoration-brand-blue">นโยบายความเป็นส่วนตัว</Link>
         </p>
       </div>
     </form>
@@ -202,7 +203,7 @@ function Field({ label, hint, required, children }) {
 
 function Honeypot({ value, onChange }) {
   return (
-    <div className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
+    <div className="absolute -left-[9999px] top-auto size-0 overflow-hidden" aria-hidden="true">
       <label>
         ห้ามกรอก (ตรวจสอบ bot)
         <input

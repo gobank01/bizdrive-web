@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ACADEMY, CONTACT } from "../class/_data";
 import SocialIcons from "./SocialIcons";
 
@@ -23,6 +24,7 @@ export default function LocationContact({ darkBg = false }) {
               title={`แผนที่ ${ACADEMY.name}`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-popups"
               className="block aspect-[4/3] w-full border-0"
             />
           </div>
@@ -98,11 +100,11 @@ function ContactRow({ icon, logo, logoAlt, paymentLogos, label, primary, seconda
   const isExt = cta?.href?.startsWith("http");
   return (
     <article className={`flex items-start gap-3 rounded-lg border p-4 ${card}`}>
-      <div aria-hidden="true" className={`grid h-11 w-11 flex-shrink-0 place-items-center overflow-hidden ${logo ? "rounded-[10px]" : `rounded-lg ${iconBg}`}`}>
+      <div aria-hidden="true" className={`grid size-11 flex-shrink-0 place-items-center overflow-hidden ${logo ? "rounded-[10px]" : `rounded-lg ${iconBg}`}`}>
         {logo ? (
-          <img src={logo} alt={logoAlt || ""} loading="lazy" className="h-11 w-11 object-contain" />
+          <Image src={logo} alt={logoAlt || ""} width={44} height={44} loading="lazy" className="size-11 object-contain" />
         ) : (
-          <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.8]">
+          <svg viewBox="0 0 24 24" className="size-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.8]">
             {icon}
           </svg>
         )}

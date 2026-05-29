@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { getSql, logActivity } from "@/lib/db";
@@ -11,7 +12,11 @@ const PAGE_SIZE = 100;
 async function bulkAction(formData) {
   "use server";
   const action = String(formData.get("action") || "");
-  const idsRaw = formData.getAll("lead_ids").map((x) => Number(x)).filter((n) => Number.isInteger(n) && n > 0);
+  const idsRaw = formData.getAll("lead_ids").reduce((acc, x) => {
+    const n = Number(x);
+    if (Number.isInteger(n) && n > 0) acc.push(n);
+    return acc;
+  }, []);
   if (idsRaw.length === 0) {
     redirect("/admin/leads?bulk=empty");
   }
@@ -62,9 +67,9 @@ export default async function AdminLeadsList({ searchParams }) {
           <h1 className="text-[1.6rem] font-extrabold text-ink">Leads</h1>
           <p className="text-[14px] text-muted">{leads.length} รายการ (สูงสุด {PAGE_SIZE})</p>
         </div>
-        <a href="/api/admin/leads/export" className="btn btn-outline text-[13px]" style={{ minHeight: "38px", padding: "8px 16px" }}>
+        <Link href="/api/admin/leads/export" className="btn btn-outline text-[13px]" style={{ minHeight: "38px", padding: "8px 16px" }}>
           Export CSV
-        </a>
+        </Link>
       </header>
 
       <form className="mb-5 grid grid-cols-[1fr_180px_180px_auto] gap-2 max-[900px]:grid-cols-1" action="/admin/leads">
@@ -72,6 +77,7 @@ export default async function AdminLeadsList({ searchParams }) {
           type="search"
           name="q"
           defaultValue={q}
+          aria-label="ค้นหา leads"
           placeholder="ค้นหา email / name / notes…"
           className="rounded-lg border-2 border-line bg-white px-4 py-2.5 text-[14px] text-ink outline-none focus:border-brand-blue"
         />
@@ -89,14 +95,14 @@ export default async function AdminLeadsList({ searchParams }) {
       </form>
 
       {sp?.bulk === "ok" ? (
-        <div role="status" aria-live="polite" className="mb-4 rounded-lg border border-[#047857]/30 bg-[#047857]/[.08] px-4 py-3 text-[14px] font-semibold text-[#047857]">
+        <output aria-live="polite" className="mb-4 block rounded-lg border border-[#047857]/30 bg-[#047857]/[.08] px-4 py-3 text-[14px] font-semibold text-[#047857]">
           อัปเดต {sp?.n || ""} รายการเรียบร้อย ✓
-        </div>
+        </output>
       ) : null}
 
       {leads.length === 0 ? (
         <div className="rounded-lg border border-line bg-white p-12 text-center text-muted">
-          ไม่พบรายการ — ลองล้างตัวกรอง
+          ไม่พบรายการ ลองล้างตัวกรอง
         </div>
       ) : (
         <form action={bulkAction} className="group/bulk relative">
@@ -107,7 +113,7 @@ export default async function AdminLeadsList({ searchParams }) {
           <div className="pointer-events-none fixed inset-x-0 bottom-4 z-40 flex justify-center px-4 opacity-0 transition-opacity duration-200 group-has-[input[name=lead_ids]:checked]/bulk:pointer-events-auto group-has-[input[name=lead_ids]:checked]/bulk:opacity-100">
             <div className="flex w-full max-w-[760px] flex-wrap items-center gap-2 rounded-full border border-line bg-white p-2 pl-5 shadow-brand max-[620px]:rounded-2xl">
               <span className="flex items-center gap-2 text-[13.5px] font-extrabold text-ink max-[620px]:w-full max-[620px]:justify-center">
-                <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full bg-brand-blue text-[12px] text-white">✓</span>
+                <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-brand-blue text-[12px] text-white">✓</span>
                 เลือกแล้ว
               </span>
               <select
@@ -123,7 +129,7 @@ export default async function AdminLeadsList({ searchParams }) {
                     <option key={s.value} value={`set_status_${s.value}`}>→ {s.label}</option>
                   ))}
                 </optgroup>
-                <option value="delete">ลบ (ระวัง — ย้อนกลับไม่ได้)</option>
+                <option value="delete">ลบ (ระวัง: ย้อนกลับไม่ได้)</option>
               </select>
               <button type="submit" className="btn btn-primary text-[13.5px]" style={{ minHeight: "40px", padding: "8px 20px" }}>
                 ทำเลย
@@ -146,8 +152,8 @@ function LeadCard({ lead }) {
       className={`group/card relative overflow-hidden rounded-[14px] border border-line transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-brand-sm has-[:checked]:border-brand-blue has-[:checked]:shadow-brand ${style.bg}`}
     >
       <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-1 ${style.accent}`} />
-      <label className="absolute right-2.5 top-3.5 z-10 flex h-7 w-7 cursor-pointer items-center justify-center rounded-md border-2 border-line bg-white shadow-brand-sm has-[:checked]:border-brand-blue has-[:checked]:bg-brand-blue has-[:checked]:text-white">
-        <input type="checkbox" name="lead_ids" value={lead.id} className="peer absolute h-0 w-0 opacity-0" aria-label={`เลือก ${lead.email}`} />
+      <label className="absolute right-2.5 top-3.5 z-10 flex size-7 cursor-pointer items-center justify-center rounded-md border-2 border-line bg-white shadow-brand-sm has-[:checked]:border-brand-blue has-[:checked]:bg-brand-blue has-[:checked]:text-white">
+        <input type="checkbox" name="lead_ids" value={lead.id} className="peer absolute size-0 opacity-0" aria-label={`เลือก ${lead.email}`} />
         <span aria-hidden="true" className="hidden text-[13px] font-extrabold leading-none peer-checked:block">✓</span>
       </label>
       <a

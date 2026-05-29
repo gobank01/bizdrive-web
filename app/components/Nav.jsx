@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "/#class", label: "คลาสเรียน" },
@@ -29,25 +31,25 @@ export default function Nav() {
   return (
     <header className="nav-bar" id="nav">
       <div className="bx-container flex min-h-[72px] items-center justify-between gap-6">
-        <a href="/" className="inline-flex min-h-[44px] items-center gap-2.5 font-extrabold">
-          <img
+        <Link href="/" className="inline-flex min-h-[44px] items-center gap-2.5 font-extrabold">
+          <Image
             src="/assets/brand/logo-192.png"
-            width="192"
-            height="192"
+            width={192}
+            height={192}
             alt=""
             aria-hidden="true"
-            className="h-[40px] w-[40px]"
+            className="size-[40px]"
           />
           <span className="text-xl text-brand-blue">BizDrive</span>
-        </a>
+        </Link>
 
         <nav className="flex items-center gap-[22px] max-[900px]:gap-[14px] max-[620px]:hidden" aria-label="เมนูหลัก">
           {NAV_LINKS.map((l) => (
             <NavLink key={l.href} href={l.href}>{l.label}</NavLink>
           ))}
-          <a href="/contact" className="btn btn-ghost">
+          <Link href="/contact" className="btn btn-ghost">
             ติดต่อ
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -56,9 +58,9 @@ export default function Nav() {
           aria-label="เปิดเมนู"
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="hidden h-[44px] w-[44px] place-items-center rounded-lg border border-line bg-white text-brand-blue transition-colors hover:bg-soft max-[620px]:grid"
+          className="hidden size-[44px] place-items-center rounded-lg border border-line bg-white text-brand-blue transition-colors hover:bg-soft max-[620px]:grid"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.2]">
+          <svg viewBox="0 0 24 24" aria-hidden="true" className="size-6 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.2]">
             <path d="M4 7h16M4 12h16M4 17h16" />
           </svg>
         </button>
@@ -71,12 +73,12 @@ export default function Nav() {
 
 function NavLink({ href, children }) {
   return (
-    <a
+    <Link
       href={href}
       className="inline-flex min-h-[44px] items-center text-[15px] font-semibold text-muted transition-colors hover:text-brand-blue"
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -98,17 +100,17 @@ function MobileDrawer({ onClose }) {
         style={{ animation: "slideInRight 220ms ease-out" }}
       >
         <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <a href="/" onClick={onClose} className="inline-flex items-center gap-2 font-extrabold">
-            <img src="/assets/brand/logo-192.png" width="36" height="36" alt="" className="h-[32px] w-[32px]" />
+          <Link href="/" onClick={onClose} className="inline-flex items-center gap-2 font-extrabold">
+            <Image src="/assets/brand/logo-192.png" width={36} height={36} alt="" className="size-[32px]" />
             <span className="text-[1.05rem] text-brand-blue">BizDrive</span>
-          </a>
+          </Link>
           <button
             type="button"
             onClick={onClose}
             aria-label="ปิดเมนู"
-            className="grid h-[40px] w-[40px] place-items-center rounded-lg text-ink hover:bg-soft"
+            className="grid size-[40px] place-items-center rounded-lg text-ink hover:bg-soft"
           >
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.2]">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:2.2]">
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
@@ -120,7 +122,7 @@ function MobileDrawer({ onClose }) {
               key={l.href}
               href={l.href}
               onClick={onClose}
-              className="grid grid-cols-[1fr_auto] items-center rounded-lg px-3 py-3 text-[15.5px] font-extrabold text-ink hover:bg-soft"
+              className="grid grid-cols-[1fr_auto] items-center rounded-lg p-3 text-[15.5px] font-extrabold text-ink hover:bg-soft"
             >
               {l.label}
               <span aria-hidden="true" className="text-brand-blue">→</span>
@@ -154,9 +156,9 @@ function MobileDrawer({ onClose }) {
         </nav>
 
         <div className="grid gap-2 border-t border-line p-4">
-          <a href="/contact" onClick={onClose} className="btn btn-primary w-full">
+          <Link href="/contact" onClick={onClose} className="btn btn-primary w-full">
             ติดต่อทีม BizDrive
-          </a>
+          </Link>
           <a href="https://lin.ee/tLEXtzuJ" target="_blank" rel="noopener noreferrer" className="btn btn-outline w-full bg-[#00C300] text-white hover:brightness-105" style={{ borderColor: "#00A300" }}>
             ทักผ่าน LINE @bizdrive
           </a>

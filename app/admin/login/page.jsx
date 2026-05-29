@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const dynamic = "force-dynamic";
 
 export const metadata = {
@@ -15,7 +17,7 @@ export default async function AdminLoginPage({ searchParams }) {
       <div className="bx-container max-w-[440px]">
         <div className="rounded-[14px] border border-line bg-white p-8 shadow-brand max-[620px]:p-6">
           <div className="mb-6 text-center">
-            <img src="/assets/brand/logo-192.png" width="192" height="192" alt="" aria-hidden="true" className="mx-auto mb-3 h-[56px] w-[56px]" />
+            <Image src="/assets/brand/logo-192.png" width={192} height={192} alt="" aria-hidden="true" className="mx-auto mb-3 size-[56px]" />
             <h1 className="text-[1.4rem] font-extrabold text-ink">BizDrive Admin</h1>
             <p className="mt-1 text-[13.5px] text-muted">ใส่ token เพื่อเข้าสู่ระบบจัดการ</p>
           </div>

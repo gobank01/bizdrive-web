@@ -45,7 +45,7 @@ export default async function og() {
             <span>ด้วย AI</span>
           </div>
           <div style={{ display: "flex", fontSize: 30, color: "#F4C20F", fontWeight: 700 }}>
-            คอนเทนต์ · วิดีโอ · ระบบงาน — สำหรับเจ้าของธุรกิจไทย
+            คอนเทนต์ · วิดีโอ · ระบบงาน · สำหรับเจ้าของธุรกิจไทย
           </div>
         </div>
 

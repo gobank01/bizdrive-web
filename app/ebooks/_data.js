@@ -159,11 +159,11 @@ export function ebookBySlug(slug) {
   return EBOOKS[slug] || null;
 }
 
-export function bundleBySlug(slug) {
+function bundleBySlug(slug) {
   return BUNDLES.find((b) => b.slug === slug) || null;
 }
 
-export function totalSavings(bundle) {
+function totalSavings(bundle) {
   if (!bundle?.originalPrice || !bundle?.price) return 0;
   return bundle.originalPrice - bundle.price;
 }

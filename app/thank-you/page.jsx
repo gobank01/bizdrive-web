@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PLANS, ALL_PLAN_SLUGS } from "../class/_data";
 import { urlForPlan } from "@/lib/urls";
 import CopyDiscountCode from "../components/CopyDiscountCode";
@@ -20,14 +21,14 @@ export default async function PromotionThankYouPage({ searchParams }) {
     <>
       <section className="bg-[linear-gradient(180deg,#f8fbff_0%,#fff_70%)] py-[72px] max-[620px]:py-[54px]">
         <div className="bx-container max-w-[760px] text-center">
-          <div className="mx-auto mb-5 grid h-[78px] w-[78px] place-items-center rounded-full bg-brand-mint/[.12] text-brand-mint">
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[38px] w-[38px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:3]">
+          <div className="mx-auto mb-5 grid size-[78px] place-items-center rounded-full bg-brand-mint/[.12] text-brand-mint">
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[38px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:3]">
               <path d="M20 6L9 17l-5-5" />
             </svg>
           </div>
           <span className="badge mb-[14px]">{isExit ? "รับเรียบร้อย" : "ลงทะเบียนสำเร็จ"}</span>
           <h1 className="mt-1.5 text-balance text-[clamp(1.8rem,5vw,2.8rem)] font-extrabold leading-[1.2]">
-            ขอบคุณ — ของแถมของคุณรอแล้ว
+            ขอบคุณ ของแถมของคุณรอแล้ว
           </h1>
           <p className="mx-auto my-[18px] mb-[28px] max-w-[640px] text-[clamp(1rem,2vw,1.18rem)] text-muted">
             เราได้รับข้อมูลของคุณแล้ว · eBook และส่วนลดจะส่งไปที่อีเมลภายใน 5-10 นาที
@@ -35,11 +36,11 @@ export default async function PromotionThankYouPage({ searchParams }) {
           </p>
 
           <div className="mx-auto mb-9 flex max-w-[460px] items-center gap-4 rounded-[14px] border border-line bg-white p-4 text-left shadow-brand-sm">
-            <div className="relative h-[72px] w-[72px] flex-shrink-0 overflow-hidden rounded-full border-2 border-brand-yellow bg-soft">
-              <img
+            <div className="relative size-[72px] flex-shrink-0 overflow-hidden rounded-full border-2 border-brand-yellow bg-soft">
+              <Image
                 src="/assets/profile/profile-bank-sm.jpg"
-                width="160"
-                height="160"
+                width={160}
+                height={160}
                 alt="พี่แบงค์ ปรัชญา"
                 className="h-full w-full object-cover"
               />
@@ -48,7 +49,7 @@ export default async function PromotionThankYouPage({ searchParams }) {
               <strong className="block text-[15px] font-extrabold leading-tight text-ink">พี่แบงค์ ปรัชญา</strong>
               <span className="block text-[12.5px] text-muted">Founder, BizDrive</span>
               <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink">
-                ขอบคุณที่เชื่อใจ — เจอกันในคลาสครับ
+                ขอบคุณที่เชื่อใจ เจอกันในคลาสครับ
               </p>
             </div>
           </div>
