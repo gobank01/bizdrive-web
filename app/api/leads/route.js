@@ -38,6 +38,61 @@ async function notifyTeam(lead) {
   }
 }
 
+const PLAN_LABELS = {
+  "manus-ai-online": "Manus AI — Online",
+  "manus-ai-seminar": "Manus AI — Seminar",
+  "manus-ai-private": "Private 1:1 Custom",
+  "claude-online": "Claude AI — Online",
+  "claude-seminar": "Claude AI — Seminar",
+  "ai-editor-online": "AI Video Editor — Online",
+  "ai-editor-seminar": "AI Video Editor — Seminar",
+  "one-person-online": "One Person Business — Online",
+  "one-person-seminar": "One Person Business — Seminar",
+};
+
+const LINE_URL = "https://lin.ee/tLEXtzuJ";
+
+// Auto-reply to the customer. Needs a verified sending domain in Resend
+// (FROM_EMAIL=hello@bizdrive.co) — the onboarding@resend.dev sender only
+// delivers to the account owner, not to real customers.
+async function notifyCustomer(lead) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.FROM_EMAIL || "BizDrive <onboarding@resend.dev>";
+  if (!apiKey || !lead.email) return;
+  _resend ??= new Resend(apiKey);
+  const interest = lead.plan_label
+    ? `<p style="margin:0 0 14px;font-size:15px;color:#111827;">เรื่องที่คุณสนใจ: <strong style="color:#1B3A8C;">${lead.plan_label}</strong></p>`
+    : "";
+  try {
+    await _resend.emails.send({
+      from,
+      to: lead.email,
+      replyTo: "hello@bizdrive.co",
+      subject: "ได้รับข้อมูลของคุณแล้ว — BizDrive จะติดต่อกลับเร็ว ๆ นี้",
+      html: `<div style="font-family:'Segoe UI',Arial,sans-serif;background:#f4f8ff;padding:28px 16px;">
+        <div style="max-width:540px;margin:0 auto;background:#fff;border:1px solid #dfe7f3;border-radius:12px;overflow:hidden;">
+          <div style="background:#1B3A8C;padding:22px 28px;">
+            <span style="color:#fff;font-weight:800;font-size:20px;letter-spacing:.3px;">BIZ<span style="color:#F4C20F;">DRIVE</span></span>
+          </div>
+          <div style="padding:28px;">
+            <h1 style="margin:0 0 14px;font-size:20px;color:#1B3A8C;">ขอบคุณที่ติดต่อเข้ามาครับ 🙏</h1>
+            <p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#111827;">เราได้รับข้อมูลของคุณเรียบร้อยแล้ว — ทีมงาน BizDrive จะติดต่อกลับโดยเร็วที่สุด (ภายในเวลาทำการ)</p>
+            ${interest}
+            <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#111827;">ระหว่างนี้ ถ้าอยากคุยเลย ทักหาเราได้ที่ LINE ทันที 👇</p>
+            <a href="${LINE_URL}" style="display:inline-block;background:#06C755;color:#fff;font-weight:700;font-size:15px;text-decoration:none;padding:12px 24px;border-radius:10px;">💬 ทักไลน์ @bizdrive168</a>
+            <p style="margin:24px 0 0;font-size:14px;color:#526071;">— พี่แบงค์ &amp; ทีม BizDrive<br/><span style="color:#94a3b8;">เริ่มเล็ก แต่สเกลใหญ่</span></p>
+          </div>
+          <div style="background:#f4f8ff;padding:14px 28px;border-top:1px solid #dfe7f3;">
+            <p style="margin:0;font-size:12px;color:#94a3b8;">อีเมลนี้ส่งอัตโนมัติเพราะคุณกรอกฟอร์มบนเว็บไซต์ BizDrive · ตอบกลับอีเมลนี้เพื่อคุยกับทีมได้</p>
+          </div>
+        </div>
+      </div>`,
+    });
+  } catch (err) {
+    console.error("notify customer failed:", err.message);
+  }
+}
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_LEN = 250;
 
@@ -116,6 +171,7 @@ export async function POST(request) {
       after(logActivity(leadId, "created", { plan_slug, source, utm_source, utm_campaign, has_phone: !!phone, has_message: !!message, topic }));
     }
     after(notifyTeam({ email, phone, plan_slug, source, utm_source, utm_campaign, referrer, message, topic }));
+    after(notifyCustomer({ email, plan_label: plan_slug ? PLAN_LABELS[plan_slug] : null }));
     return Response.json({ ok: true }, { headers: cors });
   } catch (err) {
     console.error("insert lead failed:", err.message);
