@@ -93,6 +93,33 @@ async function notifyCustomer(lead) {
   }
 }
 
+// Telegram push to the team chat. No-op until TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID are set.
+async function notifyTelegram(lead) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return;
+  const text = [
+    "🔔 Lead ใหม่ — BizDrive",
+    `📧 ${lead.email}`,
+    lead.phone ? `📱 ${lead.phone}` : null,
+    lead.plan_label ? `📘 ${lead.plan_label}` : null,
+    `🌐 source: ${lead.source || "—"}`,
+    lead.topic ? `💬 ${lead.topic}` : null,
+    lead.message ? `📝 ${lead.message}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+  try {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
+    });
+  } catch (err) {
+    console.error("notify telegram failed:", err.message);
+  }
+}
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_LEN = 250;
 
@@ -172,6 +199,7 @@ export async function POST(request) {
     }
     after(notifyTeam({ email, phone, plan_slug, source, utm_source, utm_campaign, referrer, message, topic }));
     after(notifyCustomer({ email, plan_label: plan_slug ? PLAN_LABELS[plan_slug] : null }));
+    after(notifyTelegram({ email, phone, plan_label: plan_slug ? PLAN_LABELS[plan_slug] : null, source, topic, message }));
     return Response.json({ ok: true }, { headers: cors });
   } catch (err) {
     console.error("insert lead failed:", err.message);
