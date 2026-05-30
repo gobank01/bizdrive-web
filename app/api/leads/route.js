@@ -20,6 +20,7 @@ async function notifyTeam(lead) {
         <div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #dfe7f3;border-radius:10px;padding:24px;">
           <h2 style="margin:0 0 12px;color:#1B3A8C;">มี lead ใหม่</h2>
           <table style="width:100%;font-size:14px;color:#111827;">
+            ${lead.name ? `<tr><td style="padding:6px 0;color:#526071;">ชื่อ</td><td style="padding:6px 0;font-weight:bold;">${lead.name}</td></tr>` : ""}
             <tr><td style="padding:6px 0;color:#526071;">อีเมล</td><td style="padding:6px 0;font-weight:bold;">${lead.email}</td></tr>
             ${lead.phone ? `<tr><td style="padding:6px 0;color:#526071;">เบอร์โทร</td><td style="padding:6px 0;font-weight:bold;">${lead.phone}</td></tr>` : ""}
             ${lead.topic ? `<tr><td style="padding:6px 0;color:#526071;">หัวข้อ</td><td style="padding:6px 0;">${lead.topic}</td></tr>` : ""}
@@ -100,6 +101,7 @@ async function notifyTelegram(lead) {
   if (!token || !chatId) return;
   const text = [
     "🔔 Lead ใหม่ — BizDrive",
+    lead.name ? `👤 ${lead.name}` : null,
     `📧 ${lead.email}`,
     lead.phone ? `📱 ${lead.phone}` : null,
     lead.plan_label ? `📘 ${lead.plan_label}` : null,
@@ -197,9 +199,9 @@ export async function POST(request) {
     if (leadId) {
       after(logActivity(leadId, "created", { plan_slug, source, utm_source, utm_campaign, has_phone: !!phone, has_message: !!message, topic }));
     }
-    after(notifyTeam({ email, phone, plan_slug, source, utm_source, utm_campaign, referrer, message, topic }));
+    after(notifyTeam({ email, name, phone, plan_slug, source, utm_source, utm_campaign, referrer, message, topic }));
     after(notifyCustomer({ email, plan_label: plan_slug ? PLAN_LABELS[plan_slug] : null }));
-    after(notifyTelegram({ email, phone, plan_label: plan_slug ? PLAN_LABELS[plan_slug] : null, source, topic, message }));
+    after(notifyTelegram({ email, name, phone, plan_label: plan_slug ? PLAN_LABELS[plan_slug] : null, source, topic, message }));
     return Response.json({ ok: true }, { headers: cors });
   } catch (err) {
     console.error("insert lead failed:", err.message);
