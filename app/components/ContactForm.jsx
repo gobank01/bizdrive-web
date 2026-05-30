@@ -23,7 +23,7 @@ const TOPICS = [
 ];
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", topic: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", topic: "", message: "" });
   const [hp, setHp] = useState("");
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -56,7 +56,7 @@ export default function ContactForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           email: form.email,
-          name: form.name,
+          name: `${form.firstName} ${form.lastName}`.trim(),
           phone: form.phone,
           plan_slug: planMap[form.topic] || null,
           topic: topicLabel || null,
@@ -113,13 +113,27 @@ export default function ContactForm() {
           <input
             type="text"
             required
-            value={form.name}
-            onChange={setField("name")}
-            autoComplete="name"
-            placeholder="พี่แบงค์ ปรัชญา"
+            value={form.firstName}
+            onChange={setField("firstName")}
+            autoComplete="given-name"
+            placeholder="ชื่อจริง"
             className="form-input"
           />
         </Field>
+        <Field label="นามสกุล" required>
+          <input
+            type="text"
+            required
+            value={form.lastName}
+            onChange={setField("lastName")}
+            autoComplete="family-name"
+            placeholder="นามสกุล"
+            className="form-input"
+          />
+        </Field>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3.5 max-[620px]:grid-cols-1">
         <Field label="อีเมล" required>
           <input
             type="email"
@@ -131,18 +145,19 @@ export default function ContactForm() {
             className="form-input"
           />
         </Field>
+        <Field label="เบอร์โทร" required>
+          <input
+            type="tel"
+            required
+            value={form.phone}
+            onChange={setField("phone")}
+            autoComplete="tel"
+            inputMode="tel"
+            placeholder="095-334-0643"
+            className="form-input"
+          />
+        </Field>
       </div>
-
-      <Field label="เบอร์โทร" hint="ไม่บังคับ — แต่ทักกลับเร็วกว่า">
-        <input
-          type="tel"
-          value={form.phone}
-          onChange={setField("phone")}
-          autoComplete="tel"
-          placeholder="095-334-0643"
-          className="form-input"
-        />
-      </Field>
 
       <Field label="หัวข้อที่อยากคุย" required>
         <select

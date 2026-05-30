@@ -19,12 +19,12 @@ export default async function AdminLoginPage({ searchParams }) {
           <div className="mb-6 text-center">
             <Image src="/assets/brand/logo-192.png" width={192} height={192} alt="" aria-hidden="true" className="mx-auto mb-3 size-[56px]" />
             <h1 className="text-[1.4rem] font-extrabold text-ink">BizDrive Admin</h1>
-            <p className="mt-1 text-[13.5px] text-muted">ใส่ token เพื่อเข้าสู่ระบบจัดการ</p>
+            <p className="mt-1 text-[13.5px] text-muted">ใส่รหัสผ่านเพื่อเข้าสู่ระบบจัดการ</p>
           </div>
           <form action="/admin/auth" method="post" className="grid gap-3">
             <input type="hidden" name="next" value={next} />
             <label className="grid gap-1.5">
-              <span className="text-[13px] font-semibold text-muted">Admin Token</span>
+              <span className="text-[13px] font-semibold text-muted">รหัสผ่าน</span>
               <input
                 type="password"
                 name="token"
@@ -37,13 +37,13 @@ export default async function AdminLoginPage({ searchParams }) {
             </label>
             {hasError ? (
               <p role="alert" aria-live="polite" className="rounded-lg border border-brand-orange/30 bg-brand-orange/[.06] px-3 py-2 text-[13px] text-[#c2410c]">
-                Token ไม่ถูกต้อง ลองใหม่อีกครั้ง
+                รหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง
               </p>
             ) : null}
             <button type="submit" className="btn btn-primary mt-2">เข้าสู่ระบบ</button>
           </form>
           <p className="mt-4 text-center text-[12px] text-muted">
-            หากลืม token ทักหา dev team
+            หากลืมรหัสผ่าน ทักหา dev team
           </p>
         </div>
       </div>

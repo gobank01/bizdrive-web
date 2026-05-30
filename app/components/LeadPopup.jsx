@@ -11,6 +11,8 @@ export default function LeadPopup() {
   const [trigger, setTrigger] = useState(""); // "timer" | "exit"
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [message, setMessage] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [hp, setHp] = useState("");
@@ -79,6 +81,7 @@ export default function LeadPopup() {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
+          name: `${firstName} ${lastName}`.trim(),
           email,
           phone,
           source: trigger === "exit" ? "popup-exit" : "popup-timer",
@@ -176,6 +179,34 @@ export default function LeadPopup() {
               aria-hidden="true"
               className="hidden"
             />
+            <div className="grid grid-cols-2 gap-3">
+              <label className="grid gap-1.5">
+                <span className="text-[12.5px] font-semibold text-muted">ชื่อ <span className="text-brand-orange">*</span></span>
+                <input
+                  type="text"
+                  required
+                  autoComplete="given-name"
+                  aria-label="ชื่อ"
+                  placeholder="ชื่อจริง"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="rounded-lg border-2 border-line bg-white px-4 py-2.5 text-[15px] text-ink outline-none focus:border-brand-blue"
+                />
+              </label>
+              <label className="grid gap-1.5">
+                <span className="text-[12.5px] font-semibold text-muted">นามสกุล <span className="text-brand-orange">*</span></span>
+                <input
+                  type="text"
+                  required
+                  autoComplete="family-name"
+                  aria-label="นามสกุล"
+                  placeholder="นามสกุล"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  className="rounded-lg border-2 border-line bg-white px-4 py-2.5 text-[15px] text-ink outline-none focus:border-brand-blue"
+                />
+              </label>
+            </div>
             <label className="grid gap-1.5">
               <span className="text-[12.5px] font-semibold text-muted">อีเมล <span className="text-brand-orange">*</span></span>
               <input
@@ -191,9 +222,10 @@ export default function LeadPopup() {
               />
             </label>
             <label className="grid gap-1.5">
-              <span className="text-[12.5px] font-semibold text-muted">เบอร์โทร (ไม่บังคับ)</span>
+              <span className="text-[12.5px] font-semibold text-muted">เบอร์โทร <span className="text-brand-orange">*</span></span>
               <input
                 type="tel"
+                required
                 autoComplete="tel"
                 inputMode="tel"
                 placeholder="095-XXX-XXXX"

@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 
-export default function LeadForm({ planSlug, source, variant = "primary", buttonLabel = "ฝากอีเมลแจ้งเตือน" }) {
+export default function LeadForm({ planSlug, source, variant = "primary", buttonLabel = "ฝากข้อมูลแจ้งเตือน" }) {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [hp, setHp] = useState("");
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
@@ -19,7 +22,9 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
+          name: `${firstName} ${lastName}`.trim(),
           email,
+          phone,
           plan_slug: planSlug,
           source,
           hp,
@@ -41,7 +46,10 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
       }
       setStatus("success");
       setMessage("ขอบคุณ — เราจะแจ้งทันทีที่เปิดรับสมัคร");
+      setFirstName("");
+      setLastName("");
       setEmail("");
+      setPhone("");
     } catch {
       setStatus("error");
       setMessage("เครือข่ายมีปัญหา ลองใหม่อีกครั้ง");
@@ -50,6 +58,11 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
 
   const onLight = variant === "light";
   const onInk = variant === "ink";
+  const inputCls = `w-full rounded-xl border-2 bg-white px-4 py-3 text-[15px] text-ink outline-none transition-[border-color] duration-150 placeholder:text-muted ${
+    onLight ? "border-white focus:border-brand-yellow" : onInk ? "border-ink/30 focus:border-ink" : "border-line focus:border-brand-blue"
+  }`;
+  const labelCls = `text-[12.5px] font-semibold ${onLight ? "text-white" : onInk ? "text-ink/85" : "text-muted"}`;
+  const req = <span aria-hidden="true" className={onLight ? "text-brand-yellow" : "text-brand-orange"}>*</span>;
 
   if (status === "success") {
     return (
@@ -82,34 +95,67 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
         className="hidden"
       />
 
-      <label htmlFor={`lead-email-${planSlug || "footer"}`} className="sr-only">
-        อีเมล
-      </label>
-      <div className="flex gap-2 max-[620px]:flex-col">
+      <div className="grid grid-cols-2 gap-3 max-[480px]:grid-cols-1">
+        <label className="grid gap-1.5">
+          <span className={labelCls}>ชื่อ {req}</span>
+          <input
+            type="text"
+            required
+            autoComplete="given-name"
+            aria-label="ชื่อ"
+            placeholder="ชื่อจริง"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className={inputCls}
+          />
+        </label>
+        <label className="grid gap-1.5">
+          <span className={labelCls}>นามสกุล {req}</span>
+          <input
+            type="text"
+            required
+            autoComplete="family-name"
+            aria-label="นามสกุล"
+            placeholder="นามสกุล"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className={inputCls}
+          />
+        </label>
+      </div>
+
+      <label className="grid gap-1.5">
+        <span className={labelCls}>อีเมล {req}</span>
         <input
-          id={`lead-email-${planSlug || "footer"}`}
           type="email"
-          name="email"
           required
           autoComplete="email"
           inputMode="email"
           spellCheck={false}
           aria-label="อีเมล"
-          placeholder="อีเมลของคุณ"
+          placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`flex-1 rounded-full border-2 bg-white px-5 py-[12px] text-[15px] text-ink outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-muted ${
-            onLight ? "border-white focus:border-brand-yellow" : onInk ? "border-ink/30 focus:border-ink" : "border-line focus:border-brand-blue"
-          }`}
+          className={inputCls}
         />
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className={`btn ${onLight ? "bg-brand-yellow text-ink" : onInk ? "bg-ink text-white hover:brightness-110" : "btn-primary"} disabled:opacity-70`}
-        >
-          {status === "loading" ? "กำลังส่ง…" : buttonLabel}
-        </button>
-      </div>
+      </label>
+
+      <label className="grid gap-1.5">
+        <span className={labelCls}>เบอร์โทร {req}</span>
+        <input
+          type="tel"
+          required
+          autoComplete="tel"
+          inputMode="tel"
+          pattern="[0-9\-\s\+]{6,20}"
+          aria-label="เบอร์โทร"
+          placeholder="095-XXX-XXXX"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className={inputCls}
+        />
+      </label>
+
       <label className={`flex items-start gap-2 text-[12px] leading-[1.55] ${onLight ? "text-white" : onInk ? "text-ink/85" : "text-muted"}`}>
         <input
           type="checkbox"
@@ -133,6 +179,14 @@ export default function LeadForm({ planSlug, source, variant = "primary", button
           และยินยอมให้ BizDrive ติดต่อเรื่องคลาส (PDPA)
         </span>
       </label>
+
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className={`btn ${onLight ? "bg-brand-yellow text-ink" : onInk ? "bg-ink text-white hover:brightness-110" : "btn-primary"} disabled:opacity-70`}
+      >
+        {status === "loading" ? "กำลังส่ง…" : buttonLabel}
+      </button>
 
       {message && status === "error" ? (
         <p
