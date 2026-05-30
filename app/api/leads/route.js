@@ -41,6 +41,29 @@ async function notifyTeam(lead) {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_LEN = 250;
 
+// Cross-origin lead capture (e.g. bizdrive-skill.com) — allowlist only.
+const ALLOWED_ORIGINS = new Set([
+  "https://bizdrive-skill.com",
+  "https://www.bizdrive-skill.com",
+  "http://localhost:3000",
+  "http://localhost:3001",
+]);
+
+function corsHeaders(origin) {
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) return {};
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
+  };
+}
+
+export async function OPTIONS(request) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get("origin")) });
+}
+
 function trim(value) {
   if (typeof value !== "string") return null;
   const v = value.trim();
@@ -49,20 +72,22 @@ function trim(value) {
 }
 
 export async function POST(request) {
+  const cors = corsHeaders(request.headers.get("origin"));
+
   let body;
   try {
     body = await request.json();
   } catch {
-    return Response.json({ ok: false, error: "invalid_json" }, { status: 400 });
+    return Response.json({ ok: false, error: "invalid_json" }, { status: 400, headers: cors });
   }
 
   if (body && typeof body.hp === "string" && body.hp.length > 0) {
-    return Response.json({ ok: true });
+    return Response.json({ ok: true }, { headers: cors });
   }
 
   const email = trim(body?.email)?.toLowerCase();
   if (!email || !EMAIL_RE.test(email)) {
-    return Response.json({ ok: false, error: "invalid_email" }, { status: 400 });
+    return Response.json({ ok: false, error: "invalid_email" }, { status: 400, headers: cors });
   }
 
   const name = trim(body?.name);
@@ -91,9 +116,9 @@ export async function POST(request) {
       after(logActivity(leadId, "created", { plan_slug, source, utm_source, utm_campaign, has_phone: !!phone, has_message: !!message, topic }));
     }
     after(notifyTeam({ email, phone, plan_slug, source, utm_source, utm_campaign, referrer, message, topic }));
-    return Response.json({ ok: true });
+    return Response.json({ ok: true }, { headers: cors });
   } catch (err) {
     console.error("insert lead failed:", err.message);
-    return Response.json({ ok: false, error: "db_error" }, { status: 500 });
+    return Response.json({ ok: false, error: "db_error" }, { status: 500, headers: cors });
   }
 }
