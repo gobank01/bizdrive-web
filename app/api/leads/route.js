@@ -97,8 +97,9 @@ async function notifyCustomer(lead) {
 // Telegram push to the team chat. No-op until TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID are set.
 async function notifyTelegram(lead) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return;
+  // TELEGRAM_CHAT_ID can hold multiple targets, comma-separated (group + personal DM).
+  const chatIds = (process.env.TELEGRAM_CHAT_ID || "").split(",").map((s) => s.trim()).filter(Boolean);
+  if (!token || chatIds.length === 0) return;
   const text = [
     "🔔 Lead ใหม่ — BizDrive",
     lead.name ? `👤 ${lead.name}` : null,
@@ -111,15 +112,19 @@ async function notifyTelegram(lead) {
   ]
     .filter(Boolean)
     .join("\n");
-  try {
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
-    });
-  } catch (err) {
-    console.error("notify telegram failed:", err.message);
-  }
+  await Promise.all(
+    chatIds.map(async (chat_id) => {
+      try {
+        await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id, text, disable_web_page_preview: true }),
+        });
+      } catch (err) {
+        console.error("notify telegram failed:", chat_id, err.message);
+      }
+    })
+  );
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
