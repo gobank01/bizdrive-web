@@ -50,6 +50,7 @@ export default function SalePage({ plan }) {
       <ClassGallery slug={plan.slug} />
       <About />
       <TrustBadges />
+      <UrgencyBanner plan={plan} accent={accent} />
       <Offer plan={plan} accent={accent} />
       <IdealFor plan={plan} />
       <Reviews seed={plan.slug} />
@@ -91,6 +92,21 @@ function Hero({ plan, accent }) {
             {plan.hero.ctaSecondary}
           </a>
         </div>
+        {plan.heroImage ? (
+          <figure className="mx-auto mt-[44px] max-w-[540px] max-[620px]:mt-[34px]">
+            <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-brand">
+              <Image
+                src={plan.heroImage.src}
+                alt={plan.heroImage.alt}
+                width={plan.heroImage.width || 1254}
+                height={plan.heroImage.height || 1254}
+                priority
+                sizes="(max-width: 620px) 92vw, 540px"
+                className="block h-auto w-full"
+              />
+            </div>
+          </figure>
+        ) : null}
       </div>
     </section>
   );
@@ -237,6 +253,48 @@ function About() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function UrgencyBanner({ plan, accent }) {
+  if (!plan.urgencyImage) return null;
+  const img = plan.urgencyImage;
+  return (
+    <section className="bg-white pb-[20px] pt-[64px] max-[620px]:pt-[48px]">
+      <div className="bx-container max-w-[760px]">
+        <div className="grid grid-cols-[1fr_320px] items-center gap-9 max-[760px]:grid-cols-1 max-[760px]:gap-7 max-[760px]:text-center">
+          <div className="max-[760px]:order-2">
+            <span className={`inline-flex items-center gap-2 rounded-full px-[14px] py-1.5 text-[13px] font-extrabold ${accent.badge}`}>
+              <span aria-hidden="true" className="size-2 animate-pulse rounded-full bg-current" />
+              ที่นั่งใกล้เต็ม
+            </span>
+            <h2 className="mt-4 text-balance text-[clamp(1.5rem,3.4vw,2.2rem)] font-extrabold leading-[1.22]">
+              5 รุ่นที่ผ่านมาเต็มทุกรอบ เหลือ <span className={accent.savingsText}>รุ่น 9</span> รอบเดียว
+            </h2>
+            <p className="mt-3 text-[15px] leading-[1.7] text-muted">
+              รุ่น 4–8 ปิดรับสมัครเต็มทุกรอบ · รุ่น 9 วันศุกร์ที่ 12 มิถุนายน 2569 รับจำกัด 20 ท่าน
+              ใครตัดสินใจช้าได้นั่งรอรอบหน้าอีก 6–8 สัปดาห์
+            </p>
+            <a href="#offer" className="btn btn-primary mt-6 max-[760px]:w-full max-[760px]:max-w-[300px]">
+              จองที่นั่ง รุ่น 9
+            </a>
+          </div>
+          <figure className="max-[760px]:order-1 max-[760px]:mx-auto max-[760px]:max-w-[360px]">
+            <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-brand">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={img.width || 1248}
+                height={img.height || 1248}
+                loading="lazy"
+                sizes="(max-width: 760px) 88vw, 320px"
+                className="block h-auto w-full"
+              />
+            </div>
+          </figure>
         </div>
       </div>
     </section>

@@ -49,6 +49,7 @@ export default function VideoSalePage({ plan }) {
       <Reviews seed={plan.slug} />
       <Guarantee plan={plan} />
       <Faq plan={plan} />
+      <PrepSection plan={plan} />
       {plan.slug !== "ai-editor-online" ? <LocationContact /> : null}
       <FinalCta plan={plan} accent={accent} />
       <div aria-hidden="true" className="h-[72px]" />
@@ -90,23 +91,39 @@ function VideoHero({ plan, accent }) {
           </div>
         </div>
         <div className="relative">
-          <div className="aspect-video w-full overflow-hidden rounded-[14px] border-2 border-brand-yellow/40 bg-neutral-900 shadow-brand">
-            {yt ? (
-              <iframe
-                src={`https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1`}
-                title={plan.heroVideo.caption || "ตัวอย่างผลงาน"}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                sandbox="allow-scripts allow-presentation allow-popups"
-                className="h-full w-full"
+          {plan.heroImage ? (
+            <div className="overflow-hidden rounded-[14px] border-2 border-brand-yellow/40 bg-neutral-900 shadow-brand">
+              <Image
+                src={plan.heroImage.src}
+                alt={plan.heroImage.alt}
+                width={plan.heroImage.width || 1254}
+                height={plan.heroImage.height || 1254}
+                priority
+                sizes="(max-width: 900px) 92vw, 540px"
+                className="block h-auto w-full"
               />
-            ) : (
-              <div className="grid h-full w-full place-items-center text-white/60">วิดีโอตัวอย่างเร็ว ๆ นี้</div>
-            )}
-          </div>
-          {plan.heroVideo?.caption ? (
-            <p className="mt-3 text-center text-[13px] text-white/70">{plan.heroVideo.caption}</p>
-          ) : null}
+            </div>
+          ) : (
+            <>
+              <div className="aspect-video w-full overflow-hidden rounded-[14px] border-2 border-brand-yellow/40 bg-neutral-900 shadow-brand">
+                {yt ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1`}
+                    title={plan.heroVideo.caption || "ตัวอย่างผลงาน"}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    sandbox="allow-scripts allow-presentation allow-popups"
+                    className="h-full w-full"
+                  />
+                ) : (
+                  <div className="grid h-full w-full place-items-center text-white/60">วิดีโอตัวอย่างเร็ว ๆ นี้</div>
+                )}
+              </div>
+              {plan.heroVideo?.caption ? (
+                <p className="mt-3 text-center text-[13px] text-white/70">{plan.heroVideo.caption}</p>
+              ) : null}
+            </>
+          )}
         </div>
       </div>
     </section>
@@ -247,8 +264,33 @@ function Solution({ plan }) {
         <p className="mx-auto mt-5 max-w-[680px] text-[clamp(1rem,1.9vw,1.15rem)] text-muted">
           {plan.solution.body}
         </p>
+        {plan.workflowImage ? (
+          <SectionImage img={plan.workflowImage} className="mt-9 max-w-[620px]" />
+        ) : null}
       </div>
     </section>
+  );
+}
+
+function SectionImage({ img, className = "" }) {
+  if (!img) return null;
+  return (
+    <figure className={`mx-auto ${className}`}>
+      <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-brand">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          width={img.width || 1254}
+          height={img.height || 1254}
+          loading="lazy"
+          sizes="(max-width: 620px) 92vw, 620px"
+          className="block h-auto w-full"
+        />
+      </div>
+      {img.caption ? (
+        <figcaption className="mt-3 text-center text-[13px] text-muted">{img.caption}</figcaption>
+      ) : null}
+    </figure>
   );
 }
 
@@ -262,6 +304,9 @@ function Modules({ plan }) {
             สิ่งที่คุณจะได้เรียน
           </h2>
         </div>
+        {plan.scheduleImage ? (
+          <SectionImage img={plan.scheduleImage} className="mb-9 max-w-[560px]" />
+        ) : null}
         <div className="grid gap-4 max-[620px]:gap-3">
           {plan.modules.map((m) => (
             <article key={m.num} className="grid grid-cols-[80px_1fr] gap-5 rounded-lg border border-line bg-white px-6 py-5 transition-[border-color,box-shadow] duration-200 hover:border-brand-sky/45 hover:shadow-brand-sm max-[620px]:grid-cols-[60px_1fr] max-[620px]:gap-4 max-[620px]:px-4">
@@ -560,6 +605,21 @@ function Faq({ plan }) {
             </details>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function PrepSection({ plan }) {
+  if (!plan.prepImage) return null;
+  return (
+    <section className="bg-soft py-[72px] max-[620px]:py-[54px]">
+      <div className="bx-container max-w-[760px] text-center">
+        <span className="section-kicker mb-[14px]">เตรียมตัว</span>
+        <h2 className="mx-auto max-w-[680px] text-balance text-[clamp(1.55rem,3.6vw,2.3rem)] font-extrabold leading-[1.22]">
+          เตรียมตัวก่อนมาเรียนให้พร้อม
+        </h2>
+        <SectionImage img={plan.prepImage} className="mt-8 max-w-[560px]" />
       </div>
     </section>
   );

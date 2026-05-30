@@ -137,6 +137,19 @@ export const PLANS = {
       ctaPrimary: "จองที่นั่ง Seminar",
       ctaSecondary: "ดูตารางวัน",
     },
+    heroImage: {
+      src: "/assets/seminar/manus-run9-poster.jpg",
+      alt: "Manus AI Automation รุ่น 9 · ศุกร์ที่ 12 มิถุนายน 2569 · 09.30–16.30 น. ที่ BizDrive Academy",
+      width: 1254,
+      height: 1254,
+    },
+    urgencyImage: {
+      src: "/assets/seminar/manus-run9-batches.png",
+      alt: "รุ่น 4–8 เต็มทุกรอบแล้ว · รุ่น 9 เปิดจอง 12 มิถุนายน 2569 — รีบสมัครด่วน",
+      width: 1248,
+      height: 1248,
+      caption: "รุ่น 4–8 เต็มทุกรอบ · เหลือ รุ่น 9 รอบเดียว",
+    },
     problem: {
       title: "เรียนคอร์สออนไลน์มาแล้วหลายตัว — แต่ยังไม่ได้เริ่ม",
       points: [
@@ -151,7 +164,7 @@ export const PLANS = {
       body: "Seminar แบบกลุ่มเล็ก 20 ท่าน เน้น hands-on กับธุรกิจของคุณจริง ๆ ไม่ใช่ฟังบรรยายแล้วกลับบ้าน พี่แบงค์ + ทีม BizDrive วนโต๊ะ ช่วยออกแบบ workflow เฉพาะธุรกิจคุณ จบวันมี output พร้อมเอาไปใช้ต่อ",
     },
     modules: [
-      { num: "09:00", title: "เปิดวัน + Setup", text: "ทำความรู้จัก เซ็ตเครื่องมือ วางเป้าหมายของวัน", bullets: [
+      { num: "09:30", title: "เปิดวัน + Setup", text: "ทำความรู้จัก เซ็ตเครื่องมือ วางเป้าหมายของวัน", bullets: [
         "Welcome + แนะนำตัว 20 ท่าน",
         "เซ็ต laptop + sign in เครื่องมือ AI ที่จะใช้",
         "Map ธุรกิจคุณ — เป้าหมายวันนี้ของแต่ละคน"
@@ -204,7 +217,7 @@ export const PLANS = {
       text: "ถ้าจบวัน ไม่รู้สึกว่าคุ้ม ทักมาภายใน 7 วัน คืนเงินครึ่งหนึ่งโดยไม่ถาม",
     },
     faqs: [
-      { q: "Seminar จัดที่ไหน วันไหน?", a: "จัดที่ BizDrive Academy กรุงเทพมหานคร · วันที่จะแจ้งเมื่อยืนยันการจอง ที่นั่งจำกัด 20 ท่าน/รอบ — ดูแผนที่ในส่วนสถานที่ด้านล่าง" },
+      { q: "Seminar จัดที่ไหน วันไหน?", a: "รุ่น 9 · ศุกร์ที่ 12 มิถุนายน 2569 · เวลา 09.30–16.30 น. ที่ BizDrive Academy กรุงเทพมหานคร · ที่นั่งจำกัด 20 ท่าน/รอบ — ดูแผนที่ในส่วนสถานที่ด้านล่าง" },
       { q: "ต้องเตรียมอะไรมาบ้าง?", a: "Notebook ของคุณ + ข้อมูลธุรกิจ (กลุ่มลูกค้า สินค้า/บริการ ปัญหาที่อยากแก้) ที่เหลือเราเตรียมให้" },
       { q: "เหมาะกับใคร?", a: "เจ้าของธุรกิจ ฟรีแลนซ์ ผู้บริหารทีมเล็ก ที่อยากวาง AI workflow ให้ธุรกิจตัวเอง" },
       { q: "ราคา ฿9,900 คุ้มยังไงเทียบกับ online?", a: "ของรวมเกิน ฿18,000 — Workshop เต็มวัน + วิดีโอบันทึก + 30-day support + แถม Manus AI Online · ค่าเดินทาง/อาหารรวมแล้ว · เน้น hands-on + network ที่ online ไม่ได้" },
@@ -216,11 +229,11 @@ export const PLANS = {
       { q: "ออกใบกำกับภาษี/ใบเสร็จได้ไหม?", a: "ได้ครับ เต็มรูปแบบ — แจ้งข้อมูลบริษัทตอนจอง หรือทักที่ hello@bizdrive.co" },
       { q: "หลัง seminar จบ ยังถามได้ไหม?", a: "ได้ครับ 30 วันแรก ใน group chat เฉพาะ + รับ recording เอาไปทบทวนตลอด" },
     ],
-    scarcity: "รอบนี้เหลือ 20 ที่นั่ง · ปิดรับสมัครเมื่อเต็ม",
+    scarcity: "รุ่น 9 · 12 มิ.ย. 2569 · ที่นั่งจำกัด 20 ท่าน · ปิดรับสมัครเมื่อเต็ม",
     deadline: {
-      at: "2026-05-29T09:00:00+07:00",
-      label: "Seminar รอบนี้เริ่มใน",
-      expiredLabel: "รอบ 29 พ.ค. จัดไปแล้ว — แจ้งรอบถัดไป",
+      at: "2026-06-12T09:30:00+07:00",
+      label: "Seminar รุ่น 9 (12 มิ.ย.) เริ่มใน",
+      expiredLabel: "รุ่น 9 (12 มิ.ย.) จัดไปแล้ว — แจ้งรอบถัดไป",
     },
     idealFor: {
       title: "Seminar เหมาะกับคุณถ้า…",
@@ -484,6 +497,33 @@ export const PLANS = {
       ctaPrimary: "จองที่นั่ง Seminar",
       ctaSecondary: "ดูตารางวัน",
     },
+    heroImage: {
+      src: "/assets/seminar/ai-editor-hero.png",
+      alt: "คลาสสอนตัดต่อด้วย AI · Claude + Codex · ลืม CapCut ไปได้เลย — ชีวิตง่าย สะดวก เร็ว",
+      width: 1254,
+      height: 1254,
+    },
+    workflowImage: {
+      src: "/assets/seminar/ai-editor-workflow.png",
+      alt: "ระบบที่คุณจะสร้าง · AI Agent Video Editor — 6 ขั้นจากคลิปดิบ → Render MP4 พร้อมโพสต์",
+      width: 1254,
+      height: 1254,
+      caption: "ระบบ AI Agent Video Editor ที่คุณจะตั้งได้เองหลังจบคลาส",
+    },
+    scheduleImage: {
+      src: "/assets/seminar/ai-editor-schedule.png",
+      alt: "Workshop จริง — ในคลาสจะได้ทำอะไร · 5 ขั้น HyperFrames Workflow · 1 มิ.ย. 2569 · 09.30–16.00 ที่ BizDrive Academy",
+      width: 1254,
+      height: 1254,
+      caption: "ลงมือทำจริงครบ 5 ขั้น จบใน 1 วัน",
+    },
+    prepImage: {
+      src: "/assets/seminar/ai-editor-prep.png",
+      alt: "ข้อมูลเพิ่มเติมสำหรับผู้เรียน — เตรียม Notebook · เวลา 09.30–16.30 · AI Claude/ChatGPT · ค่าเรียน 9,900 · BizDrive Academy สายไหม",
+      width: 1254,
+      height: 1254,
+      caption: "เตรียมตัวก่อนมาเรียนให้พร้อม",
+    },
     problem: {
       title: "ลองตั้ง pipeline เองที่บ้าน — ติด error เป็นสิบจุด ไม่รู้จะถามใคร",
       points: [
@@ -498,7 +538,7 @@ export const PLANS = {
       body: "Seminar กลุ่มเล็ก 15 ท่าน · เน้น hands-on setup pipeline บนเครื่องคุณเอง · พี่แบงค์ + ทีม BizDrive วนโต๊ะ ช่วยตั้ง Codex/Claude + Hyperframes + ทดสอบกับ footage ของคุณ · จบวันมี pipeline ที่ทำงานบนเครื่องคุณ + คลิปแรกเสร็จเลย",
     },
     modules: [
-      { num: "09:00", title: "เปิดวัน + Setup เครื่อง", text: "เซ็ต Codex/Claude CLI + Hyperframes + dependencies ทุกเครื่อง", bullets: [
+      { num: "09:30", title: "เปิดวัน + Setup เครื่อง", text: "เซ็ต Codex/Claude CLI + Hyperframes + dependencies ทุกเครื่อง", bullets: [
         "Welcome + แนะนำตัว 15 ท่าน",
         "Install: Node + ffmpeg + whisper + Hyperframes (ทีม BizDrive ช่วยทุกเครื่อง)",
         "Set API key — Anthropic / OpenAI / Pexels",
@@ -552,7 +592,7 @@ export const PLANS = {
       text: "ถ้าจบวัน ไม่รู้สึกว่าคุ้ม ทักมาภายใน 7 วัน คืนเงินครึ่งหนึ่งโดยไม่ถาม",
     },
     faqs: [
-      { q: "Seminar จัดที่ไหน วันไหน?", a: "จัดที่ BizDrive Academy กรุงเทพมหานคร · วันที่จะแจ้งเมื่อยืนยันการจอง ที่นั่งจำกัด 15 ท่าน/รอบ — ดูแผนที่ในส่วนสถานที่ด้านล่าง" },
+      { q: "Seminar จัดที่ไหน วันไหน?", a: "รอบถัดไป · จันทร์ที่ 1 มิถุนายน 2569 · เวลา 09.30–16.30 น. ที่ BizDrive Academy (สายไหม) กรุงเทพมหานคร · ที่นั่งจำกัด 15 ท่าน/รอบ — ดูแผนที่ในส่วนสถานที่ด้านล่าง" },
       { q: "ต้องเอา notebook มาเองไหม?", a: "ใช่ครับ — เอา Mac (M1+ แนะนำ) หรือ Windows มี GPU + เตรียม footage ตัวอย่าง 5-10 นาที (วิดีโอที่คุณถ่ายเอง)" },
       { q: "ต้องลง software ก่อนมาไหม?", a: "ไม่ต้องครับ ทีม BizDrive setup ให้ทุกเครื่องในคลาส 1 ชั่วโมงแรก — ออกจากห้องไปทุกอย่างพร้อมใช้บนเครื่องคุณ" },
       { q: "ถ้าไม่เคยใช้ AI Agent (Codex/Claude) มาก่อน?", a: "ไม่ต้องกังวล — คอร์สสอนตั้งแต่ติดตั้งจนใช้เป็น · เริ่มจาก 0 ได้เลย" },
@@ -564,11 +604,11 @@ export const PLANS = {
       { q: "ออกใบกำกับภาษี/ใบเสร็จได้ไหม?", a: "ได้ครับ เต็มรูปแบบ — แจ้งข้อมูลบริษัทตอนจอง" },
       { q: "หลัง seminar จบ ยังถามได้ไหม?", a: "ได้ครับ 30 วันแรก ใน group chat เฉพาะ + รับ recording เอาไปทบทวนตลอด" },
     ],
-    scarcity: "รอบนี้เหลือ 15 ที่นั่ง · ปิดรับสมัครเมื่อเต็ม",
+    scarcity: "รอบ 1 มิ.ย. 2569 · ที่นั่งจำกัด 15 ท่าน · ปิดรับสมัครเมื่อเต็ม",
     deadline: {
-      rolling: { days: 5 },
-      label: "รอบปัจจุบันปิดรับใน",
-      expiredLabel: "รอบนี้เต็มแล้ว — แจ้งรอบถัดไป",
+      at: "2026-06-01T09:30:00+07:00",
+      label: "Seminar (1 มิ.ย.) เริ่มใน",
+      expiredLabel: "รอบ 1 มิ.ย. จัดไปแล้ว — แจ้งรอบถัดไป",
     },
     idealFor: {
       title: "Seminar เหมาะกับคุณถ้า…",
