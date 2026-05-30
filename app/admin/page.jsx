@@ -20,7 +20,7 @@ export default async function AdminDashboard() {
     `,
     sql`SELECT status, COUNT(*)::int as cnt FROM leads GROUP BY status ORDER BY cnt DESC`,
     sql`SELECT COALESCE(plan_slug, 'ไม่ระบุ') as plan_slug, COUNT(*)::int as cnt FROM leads GROUP BY plan_slug ORDER BY cnt DESC`,
-    sql`SELECT id, email, plan_slug, status, source, created_at FROM leads ORDER BY created_at DESC LIMIT 8`,
+    sql`SELECT id, name, email, phone, plan_slug, status, source, created_at FROM leads ORDER BY created_at DESC LIMIT 8`,
     sql`
       WITH days AS (
         SELECT generate_series(
@@ -104,17 +104,19 @@ export default async function AdminDashboard() {
 
       <Panel title="Leads ล่าสุด" className="mt-4" cta={{ href: "/admin/leads", label: "ดูทั้งหมด →" }}>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[700px] text-left text-[14px]">
+          <table className="w-full min-w-[860px] text-left text-[14px]">
             <thead className="text-[12px] uppercase tracking-wide text-muted">
-              <tr><Th>เวลา</Th><Th>อีเมล</Th><Th>คลาส</Th><Th>Source</Th><Th>Status</Th></tr>
+              <tr><Th>เวลา</Th><Th>ชื่อ</Th><Th>อีเมล</Th><Th>เบอร์โทร</Th><Th>คลาส</Th><Th>Source</Th><Th>Status</Th></tr>
             </thead>
             <tbody className="[font-variant-numeric:tabular-nums]">
               {recent.length === 0 ? (
-                <tr><td colSpan={5} className="p-8 text-center text-muted">ยังไม่มี lead</td></tr>
+                <tr><td colSpan={7} className="p-8 text-center text-muted">ยังไม่มี lead</td></tr>
               ) : recent.map((l) => (
                 <tr key={l.id} className="border-t border-line">
                   <Td className="whitespace-nowrap text-muted">{fmtTime(l.created_at)}</Td>
+                  <Td className="whitespace-nowrap">{l.name || "—"}</Td>
                   <Td><a href={`/admin/leads/${l.id}`} className="font-extrabold text-brand-blue hover:underline">{l.email}</a></Td>
+                  <Td className="whitespace-nowrap">{l.phone ? <a href={`tel:${l.phone}`} className="text-ink hover:text-brand-blue hover:underline">{l.phone}</a> : <span className="text-muted">—</span>}</Td>
                   <Td>{l.plan_slug || "—"}</Td>
                   <Td className="text-muted">{l.source || "—"}</Td>
                   <Td><span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[12px] font-bold ${statusClass(l.status)}`}>{statusLabel(l.status)}</span></Td>
