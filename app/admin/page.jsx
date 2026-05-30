@@ -1,10 +1,42 @@
-import { getSql } from "@/lib/db";
-import { LEAD_STATUSES, statusClass, statusLabel, fmtTime } from "@/lib/admin";
+import { revalidatePath } from "next/cache";
+import { getSql, logActivity } from "@/lib/db";
+import { LEAD_STATUSES, fmtTime } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Dashboard — BizDrive Admin", robots: { index: false, follow: false } };
 
 const FMT_DAY = new Intl.DateTimeFormat("th-TH", { day: "numeric", month: "short", timeZone: "Asia/Bangkok" });
+
+async function quickUpdateLead(formData) {
+  "use server";
+  const id = Number(formData.get("id"));
+  if (!Number.isInteger(id) || id <= 0) return;
+  const status = String(formData.get("status") || "");
+  const note = String(formData.get("note") || "").trim().slice(0, 500);
+  const sql = getSql();
+
+  if (LEAD_STATUSES.some((s) => s.value === status)) {
+    await sql`
+      UPDATE leads
+      SET status = ${status},
+          last_activity_at = NOW(),
+          contacted_at = CASE WHEN ${status} <> 'new' THEN COALESCE(contacted_at, NOW()) ELSE contacted_at END
+      WHERE id = ${id}
+    `;
+    await logActivity(id, "status_changed", { to: status });
+  }
+  if (note) {
+    await sql`
+      UPDATE leads
+      SET notes = TRIM(BOTH E'\n' FROM COALESCE(notes, '') || E'\n' || ${note}),
+          last_activity_at = NOW()
+      WHERE id = ${id}
+    `;
+    await logActivity(id, "note_added", { length: note.length });
+  }
+  revalidatePath("/admin");
+  revalidatePath("/admin/leads");
+}
 
 export default async function AdminDashboard() {
   const sql = getSql();
@@ -104,9 +136,9 @@ export default async function AdminDashboard() {
 
       <Panel title="Leads ล่าสุด" className="mt-4" cta={{ href: "/admin/leads", label: "ดูทั้งหมด →" }}>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[860px] text-left text-[14px]">
+          <table className="w-full min-w-[1080px] text-left text-[14px]">
             <thead className="text-[12px] uppercase tracking-wide text-muted">
-              <tr><Th>เวลา</Th><Th>ชื่อ</Th><Th>อีเมล</Th><Th>เบอร์โทร</Th><Th>คลาส</Th><Th>Source</Th><Th>Status</Th></tr>
+              <tr><Th>เวลา</Th><Th>ชื่อ</Th><Th>อีเมล</Th><Th>เบอร์โทร</Th><Th>คลาส</Th><Th>Source</Th><Th>สถานะ + โน้ต</Th></tr>
             </thead>
             <tbody className="[font-variant-numeric:tabular-nums]">
               {recent.length === 0 ? (
@@ -119,7 +151,31 @@ export default async function AdminDashboard() {
                   <Td className="whitespace-nowrap">{l.phone ? <a href={`tel:${l.phone}`} className="text-ink hover:text-brand-blue hover:underline">{l.phone}</a> : <span className="text-muted">—</span>}</Td>
                   <Td>{l.plan_slug || "—"}</Td>
                   <Td className="text-muted">{l.source || "—"}</Td>
-                  <Td><span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[12px] font-bold ${statusClass(l.status)}`}>{statusLabel(l.status)}</span></Td>
+                  <Td>
+                    <form action={quickUpdateLead} className="flex items-center gap-1.5">
+                      <input type="hidden" name="id" value={l.id} />
+                      <select
+                        name="status"
+                        defaultValue={l.status}
+                        aria-label="สถานะ"
+                        className="rounded-md border border-line bg-white px-2 py-1 text-[12px] font-semibold text-ink outline-none focus:border-brand-blue"
+                      >
+                        {LEAD_STATUSES.map((s) => (
+                          <option key={s.value} value={s.value}>{s.label}</option>
+                        ))}
+                      </select>
+                      <input
+                        name="note"
+                        placeholder="โน้ต…"
+                        aria-label="โน้ต"
+                        maxLength={500}
+                        className="w-[130px] rounded-md border border-line bg-white px-2 py-1 text-[12px] text-ink outline-none focus:border-brand-blue"
+                      />
+                      <button type="submit" className="rounded-md bg-brand-blue px-2.5 py-1 text-[12px] font-bold text-white hover:bg-brand-blue-dark">
+                        บันทึก
+                      </button>
+                    </form>
+                  </Td>
                 </tr>
               ))}
             </tbody>
